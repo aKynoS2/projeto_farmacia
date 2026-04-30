@@ -1,0 +1,267 @@
+/* ===== RESET E VARIÁVEIS GLOBAIS ===== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--primary-color: #2ecc71;
+	--primary-dark: #27ae60;
+	--text-color: #2c3e50;
+	--light-bg: #ecf0f1;
+	--white: #ffffff;
+	--shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	--transition: all 0.3s ease;
+}
+
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: var(--text-color);
+	background-color: var(--light-bg);
+	line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+	background-color: var(--white);
+	box-shadow: var(--shadow);
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+.navbar-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 70px;
+}
+
+/* Logo/Brand */
+.navbar-brand {
+	display: flex;
+	align-items: center;
+	min-width: 200px;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+	color: var(--text-color);
+	font-size: 22px;
+	font-weight: bold;
+	transition: var(--transition);
+}
+
+.logo:hover {
+	color: var(--primary-color);
+	transform: scale(1.05);
+}
+
+.logo-icon {
+	font-size: 28px;
+	display: inline-block;
+}
+
+.logo-text {
+	white-space: nowrap;
+}
+
+/* Menu Links */
+.navbar-menu {
+	display: flex;
+	list-style: none;
+	gap: 10px;
+	flex: 1;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.nav-item {
+	position: relative;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: var(--text-color);
+	font-weight: 500;
+	padding: 10px 16px;
+	border-radius: 5px;
+	transition: var(--transition);
+	display: inline-block;
+}
+
+.nav-link:hover {
+	background-color: var(--light-bg);
+	color: var(--primary-color);
+}
+
+.nav-link.active {
+	background-color: var(--primary-color);
+	color: var(--white);
+}
+
+/* Carrinho destacado */
+.nav-link.cart-item {
+	background-color: var(--primary-color);
+	color: var(--white);
+	margin-left: auto;
+	font-weight: 600;
+}
+
+.nav-link.cart-item:hover {
+	background-color: var(--primary-dark);
+	transform: scale(1.08);
+}
+
+/* ===== RESPONSIVIDADE - TABLET ===== */
+@media (max-width: 1024px) {
+	.navbar-container {
+		height: 65px;
+	}
+
+	.navbar-menu {
+		gap: 8px;
+	}
+
+	.nav-link {
+		padding: 8px 14px;
+		font-size: 14px;
+	}
+
+	.logo-text {
+		font-size: 18px;
+	}
+}
+
+/* ===== RESPONSIVIDADE - MOBILE ===== */
+@media (max-width: 768px) {
+	.navbar-container {
+		height: 60px;
+		flex-wrap: wrap;
+		padding: 0 15px;
+	}
+
+	.navbar-brand {
+		min-width: auto;
+	}
+
+	.logo-text {
+		display: none;
+	}
+
+	.logo-icon {
+		font-size: 24px;
+	}
+
+	.navbar-menu {
+		width: 100%;
+		order: 3;
+		flex-direction: column;
+		gap: 0;
+		margin-top: 10px;
+		background-color: var(--light-bg);
+		border-radius: 5px;
+		overflow: hidden;
+	}
+
+	.nav-item {
+		width: 100%;
+	}
+
+	.nav-link {
+		display: block;
+		width: 100%;
+		padding: 12px 15px;
+		border-radius: 0;
+		text-align: left;
+	}
+
+	.nav-link:hover {
+		background-color: var(--primary-color);
+		color: var(--white);
+	}
+
+	.nav-link.cart-item {
+		margin-left: 0;
+		background-color: var(--primary-color);
+		color: var(--white);
+	}
+}
+
+/* ===== RESPONSIVIDADE - EXTRA PEQUENO ===== */
+@media (max-width: 480px) {
+	.navbar-container {
+		height: 55px;
+		padding: 0 10px;
+	}
+
+	.navbar-menu {
+		gap: 0;
+	}
+
+	.nav-link {
+		padding: 10px 12px;
+		font-size: 13px;
+	}
+
+	.logo {
+		font-size: 18px;
+	}
+
+	.logo-icon {
+		font-size: 20px;
+	}
+
+	.nav-link.cart-item {
+		font-size: 13px;
+	}
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+	max-width: 1200px;
+	margin: 40px auto;
+	padding: 0 20px;
+	min-height: calc(100vh - 200px);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+	background-color: var(--text-color);
+	color: var(--white);
+	text-align: center;
+	padding: 20px;
+	margin-top: 40px;
+}
+
+.footer p {
+	margin: 0;
+}
+
+/* ===== UTILITÁRIOS ===== */
+h1,
+h2,
+h3 {
+	color: var(--text-color);
+	margin: 20px 0 10px 0;
+}
+
+p {
+	margin: 10px 0;
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
