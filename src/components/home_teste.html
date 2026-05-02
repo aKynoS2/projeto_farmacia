@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmaSys — Home</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #ecf0f1ea;
+      --bg-secondary: #f5f5f370;
+      --text-primary: #1a1a18;
+      --text-secondary: #5f5e5a;
+      --text-tertiary: #888780;
+      --border: rgba(0,0,0,0.12);
+      --border-md: rgba(0,0,0,0.20);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --green: #1D9E75;
+      --red-fill: #FCEBEB;
+      --red-text: #A32D2D;
+      --red-dot: #E24B4A;
+      --amber-fill: #FAEEDA;
+      --amber-text: #854F0B;
+      --amber-dot: #EF9F27;
+      --green-fill: #EAF3DE;
+      --green-text: #3B6D11;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    /* ── Status Bar ── */
+    .status-bar {
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .status-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .dot-green { background: #639922; }
+    .dot-red   { background: var(--red-dot); }
+    .dot-amber { background: var(--amber-dot); }
+
+    .status-muted  { color: var(--text-secondary); }
+    .status-strong { font-weight: 500; }
+    .status-sep    { color: var(--text-tertiary); }
+    #relogio       { font-size: 13px; color: var(--text-tertiary); }
+
+    /* ── Section title ── */
+    .section-title {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    /* ── Metric cards ── */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+    .metric-card {
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+    }
+    .metric-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+    .metric-value { font-size: 22px; font-weight: 500; color: var(--text-primary); }
+    .metric-sub   { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+
+    /* ── Cards ── */
+    .main-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+    }
+
+    /* ── Row items ── */
+    .row-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--border);
+      font-size: 13px;
+      color: var(--text-primary);
+      gap: 8px;
+    }
+    .row-item:last-of-type { border-bottom: none; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .badge-danger  { background: var(--red-fill);   color: var(--red-text); }
+    .badge-warning { background: var(--amber-fill);  color: var(--amber-text); }
+    .badge-success { background: var(--green-fill);  color: var(--green-text); }
+
+    /* ── Bar chart ── */
+    .rank-num { font-size: 11px; font-weight: 500; color: var(--text-tertiary); width: 20px; flex-shrink: 0; }
+    .bar-bg   { background: var(--bg-secondary); border-radius: 2px; height: 4px; flex: 1; margin: 0 10px; }
+    .bar-fill { height: 4px; border-radius: 2px; background: var(--green); }
+    .bar-count { font-size: 12px; color: var(--text-secondary); min-width: 24px; text-align: right; }
+
+    /* ── Table ── */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-align: left;
+      padding: 0 0 8px;
+      border-bottom: 0.5px solid var(--border);
+    }
+    td {
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--border);
+      color: var(--text-primary);
+    }
+    tr:last-child td { border-bottom: none; }
+    .td-muted { color: var(--text-secondary); }
+
+    /* ── Button ── */
+    .btn-link {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      background: transparent;
+      border: 0.5px solid var(--border-md);
+      border-radius: var(--radius-md);
+      padding: 6px 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.15s;
+    }
+    .btn-link:hover { background: var(--bg-secondary); }
+  </style>
+</head>
+<body>
+
+  <!-- Status bar -->
+  <div class="status-bar">
+    <div class="status-left">
+      <span class="dot dot-green"></span>
+      <span class="status-muted">Turno aberto desde</span>
+      <span class="status-strong">08:00</span>
+      <span class="status-sep">·</span>
+      <span class="status-muted">Atendente:</span>
+      <span class="status-strong">João Silva</span>
+    </div>
+    <span id="relogio">--:--</span>
+  </div>
+
+  <!-- Cards de resumo -->
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Vendas hoje</div>
+      <div class="metric-value">47</div>
+      <div class="metric-sub">+12 vs. ontem</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Faturamento</div>
+      <div class="metric-value">R$ 3.284</div>
+      <div class="metric-sub">Meta: R$ 4.000</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Receitas geradas</div>
+      <div class="metric-value">9</div>
+      <div class="metric-sub">3 com tarja preta</div>
+    </div>
+  </div>
+
+  <!-- Alertas + Validades -->
+  <div class="main-grid">
+
+    <div class="card">
+      <div class="section-title">Alertas de estoque baixo</div>
+
+      <div class="row-item">
+        <span class="dot dot-red"></span>
+        <span style="flex:1;">Dipirona 500mg</span>
+        <span style="color: var(--red-text); font-weight:500; font-size:12px;">3 un.</span>
+      </div>
+      <div class="row-item">
+        <span class="dot dot-red"></span>
+        <span style="flex:1;">Amoxicilina 875mg</span>
+        <span style="color: var(--red-text); font-weight:500; font-size:12px;">5 un.</span>
+      </div>
+      <div class="row-item">
+        <span class="dot dot-amber"></span>
+        <span style="flex:1;">Omeprazol 20mg</span>
+        <span style="color: var(--amber-text); font-weight:500; font-size:12px;">12 un.</span>
+      </div>
+      <div class="row-item">
+        <span class="dot dot-amber"></span>
+        <span style="flex:1;">Losartana 50mg</span>
+        <span style="color: var(--amber-text); font-weight:500; font-size:12px;">15 un.</span>
+      </div>
+
+      <button class="btn-link" onclick="window.location.href='estoque.html'">
+        Ver controle de estoque →
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Validades próximas</div>
+
+      <div class="row-item" style="justify-content:space-between;">
+        <span>Ibuprofeno 600mg</span>
+        <span class="badge badge-danger">12 dias</span>
+      </div>
+      <div class="row-item" style="justify-content:space-between;">
+        <span>Cetirizina 10mg</span>
+        <span class="badge badge-danger">18 dias</span>
+      </div>
+      <div class="row-item" style="justify-content:space-between;">
+        <span>Metformina 850mg</span>
+        <span class="badge badge-warning">34 dias</span>
+      </div>
+      <div class="row-item" style="justify-content:space-between;">
+        <span>Atorvastatina 20mg</span>
+        <span class="badge badge-warning">51 dias</span>
+      </div>
+
+      <button class="btn-link" onclick="window.location.href='estoque.html'">
+        Ver todos →
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mais vendidos + Últimas vendas -->
+  <div class="main-grid">
+
+    <div class="card">
+      <div class="section-title">Mais vendidos hoje</div>
+
+      <div class="row-item" style="gap:0;">
+        <span class="rank-num">1</span>
+        <span style="flex:1; font-size:13px;">Dipirona 500mg</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:100%;"></div></div>
+        <span class="bar-count">31</span>
+      </div>
+      <div class="row-item" style="gap:0;">
+        <span class="rank-num">2</span>
+        <span style="flex:1; font-size:13px;">Paracetamol 750mg</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:74%;"></div></div>
+        <span class="bar-count">23</span>
+      </div>
+      <div class="row-item" style="gap:0;">
+        <span class="rank-num">3</span>
+        <span style="flex:1; font-size:13px;">Amoxicilina 500mg</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:52%;"></div></div>
+        <span class="bar-count">16</span>
+      </div>
+      <div class="row-item" style="gap:0;">
+        <span class="rank-num">4</span>
+        <span style="flex:1; font-size:13px;">Omeprazol 20mg</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:39%;"></div></div>
+        <span class="bar-count">12</span>
+      </div>
+      <div class="row-item" style="gap:0;">
+        <span class="rank-num">5</span>
+        <span style="flex:1; font-size:13px;">Ibuprofeno 600mg</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:29%;"></div></div>
+        <span class="bar-count">9</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Últimas vendas</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th style="text-align:center;">Qtd</th>
+            <th style="text-align:right;">Horário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dipirona 500mg</td>
+            <td class="td-muted" style="text-align:center;">2</td>
+            <td class="td-muted" style="text-align:right;">14:37</td>
+          </tr>
+          <tr>
+            <td>Losartana 50mg</td>
+            <td class="td-muted" style="text-align:center;">1</td>
+            <td class="td-muted" style="text-align:right;">14:21</td>
+          </tr>
+          <tr>
+            <td>Amoxicilina 875mg</td>
+            <td class="td-muted" style="text-align:center;">1</td>
+            <td class="td-muted" style="text-align:right;">13:58</td>
+          </tr>
+          <tr>
+            <td>Paracetamol 750mg</td>
+            <td class="td-muted" style="text-align:center;">3</td>
+            <td class="td-muted" style="text-align:right;">13:44</td>
+          </tr>
+          <tr>
+            <td>Omeprazol 20mg</td>
+            <td class="td-muted" style="text-align:center;">2</td>
+            <td class="td-muted" style="text-align:right;">13:29</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="btn-link" onclick="window.location.href='vendas.html'">
+        Ver todas as vendas →
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    function tick() {
+      const el = document.getElementById('relogio');
+      if (!el) return;
+      const now = new Date();
+      el.textContent = now.toLocaleTimeString('pt-BR', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+
+</body>
+</html>
