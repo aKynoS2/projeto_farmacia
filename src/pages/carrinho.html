@@ -8,8 +8,9 @@
 		<script src="https://kit.fontawesome.com/f73de64231.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		
-		<!-- NAVBAR -->
+
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
 		<nav class="navbar">
 			<div class="navbar-container">
 				<!-- Logo/Brand -->
@@ -32,18 +33,212 @@
 						<a href="estoque.html" class="nav-link">Estoque</a>
 					</li>
 					<li class="nav-item">
-						<a href="carrinho.html" class="nav-link cart-item">
+						<a href="carrinho.html" class="nav-link cart-item active">
 							<i class="fa-solid fa-cart-shopping"></i>
 						</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
+		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
-		<main>
-			<h1>Carrinho de Compras</h1>
-			<p>Seus itens no carrinho aparecem aqui...</p>
+		<main class="workspace">
+			<section class="page-heading">
+				<p class="eyebrow">Vendas / Carrinho</p>
+				<h1>Registro de Venda</h1>
+				<p>
+					Monte uma venda fictícia, confira medicamentos que exigem receita e
+					visualize o total do carrinho.
+				</p>
+			</section>
+
+			<section class="content-grid checkout-layout">
+				<section class="panel">
+					<div class="section-title">
+						<h2>Adicionar produto</h2>
+						<p>Formulário para selecionar medicamento, quantidade e observações.</p>
+					</div>
+
+					<form class="form-grid" name="adicionarCarrinho" method="post" action="#">
+						<div class="form-field wide">
+							<label for="produto">Medicamento</label>
+							<select id="produto" name="produto" required>
+								<option value="">Selecione um produto</option>
+								<option value="dipirona">Dipirona 500mg - R$ 12,90</option>
+								<option value="omeprazol">Omeprazol 20mg - R$ 23,50</option>
+								<option value="amoxicilina">Amoxicilina 500mg - R$ 34,90 - exige receita</option>
+								<option value="losartana">Losartana 50mg - R$ 18,90 - exige receita</option>
+							</select>
+						</div>
+
+						<div class="form-field">
+							<label for="qtdVenda">Quantidade</label>
+							<input id="qtdVenda" name="qtdVenda" type="number" min="1" value="1" required />
+						</div>
+
+						<div class="form-field">
+							<label for="cliente">Cliente</label>
+							<input id="cliente" name="cliente" type="text" placeholder="Nome do cliente" />
+						</div>
+
+						<fieldset class="form-field wide movement-options">
+							<legend>Conferência da venda</legend>
+							<label>
+								<input type="checkbox" name="receitaConferida" value="sim" />
+								Receita conferida quando obrigatória
+							</label>
+						</fieldset>
+
+						<div class="form-field wide">
+							<label for="obsVenda">Observações</label>
+							<textarea id="obsVenda" name="obsVenda" rows="4" placeholder="Ex.: medicamento reservado, receita anexada ou orientação ao cliente."></textarea>
+						</div>
+
+						<div class="form-actions wide">
+							<button class="btn btn-primary" type="submit">
+								<i class="fa-solid fa-cart-plus"></i>
+								Adicionar
+							</button>
+							<button class="btn btn-secondary" type="reset">
+								<i class="fa-solid fa-eraser"></i>
+								Limpar
+							</button>
+						</div>
+					</form>
+				</section>
+
+				<aside class="panel sale-summary">
+					<div class="section-title">
+						<h2>Resumo da venda</h2>
+						<p>Conferência rápida antes de finalizar.</p>
+					</div>
+
+					<dl class="totals-list">
+						<div>
+							<dt>Subtotal</dt>
+							<dd>R$ 94,80</dd>
+						</div>
+						<div>
+							<dt>Desconto</dt>
+							<dd>R$ 4,80</dd>
+						</div>
+						<div>
+							<dt>Itens</dt>
+							<dd>4</dd>
+						</div>
+						<div class="total-row">
+							<dt>Total</dt>
+							<dd>R$ 90,00</dd>
+						</div>
+					</dl>
+
+					<form class="summary-form" name="fechamentoVenda" method="post" action="#">
+						<div class="form-field">
+							<label for="pagamento">Pagamento</label>
+							<select id="pagamento" name="pagamento">
+								<option>Cartão de crédito</option>
+								<option>Cartão de débito</option>
+								<option>Pix</option>
+								<option>Dinheiro</option>
+							</select>
+						</div>
+						<button class="btn btn-primary full-width" type="submit">
+							<i class="fa-solid fa-receipt"></i>
+							Gerar comprovante
+						</button>
+					</form>
+				</aside>
+			</section>
+
+			<section class="panel">
+				<div class="section-title table-title">
+					<div>
+						<h2>Itens no carrinho</h2>
+						<p>Produtos selecionados para a venda atual.</p>
+					</div>
+					<a class="text-link" href="estoque.html">Consultar estoque</a>
+				</div>
+
+				<div class="table-responsive">
+					<table class="data-table cart-table">
+						<caption>Lista de itens adicionados ao carrinho</caption>
+						<thead>
+							<tr>
+								<th>Medicamento</th>
+								<th>Tipo</th>
+								<th>Qtd.</th>
+								<th>Valor unitário</th>
+								<th>Subtotal</th>
+								<th>Receita</th>
+								<th>Ação</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<strong>Dipirona 500mg</strong>
+									<span>Analgésico e antitérmico</span>
+								</td>
+								<td>Comum</td>
+								<td>1</td>
+								<td>R$ 12,90</td>
+								<td>R$ 12,90</td>
+								<td><span class="status-pill status-ok">Não exige</span></td>
+								<td>
+									<button class="icon-button" type="button" aria-label="Remover Dipirona">
+										<i class="fa-solid fa-trash"></i>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<strong>Omeprazol 20mg</strong>
+									<span>Protetor gástrico</span>
+								</td>
+								<td>Comum</td>
+								<td>2</td>
+								<td>R$ 23,50</td>
+								<td>R$ 47,00</td>
+								<td><span class="status-pill status-ok">Não exige</span></td>
+								<td>
+									<button class="icon-button" type="button" aria-label="Remover Omeprazol">
+										<i class="fa-solid fa-trash"></i>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<strong>Amoxicilina 500mg</strong>
+									<span>Antibiótico</span>
+								</td>
+								<td>Tarja vermelha</td>
+								<td>1</td>
+								<td>R$ 34,90</td>
+								<td>R$ 34,90</td>
+								<td><span class="status-pill status-warning">Conferir</span></td>
+								<td>
+									<button class="icon-button" type="button" aria-label="Remover Amoxicilina">
+										<i class="fa-solid fa-trash"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<article class="panel receipt-preview">
+				<div>
+					<p class="eyebrow">Comprovante fictício</p>
+					<h2>Farmácia FarmaSys</h2>
+					<p>Venda nº 000128 · 02/05/2026 · Atendente: Franco</p>
+				</div>
+				<div class="receipt-total">
+					<span>Total da venda</span>
+					<strong>R$ 90,00</strong>
+				</div>
+			</article>
 		</main>
 
 		<!-- RODAPÉ -->

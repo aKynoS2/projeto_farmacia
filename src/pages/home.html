@@ -8,8 +8,9 @@
 		<script src="https://kit.fontawesome.com/f73de64231.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		
-		<!-- NAVBAR -->
+
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
 		<nav class="navbar">
 			<div class="navbar-container">
 				<!-- Logo/Brand -->
@@ -39,14 +40,67 @@
 				</ul>
 			</div>
 		</nav>
+		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
-		<main>
-			<h1>Bem-vindo ao Sistema de Farmácia</h1>
-			<p>
-				Explore nosso catálogo de medicamentos, gere receitas e gerencie seu
-				carrinho de compras.
-			</p>
+		<main class="workspace">
+			<section class="page-heading">
+				<p class="eyebrow">FarmaSys</p>
+				<h1>Sistema de Farmácia</h1>
+				<p>
+					Painel inicial da farmácia fictícia, reunindo atalhos para catálogo,
+					receitas, estoque e venda de medicamentos.
+				</p>
+			</section>
+
+			<section class="metric-grid" aria-label="Resumo operacional da farmácia">
+				<article class="metric-card">
+					<span class="metric-icon"><i class="fa-solid fa-capsules"></i></span>
+					<div>
+						<p class="metric-label">Medicamentos</p>
+						<strong class="metric-value">126</strong>
+					</div>
+				</article>
+				<article class="metric-card">
+					<span class="metric-icon warning"><i class="fa-solid fa-triangle-exclamation"></i></span>
+					<div>
+						<p class="metric-label">Alertas de estoque</p>
+						<strong class="metric-value">8</strong>
+					</div>
+				</article>
+				<article class="metric-card">
+					<span class="metric-icon info"><i class="fa-solid fa-file-prescription"></i></span>
+					<div>
+						<p class="metric-label">Receitas geradas</p>
+						<strong class="metric-value">14</strong>
+					</div>
+				</article>
+				<article class="metric-card">
+					<span class="metric-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+					<div>
+						<p class="metric-label">Vendas do dia</p>
+						<strong class="metric-value">32</strong>
+					</div>
+				</article>
+			</section>
+
+			<section class="product-grid" aria-label="Atalhos principais">
+				<article class="product-card">
+					<h2>Catálogo</h2>
+					<p>Consulte medicamentos, preços, disponibilidade e necessidade de receita.</p>
+					<a class="btn btn-secondary" href="catalogo.html">Abrir catálogo</a>
+				</article>
+				<article class="product-card">
+					<h2>Estoque</h2>
+					<p>Registre entradas e saídas, acompanhe validade e estoque mínimo.</p>
+					<a class="btn btn-secondary" href="estoque.html">Abrir estoque</a>
+				</article>
+				<article class="product-card">
+					<h2>Venda</h2>
+					<p>Monte o carrinho, confira receitas obrigatórias e gere comprovante.</p>
+					<a class="btn btn-secondary" href="carrinho.html">Abrir venda</a>
+				</article>
+			</section>
 		</main>
 
 		<!-- RODAPÉ -->

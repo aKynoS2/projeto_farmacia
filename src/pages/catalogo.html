@@ -9,7 +9,8 @@
 	</head>
 	<body>
 
-		<!-- NAVBAR -->
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
 		<nav class="navbar">
 			<div class="navbar-container">
 				<!-- Logo/Brand -->
@@ -23,7 +24,7 @@
 				<!-- Menu Links -->
 				<ul class="navbar-menu">
 					<li class="nav-item">
-						<a href="catalogo.html" class="nav-link">Catálogo</a>
+						<a href="catalogo.html" class="nav-link active">Catálogo</a>
 					</li>
 					<li class="nav-item">
 						<a href="receita.html" class="nav-link">Receita</a>
@@ -39,11 +40,74 @@
 				</ul>
 			</div>
 		</nav>
+		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
-		<main>
-			<h1>Catálogo de Medicamentos</h1>
-			<p>Conteúdo do catálogo aqui...</p>
+		<main class="workspace">
+			<section class="page-heading">
+				<p class="eyebrow">Consulta de produtos</p>
+				<h1>Catálogo de Medicamentos</h1>
+				<p>
+					Lista de medicamentos disponíveis para consulta, com preço, laboratório,
+					estoque e indicação de exigência de receita.
+				</p>
+			</section>
+
+			<section class="product-grid" aria-label="Medicamentos do catálogo">
+				<article class="product-card">
+					<div class="product-icon" aria-hidden="true">
+						<i class="fa-solid fa-pills"></i>
+					</div>
+					<h2>Dipirona 500mg</h2>
+					<p>Analgésico e antitérmico indicado para dores e febre.</p>
+					<ul class="tag-list">
+						<li>Neo Química</li>
+						<li>Genérico</li>
+						<li>42 un.</li>
+					</ul>
+					<div class="product-footer">
+						<strong class="price">R$ 12,90</strong>
+						<span class="status-pill status-ok">Sem receita</span>
+					</div>
+					<a class="btn btn-secondary full-width" href="ficha.html">Ver ficha</a>
+				</article>
+
+				<article class="product-card">
+					<div class="product-icon" aria-hidden="true">
+						<i class="fa-solid fa-capsules"></i>
+					</div>
+					<h2>Amoxicilina 500mg</h2>
+					<p>Antibiótico utilizado no tratamento de infecções bacterianas.</p>
+					<ul class="tag-list">
+						<li>EMS</li>
+						<li>Tarja vermelha</li>
+						<li>5 un.</li>
+					</ul>
+					<div class="product-footer">
+						<strong class="price">R$ 34,90</strong>
+						<span class="status-pill status-warning">Exige receita</span>
+					</div>
+					<a class="btn btn-secondary full-width" href="ficha.html">Ver ficha</a>
+				</article>
+
+				<article class="product-card">
+					<div class="product-icon" aria-hidden="true">
+						<i class="fa-solid fa-prescription-bottle-medical"></i>
+					</div>
+					<h2>Losartana 50mg</h2>
+					<p>Medicamento usado no controle da pressão arterial.</p>
+					<ul class="tag-list">
+						<li>Eurofarma</li>
+						<li>Controlado</li>
+						<li>19 un.</li>
+					</ul>
+					<div class="product-footer">
+						<strong class="price">R$ 18,90</strong>
+						<span class="status-pill status-info">Conferir receita</span>
+					</div>
+					<a class="btn btn-secondary full-width" href="ficha.html">Ver ficha</a>
+				</article>
+			</section>
 		</main>
 
 		<!-- RODAPÉ -->

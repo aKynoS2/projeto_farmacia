@@ -9,7 +9,8 @@
 	</head>
 	<body>
 
-		<!-- NAVBAR -->
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
 		<nav class="navbar">
 			<div class="navbar-container">
 				<!-- Logo/Brand -->
@@ -26,7 +27,7 @@
 						<a href="catalogo.html" class="nav-link">Catálogo</a>
 					</li>
 					<li class="nav-item">
-						<a href="receita.html" class="nav-link">Receita</a>
+						<a href="receita.html" class="nav-link active">Receita</a>
 					</li>
 					<li class="nav-item">
 						<a href="estoque.html" class="nav-link">Estoque</a>
@@ -39,11 +40,73 @@
 				</ul>
 			</div>
 		</nav>
+		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
-		<main>
-			<h1>Geração de Receita</h1>
-			<p>Gere receitas médicas aqui...</p>
+		<main class="workspace">
+			<section class="page-heading">
+				<p class="eyebrow">Documento fictício</p>
+				<h1>Geração de Receita</h1>
+				<p>
+					Formulário para preencher dados do paciente, médico, medicamento,
+					dosagem e posologia de uma receita simulada.
+				</p>
+			</section>
+
+			<section class="content-grid checkout-layout">
+				<section class="panel">
+					<div class="section-title">
+						<h2>Dados da receita</h2>
+						<p>Campos principais usados para montar o documento.</p>
+					</div>
+
+					<form class="form-grid" name="gerarReceita" method="post" action="#">
+						<div class="form-field">
+							<label for="paciente">Paciente</label>
+							<input id="paciente" name="paciente" type="text" placeholder="Nome completo" required />
+						</div>
+						<div class="form-field">
+							<label for="medico">Médico</label>
+							<input id="medico" name="medico" type="text" placeholder="Nome do médico" required />
+						</div>
+						<div class="form-field">
+							<label for="crm">CRM</label>
+							<input id="crm" name="crm" type="text" placeholder="CRM/UF" required />
+						</div>
+						<div class="form-field">
+							<label for="medicamentoReceita">Medicamento</label>
+							<select id="medicamentoReceita" name="medicamentoReceita" required>
+								<option value="">Selecione</option>
+								<option>Amoxicilina 500mg</option>
+								<option>Losartana 50mg</option>
+								<option>Omeprazol 20mg</option>
+							</select>
+						</div>
+						<div class="form-field wide">
+							<label for="posologia">Posologia</label>
+							<textarea id="posologia" name="posologia" rows="4" placeholder="Ex.: tomar 1 cápsula a cada 8 horas por 7 dias." required></textarea>
+						</div>
+						<div class="form-actions wide">
+							<button class="btn btn-primary" type="submit">
+								<i class="fa-solid fa-file-prescription"></i>
+								Gerar receita
+							</button>
+							<button class="btn btn-secondary" type="reset">
+								<i class="fa-solid fa-eraser"></i>
+								Limpar
+							</button>
+						</div>
+					</form>
+				</section>
+
+				<article class="panel receipt-preview">
+					<div>
+						<p class="eyebrow">Prévia</p>
+						<h2>Receita médica</h2>
+						<p>Paciente, CRM, medicamento e posologia aparecem aqui após o preenchimento.</p>
+					</div>
+				</article>
+			</section>
 		</main>
 
 		<!-- RODAPÉ -->
