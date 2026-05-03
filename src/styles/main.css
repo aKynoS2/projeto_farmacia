@@ -11,15 +11,40 @@
 	--text-color: #2c3e50;
 	--text-secondary: #5f5e5a;
 	--text-tertiary: #888780;
-	--light-bg: #ecf0f1;
+	--light-bg: #f5f5f3;
 	--white: #ffffff;
 	--border: 0.5px solid #bdc3c7;
+	--border-md: rgba(0, 0, 0, 0.2);
+	--radius-md: 8px;
+	--radius-lg: 12px;
 	--shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	--transition: all 0.3s ease;
 	--red: #e74c3c;
 	--yellow: #f1c40f;
 	--yellow-bg: #fff5d2;
 	--red-bg: #fdd8d4;
+
+	/* Receituário azul */
+	--azul-bg: #e6f1fb;
+	--azul-border: #b5d4f4;
+	--azul-text: #0c447c;
+	--azul-sub: #378add;
+
+	/* Receituário branco especial */
+	--especial-bg: #f5f5f3;
+	--especial-border: rgba(0, 0, 0, 0.25);
+	--especial-text: #1a1a18;
+	--especial-sub: #5f5e5a;
+
+	/* Receituário amarelo */
+	--amarelo-bg: #fefbe6;
+	--amarelo-border: #e8d96a;
+	--amarelo-text: #5c4a00;
+	--amarelo-sub: #a07d00;
+
+	/* Badges */
+	--green-fill: #eaf3de;
+	--green-text: #3b6d11;
 }
 
 body {
@@ -373,7 +398,7 @@ main {
 }
 
 .bar {
-	background: var(--white);
+	background: var(--light-bg);
 	border-radius: 2px;
 	height: 4px;
 	flex: 1;
@@ -435,7 +460,412 @@ main {
 	border-bottom: none;
 }
 
-/* ===== FOOTER ===== */
+/* ===== RECEITA ===== */
+.prescription-page {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 16px;
+	align-items: start;
+}
+
+.prescription-col {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.prescription-card {
+	background: var(--white);
+	border: var(--border);
+	border-radius: var(--radius-lg);
+	padding: 1rem 1.25rem;
+}
+
+.prescription-title {
+	font-size: 11px;
+	font-weight: 500;
+	color: var(--text-secondary);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	margin-bottom: 12px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin-bottom: 12px;
+}
+
+.form-group:last-child {
+	margin-bottom: 0;
+}
+
+.form-group label {
+	font-size: 12px;
+	color: var(--text-secondary);
+}
+
+.form-group input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+	width: 100%;
+	padding: 7px 10px;
+	font-size: 13px;
+	font-family: inherit;
+	color: var(--text-color);
+	background: var(--white);
+	border: 0.5px solid var(--border-md);
+	border-radius: var(--radius-md);
+	outline: none;
+	transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+select:focus,
+textarea:focus {
+	border-color: rgba(0, 0, 0, 0.4);
+}
+
+.form-group textarea {
+	resize: vertical;
+}
+
+.prescription-form {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.type-selector {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 16px;
+	flex-wrap: wrap;
+}
+
+.type-btn {
+	flex: 1;
+	padding: 8px;
+	border: var(--border);
+	border-radius: var(--radius-md);
+	font-size: 12px;
+	font-family: inherit;
+	color: var(--text-secondary);
+	text-align: center;
+	cursor: pointer;
+	background: var(--light-bg);
+	flex: 1 1 calc(50% - 4px);
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	transition:
+		background 0.15s,
+		border-color 0.15s;
+}
+
+.type-btn:hover {
+	background: var(--white);
+}
+
+.type-btn.ativo-simples {
+	border-color: #c0dd97;
+	background: var(--green-fill);
+	color: var(--green-text);
+}
+
+.type-btn.ativo-especial {
+	border-color: var(--especial-border);
+	background: var(--especial-bg);
+	color: var(--especial-text);
+	box-shadow: inset 0 0 0 1px var(--especial-border);
+}
+
+.type-btn.ativo-azul {
+	border-color: var(--azul-border);
+	background: var(--azul-bg);
+	color: var(--azul-text);
+}
+
+.type-btn.ativo-amarelo {
+	border-color: var(--amarelo-border);
+	background: var(--amarelo-bg);
+	color: var(--amarelo-text);
+}
+
+.prescription-category {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	border-radius: 4px;
+	font-size: 10px;
+	font-weight: 500;
+}
+
+.simples-badge {
+	background: var(--green-fill);
+	color: var(--green-text);
+}
+
+.especial-badge {
+	background: var(--especial-bg);
+	color: var(--especial-text);
+	border: 0.5px solid var(--especial-border);
+}
+
+.azul-badge {
+	background: var(--azul-bg);
+	color: var(--azul-text);
+	border: 0.5px solid var(--azul-border);
+}
+
+.amarelo-badge {
+	background: var(--amarelo-bg);
+	color: var(--amarelo-text);
+	border: 0.5px solid var(--amarelo-border);
+}
+
+.prescription-btn {
+	grid-column: 1 / -1;
+	width: 100%;
+	margin-top: 10px;
+	background-color: var(--primary-color);
+	color: var(--white);
+	font-weight: 600;
+	padding: 8px 14px;
+	border-radius: 8px;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: var(--transition);
+	font-size: 14px;
+	box-shadow: var(--shadow);
+	text-align: center;
+}
+
+.prescription-btn:hover {
+	background-color: var(--primary-dark);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.prescription-btn:active {
+	transform: translateY(0);
+}
+
+.doc-preview {
+	border: 1px solid var(--border-md);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	font-size: 12px;
+}
+
+.preview-header {
+	padding: 14px 16px 12px;
+	border-bottom: var(--border);
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.doc-nome-medico {
+	font-size: 13px;
+	font-weight: 500;
+	display: block;
+}
+
+.doc-sub-medico {
+	font-size: 11px;
+	margin-top: 2px;
+	display: block;
+}
+
+.preview-body {
+	padding: 14px 16px;
+}
+
+.preview-section {
+	margin-bottom: 12px;
+}
+
+.preview-section:last-child {
+	margin-bottom: 0;
+}
+
+.preview-title {
+	font-size: 10px;
+	font-weight: 500;
+	color: var(--text-tertiary);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 2px;
+	display: block;
+}
+
+.preview-nome-paciente,
+.preview-nome-medicamento,
+.preview-desc-posologia,
+.preview-duracao,
+.preview-data {
+	font-size: 12px;
+	color: var(--text-color);
+	display: block;
+}
+
+.preview-nome-medicamento {
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--text-color);
+	display: block;
+}
+
+.preview-sub-paciente,
+.preview-sub-medicamento {
+	font-size: 11px;
+	color: var(--text-secondary);
+	margin-top: 2px;
+	display: block;
+}
+
+.preview-divider {
+	border: none;
+	border-top: var(--border);
+	margin: 10px 0;
+}
+
+.preview-footer {
+	border-top: var(--border);
+	padding: 12px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.preview-footer-row {
+	display: flex;
+	justify-content: space-between;
+	font-size: 11px;
+	color: var(--text-secondary);
+}
+
+.preview-assinatura {
+	border-top: var(--border);
+	padding-top: 6px;
+	font-size: 11px;
+	color: var(--text-tertiary);
+	text-align: center;
+}
+
+.hist-list {
+	list-style: none;
+}
+
+.hist-item {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto auto;
+	padding: 8px 0;
+	border-bottom: var(--border);
+}
+
+.hist-item:last-child {
+	border-bottom: none;
+}
+
+.hist-nome {
+	font-size: 13px;
+	color: var(--text-color);
+}
+
+.hist-med {
+	font-size: 11px;
+	color: var(--text-tertiary);
+	margin-top: 2px;
+	grid-column: 1;
+}
+
+.hist-hora {
+	font-size: 11px;
+	color: var(--text-tertiary);
+	white-space: nowrap;
+	grid-column: 2;
+	grid-row: 1;
+	align-self: center;
+}
+
+@media print {
+	body {
+		background: white;
+		padding: 0;
+	}
+
+	.prescription-page {
+		display: block;
+	}
+
+	.prescription-col:first-child {
+		display: none;
+	}
+
+	.hist-list {
+		display: none;
+	}
+
+	.prescription-btn {
+		display: none;
+	}
+
+	.prescription-card {
+		border: none;
+		padding: 0;
+		box-shadow: none;
+	}
+
+	.prescription-title {
+		display: none;
+	}
+
+	.doc-preview {
+		border: 1px solid #ccc;
+	}
+
+	.navbar {
+		display: none;
+	}
+}
+
+/* ===== Telas muito pequenas (até 360px) ===== */
+@media (max-width: 360px) {
+	.logo-text {
+		display: none;
+	}
+
+	.navbar-container {
+		height: 52px;
+		padding: 8px 10px;
+	}
+
+	.nav-link {
+		padding: 7px 9px;
+		font-size: 11px;
+	}
+
+	.nav-link.cart-item {
+		padding: 7px 9px;
+		font-size: 15px;
+	}
+
+	.cards-container {
+		grid-template-columns: 1fr;
+	}
+
+	.status-left {
+		flex-wrap: wrap;
+	}
+}
 .footer {
 	background-color: var(--text-color);
 	color: var(--white);
@@ -566,6 +996,54 @@ main {
 	.last-sales td {
 		padding: 6px 4px;
 		font-size: 11px;
+	}
+
+	/* ===== RECEITA — tablet ===== */
+	.prescription-page {
+		grid-template-columns: 1fr;
+	}
+
+	.prescription-form {
+		grid-template-columns: 1fr;
+	}
+
+	/* Garante que os campos com grid-column: 1 / -1 não quebrem nada */
+	.form-group[style*="grid-column"] {
+		grid-column: 1 / -1;
+	}
+
+	.type-selector {
+		gap: 6px;
+	}
+
+	.type-btn {
+		flex: 1 1 calc(50% - 3px);
+		padding: 6px;
+	}
+
+	.prescription-card {
+		padding: 0.75rem 1rem;
+	}
+
+	.prescription-btn {
+		padding: 10px;
+		font-size: 13px;
+	}
+
+	.doc-preview {
+		font-size: 11px;
+	}
+
+	.doc-nome-medico {
+		font-size: 12px;
+	}
+
+	.hist-item {
+		padding: 6px 0;
+	}
+
+	.hist-nome {
+		font-size: 12px;
 	}
 }
 
@@ -753,5 +1231,102 @@ main {
 	.footer {
 		padding: 15px 10px;
 		font-size: 12px;
+	}
+
+	/* ===== RECEITA — mobile ===== */
+	.prescription-page {
+		gap: 8px;
+	}
+
+	.prescription-col {
+		gap: 8px;
+	}
+
+	.prescription-card {
+		padding: 0.5rem 0.75rem;
+		border-radius: 6px;
+	}
+
+	.prescription-title {
+		font-size: 10px;
+		margin-bottom: 8px;
+	}
+
+	.type-selector {
+		gap: 5px;
+		margin-bottom: 10px;
+	}
+
+	.type-btn {
+		flex: 1 1 calc(50% - 3px);
+		padding: 5px;
+		font-size: 11px;
+		gap: 3px;
+	}
+
+	.prescription-category {
+		font-size: 9px;
+		padding: 2px 6px;
+	}
+
+	.prescription-type {
+		font-size: 10px;
+	}
+
+	.form-group label {
+		font-size: 11px;
+	}
+
+	.form-group input[type="text"],
+	.form-group input[type="date"],
+	.form-group input[type="number"],
+	.form-group select,
+	.form-group textarea {
+		font-size: 12px;
+		padding: 6px 8px;
+	}
+
+	.prescription-btn {
+		padding: 9px;
+		font-size: 12px;
+	}
+
+	.doc-preview {
+		font-size: 10px;
+	}
+
+	.preview-header {
+		padding: 10px 12px 8px;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.doc-nome-medico {
+		font-size: 11px;
+	}
+
+	.doc-sub-medico {
+		font-size: 10px;
+	}
+
+	.preview-body {
+		padding: 10px 12px;
+	}
+
+	.preview-nome-medicamento {
+		font-size: 12px;
+	}
+
+	.preview-footer {
+		padding: 8px 12px;
+	}
+
+	.hist-nome {
+		font-size: 11px;
+	}
+
+	.hist-med,
+	.hist-hora {
+		font-size: 10px;
 	}
 }

@@ -16,7 +16,7 @@
 			<div class="navbar-container">
 				<!-- Logo/Brand -->
 				<div class="navbar-brand">
-					<a href="home.html" class="logo">
+					<a href="index.html" class="logo">
 						<span class="logo-icon">💊</span>
 						<span class="logo-text">Farmácia</span>
 					</a>
@@ -44,8 +44,293 @@
 
 		<!-- CONTEÚDO PRINCIPAL -->
 		<main>
-			<h1>Geração de Receita</h1>
-			<p>Gere receitas médicas aqui...</p>
+			<div class="prescription-page">
+				<!-- Coluna esquerda - Formulário -->
+				<div class="prescription-col">
+					<div class="prescription-card">
+						<p class="prescription-title">Tipo de receita</p>
+
+						<!-- Tipo de receita -->
+						<div class="type-selector">
+							<button class="type-btn ativo-simples">
+								<span class="prescription-category simples-badge">Branco</span>
+								<span class="prescription-type">Simples · 1 via</span>
+							</button>
+							<button class="type-btn">
+								<span class="prescription-category especial-badge">Branco</span>
+								<span class="prescription-type">Especial · 2 vias</span>
+							</button>
+							<button class="type-btn">
+								<span class="prescription-category azul-badge">Azul</span>
+								<span class="prescription-type">Psicotrópicos</span>
+							</button>
+							<button class="type-btn">
+								<span class="prescription-category amarelo-badge">Amarelo</span>
+								<span class="prescription-type">Entorpecentes</span>
+							</button>
+						</div>
+					</div>
+
+					<!-- Dados do médico -->
+					<div class="prescription-card">
+						<p class="prescription-title">Dados do médico</p>
+						<div class="prescription-form">
+							<div class="form-group">
+								<label for="nome-medico">Nome completo:</label>
+								<input
+									type="text"
+									id="nome-medico"
+									name="nome-medico"
+									placeholder="Dr. Ana Souza"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="crm">CRM:</label>
+								<input
+									type="text"
+									id="crm"
+									name="crm"
+									placeholder="CRM/RS 123456"
+									required
+								/>
+							</div>
+							<div class="form-group" style="grid-column: 1 / -1">
+								<label for="medico-especialidade">Especialidade:</label>
+								<select
+									name="medico-especialidade"
+									id="medico-especialidade"
+									required
+								>
+									<option value="">Selecione...</option>
+									<option value="clínico-geral">Clínico Geral</option>
+									<option value="pediatria">Pediatria</option>
+									<option value="dermatologia">Dermatologia</option>
+									<option value="cardiologia">Cardiologia</option>
+									<option value="neurologia">Neurologia</option>
+									<option value="psiquiatria">Psiquiatria</option>
+									<option value="endocrinologia">Endocrinologia</option>
+									<option value="ortopedia">Ortopedia</option>
+									<option value="outro">Outro</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!-- Dados do paciente -->
+					<div class="prescription-card">
+						<p class="prescription-title">Dados do paciente</p>
+						<div class="prescription-form">
+							<div class="form-group">
+								<label for="nome-paciente">Nome completo:</label>
+								<input
+									type="text"
+									id="nome-paciente"
+									name="nome-paciente"
+									placeholder="João da Silva"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="data-nascimento">Data de nascimento:</label>
+								<input
+									type="date"
+									id="data-nascimento"
+									name="data-nascimento"
+									required
+								/>
+							</div>
+						</div>
+					</div>
+
+					<!-- Prescrição -->
+					<div class="prescription-card">
+						<p class="prescription-title">Prescrição</p>
+						<div class="prescription-form">
+							<div class="form-group">
+								<label for="med-nome">Medicamento</label>
+								<select id="med-nome" required>
+									<option value="">Selecione...</option>
+									<optgroup label="Receita simples">
+										<option>Dipirona 500mg</option>
+										<option>Paracetamol 750mg</option>
+										<option>Ibuprofeno 600mg</option>
+										<option>Omeprazol 20mg</option>
+										<option>Loratadina 10mg</option>
+									</optgroup>
+									<optgroup label="Branco especial (2 vias)">
+										<option>Amoxicilina 875mg</option>
+										<option>Azitromicina 500mg</option>
+										<option>Losartana 50mg</option>
+										<option>Metformina 850mg</option>
+										<option>Atorvastatina 20mg</option>
+									</optgroup>
+									<optgroup label="Receituário azul — psicotrópicos">
+										<option>Ritalina 10mg</option>
+										<option>Venvanse 50mg</option>
+										<option>Rivotril 0,5mg</option>
+										<option>Lexotan 3mg</option>
+									</optgroup>
+									<optgroup label="Receituário amarelo — entorpecentes">
+										<option>Morfina 10mg</option>
+										<option>Codeína 30mg</option>
+										<option>Fentanil 25mcg</option>
+									</optgroup>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="med-quantidade">Quantidade</label>
+								<input
+									type="number"
+									id="med-quantidade"
+									name="med-quantidade"
+									placeholder="Ex: 2"
+									required
+								/>
+							</div>
+							<div class="form-group" style="grid-column: 1 / -1">
+								<label for="med-dosagem">Dosagem</label>
+								<input
+									type="text"
+									id="med-dosagem"
+									name="med-dosagem"
+									placeholder="Ex: 1 comprimido a cada 8 horas"
+									required
+								/>
+							</div>
+							<div class="form-group" style="grid-column: 1 / -1">
+								<label for="med-posologia">Posologia/orientações</label>
+								<textarea
+									id="med-posologia"
+									name="med-posologia"
+									placeholder="Ex: Tomar com água, de preferência em jejum. Completar o ciclo mesmo com melhora dos sintomas."
+									required
+								></textarea>
+							</div>
+							<div class="form-group">
+								<label for="med-duracao">Duração do tratamento</label>
+								<input
+									type="text"
+									id="med-duracao"
+									name="med-duracao"
+									placeholder="Ex: 7 dias"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="med-data">Data da prescrição</label>
+								<input type="date" id="med-data" name="med-data" required />
+							</div>
+						</div>
+					</div>
+
+					<!-- Botão de envio -->
+					<button type="button" class="prescription-btn">Gerar receita</button>
+				</div>
+
+				<!-- Coluna direita: Preview + histórico -->
+				<div class="prescription-col">
+					<!-- Preview -->
+					<div class="prescription-card">
+						<p class="prescription-title">Pré-visualização</p>
+						<div class="doc-preview">
+							<div class="preview-header">
+								<div>
+									<span class="doc-nome-medico">Dr. Ana Souza</span>
+									<span class="doc-sub-medico"
+										>Clínica Geral · CRM/SP 123456</span
+									>
+								</div>
+								<span class="prescription-category simples-badge"
+									>Receita simples</span
+								>
+							</div>
+							<div class="preview-body">
+								<div class="preview-section">
+									<span class="preview-title">Paciente</span>
+									<span class="preview-nome-paciente">João da Silva</span>
+									<span class="preview-sub-paciente"
+										>Nascimento: 12/03/1985</span
+									>
+								</div>
+
+								<hr class="preview-divider" />
+
+								<div class="preview-section">
+									<span class="preview-title">Prescrição</span>
+									<span class="preview-nome-medicamento"
+										>Amoxicilina 875mg</span
+									>
+									<span class="preview-sub-medicamento"
+										>2 caixas · 1 comprimido a cada 8 horas</span
+									>
+								</div>
+
+								<div class="preview-section">
+									<span class="preview-title">Posologia</span>
+									<span class="preview-desc-posologia"
+										>Tomar com água, de preferência em jejum. Completar o ciclo
+										de 7 dias mesmo com melhora dos sintomas.</span
+									>
+								</div>
+
+								<div class="preview-section">
+									<span class="preview-title">Duração</span>
+									<span class="preview-duracao">7 dias</span>
+								</div>
+							</div>
+
+							<div class="preview-footer">
+								<div class="preview-footer-row">
+									<span class="preview-location">Farroupilha, RS</span>
+									<span class="preview-data">12/10/2026</span>
+								</div>
+								<div class="preview-assinatura">
+									Assinatura e carimbo do profissional
+								</div>
+							</div>
+						</div>
+
+						<button
+							type="button"
+							onclick="window.print()"
+							class="prescription-btn"
+							style="margin-top: 10px"
+						>
+							Imprimir receita
+						</button>
+					</div>
+
+					<!-- Histórico de receitas -->
+					<div class="prescription-card">
+						<span class="prescription-title">Receitas emitidas hoje</span>
+						<ul class="hist-list">
+							<li class="hist-item">
+								<span class="hist-nome">Carlos Andrade</span>
+								<span class="hist-med"
+									>Amoxicilina 875mg · Branco especial</span
+								>
+								<span class="hist-hora">14:37</span>
+							</li>
+							<li class="hist-item">
+								<span class="hist-nome">Marta Lins</span>
+								<span class="hist-med">Omeprazol 20mg · Simples</span>
+								<span class="hist-hora">13:02</span>
+							</li>
+							<li class="hist-item">
+								<span class="hist-nome">Roberto Melo</span>
+								<span class="hist-med">Rivotril 0,5mg · Azul</span>
+								<span class="hist-hora">11:48</span>
+							</li>
+							<li class="hist-item">
+								<span class="hist-nome">Patrícia Nunes</span>
+								<span class="hist-med">Morfina 10mg · Amarelo</span>
+								<span class="hist-hora">10:15</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<!-- RODAPÉ -->
