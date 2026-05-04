@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Farmácia - Home</title>
+		<link rel="stylesheet" href="../styles/main.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
+		<nav class="navbar">
+			<div class="navbar-container">
+				<!-- Logo/Brand -->
+				<div class="navbar-brand">
+					<a href="index.html" class="logo">
+						<span class="logo-icon">💊</span>
+						<span class="logo-text">Farmácia</span>
+					</a>
+				</div>
+
+				<!-- Menu Links -->
+				<ul class="navbar-menu">
+					<li class="nav-item">
+						<a href="catalogo.html" class="nav-link">Catálogo</a>
+					</li>
+					<li class="nav-item">
+						<a href="receita.html" class="nav-link">Receita</a>
+					</li>
+					<li class="nav-item">
+						<a href="estoque.html" class="nav-link">Estoque</a>
+					</li>
+					<li class="nav-item">
+						<a href="carrinho.html" class="nav-link cart-item">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		</header>
+
+		<!-- CONTEÚDO PRINCIPAL -->
+		<main>
+			<h1 class="sr-only">Painel inicial da farmácia</h1>
+
+			<!-- BARRA DE STATUS -->
+			<section class="status-bar" aria-label="Status do turno">
+				<div class="status-left">
+					<span class="green-dot"></span>
+					<span class="status-turno">Turno aberto desde</span>
+					<span class="status-time">08:00</span>
+					<span class="status-dot">·</span>
+					<span class="atendente">Atendente:</span>
+					<span class="atendente-name">João Silva</span>
+				</div>
+				<span class="clock">13:45</span>
+			</section>
+
+			<!-- CARDS DE RESUMO -->
+			<section class="cards-container" aria-label="Resumo do dia">
+				<article class="metric-card">
+					<div class="descricao-metrica">Vendas hoje</div>
+					<div class="valor-metrica">47</div>
+					<div class="sub-metrica">+12 vs. ontem</div>
+				</article>
+				<article class="metric-card">
+					<div class="descricao-metrica">Faturamento</div>
+					<div class="valor-metrica">R$ 3.200,00</div>
+					<div class="sub-metrica">+8% vs. ontem</div>
+				</article>
+				<article class="metric-card">
+					<div class="descricao-metrica">Clientes atendidos</div>
+					<div class="valor-metrica">35</div>
+					<div class="sub-metrica">+5 vs. ontem</div>
+				</article>
+			</section>
+
+			<!-- ALERTAS -->
+			<section class="alerts-container" aria-label="Alertas operacionais">
+				<article class="alert-card">
+					<h2 class="alert-title">Alertas de Estoque</h2>
+					<ul class="alerts">
+						<li class="alert-item">
+							<span class="red-dot"></span>
+							<span class="alert-text">Amoxicilina</span>
+							<span class="alert-reason">3 un.</span>
+						</li>
+						<li class="alert-item">
+							<span class="red-dot"></span>
+							<span class="alert-text">Dipirona</span>
+							<span class="alert-reason">5 un.</span>
+						</li>
+						<li class="alert-item">
+							<span class="yellow-dot"></span>
+							<span class="alert-text">Omeprazol</span>
+							<span class="alert-reason">12 un.</span>
+						</li>
+						<li class="alert-item">
+							<span class="yellow-dot"></span>
+							<span class="alert-text">Losartana</span>
+							<span class="alert-reason">15 un.</span>
+						</li>
+						<li class="alert-item">
+							<span class="yellow-dot"></span>
+							<span class="alert-text">Ibuprofeno</span>
+							<span class="alert-reason">21 un.</span>
+						</li>
+					</ul>
+				</article>
+				<article class="alert-card">
+					<h2 class="alert-title">Alertas de Validade</h2>
+					<ul class="alerts">
+						<li class="alert-item">
+							<span class="red-dot"></span>
+							<span class="alert-text">Paracetamol</span>
+							<span class="alert-reason">10 dias</span>
+						</li>
+						<li class="alert-item">
+							<span class="red-dot"></span>
+							<span class="alert-text">Dexametazona</span>
+							<span class="alert-reason">12 dias</span>
+						</li>
+						<li class="alert-item">
+							<span class="red-dot"></span>
+							<span class="alert-text">Profiterona</span>
+							<span class="alert-reason">18 dias</span>
+						</li>
+						<li class="alert-item">
+							<span class="yellow-dot"></span>
+							<span class="alert-text">Resveratrol</span>
+							<span class="alert-reason">34 dias</span>
+						</li>
+						<li class="alert-item">
+							<span class="yellow-dot"></span>
+							<span class="alert-text">Dorflex</span>
+							<span class="alert-reason">51 dias</span>
+						</li>
+					</ul>
+				</article>
+				<a href="estoque.html" class="btn-link">Ver controle de estoque</a>
+			</section>
+
+			<!-- VENDAS -->
+			<section class="sales-container" aria-label="Resumo de vendas">
+				<article class="sales-card">
+					<h2 class="sales-title">Mais vendidos hoje</h2>
+					<ul class="sales">
+						<li class="sale-item">
+							<span class="rank-num">1</span>
+							<span class="sale-name">Paracetamol</span>
+							<div class="bar">
+								<div class="bar-fill bar-fill-100"></div>
+							</div>
+							<span class="sale-quantity">31</span>
+						</li>
+						<li class="sale-item">
+							<span class="rank-num">2</span>
+							<span class="sale-name">Dipirona</span>
+							<div class="bar">
+								<div class="bar-fill bar-fill-77"></div>
+							</div>
+							<span class="sale-quantity">24</span>
+						</li>
+						<li class="sale-item">
+							<span class="rank-num">3</span>
+							<span class="sale-name">Dorflex</span>
+							<div class="bar">
+								<div class="bar-fill bar-fill-68"></div>
+							</div>
+							<span class="sale-quantity">21</span>
+						</li>
+						<li class="sale-item">
+							<span class="rank-num">4</span>
+							<span class="sale-name">Amoxicilina</span>
+							<div class="bar">
+								<div class="bar-fill bar-fill-52"></div>
+							</div>
+							<span class="sale-quantity">16</span>
+						</li>
+						<li class="sale-item">
+							<span class="rank-num">5</span>
+							<span class="sale-name">Ibuprofeno</span>
+							<div class="bar">
+								<div class="bar-fill bar-fill-42"></div>
+							</div>
+							<span class="sale-quantity">13</span>
+						</li>
+					</ul>
+				</article>
+				<article class="sales-card">
+					<h2 class="sales-title">Últimas Vendas</h2>
+					<table class="last-sales">
+						<thead>
+							<tr>
+								<th>Produto</th>
+								<th class="qtd">Qtd</th>
+								<th class="hr">Horário</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Paracetamol</td>
+								<td class="qtd">2</td>
+								<td class="hr">13:40</td>
+							</tr>
+							<tr>
+								<td>Dipirona</td>
+								<td class="qtd">1</td>
+								<td class="hr">13:35</td>
+							</tr>
+							<tr>
+								<td>Dorflex</td>
+								<td class="qtd">3</td>
+								<td class="hr">13:30</td>
+							</tr>
+							<tr>
+								<td>Amoxicilina</td>
+								<td class="qtd">1</td>
+								<td class="hr">13:25</td>
+							</tr>
+							<tr>
+								<td>Ibuprofeno</td>
+								<td class="qtd">2</td>
+								<td class="hr">13:20</td>
+							</tr>
+						</tbody>
+					</table>
+				</article>
+			</section>
+		</main>
+
+		<!-- RODAPÉ -->
+		<footer class="footer">
+			<p>
+				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
+				reservados.
+			</p>
+		</footer>
+	</body>
+</html>

@@ -9,22 +9,68 @@
 	--primary-color: #2ecc71;
 	--primary-dark: #27ae60;
 	--text-color: #2c3e50;
+	--text-secondary: #5f5e5a;
+	--text-tertiary: #888780;
 	--muted-color: #6c7a89;
-	--light-bg: #ecf0f1;
+	--light-bg: #f5f5f3;
 	--white: #ffffff;
+	--border: 0.5px solid #bdc3c7;
 	--border-color: #d8e1e8;
+	--border-md: rgba(0, 0, 0, 0.2);
+	--radius-md: 8px;
+	--radius-lg: 12px;
 	--danger-color: #e74c3c;
 	--warning-color: #f39c12;
 	--info-color: #3498db;
 	--shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	--transition: all 0.3s ease;
+	--red: #e74c3c;
+	--yellow: #f1c40f;
+	--yellow-bg: #fff5d2;
+	--red-bg: #fdd8d4;
+
+	/* Receituário azul */
+	--azul-bg: #e6f1fb;
+	--azul-border: #b5d4f4;
+	--azul-text: #0c447c;
+	--azul-sub: #378add;
+
+	/* Receituário branco especial */
+	--especial-bg: #f5f5f3;
+	--especial-border: rgba(0, 0, 0, 0.25);
+	--especial-text: #1a1a18;
+	--especial-sub: #5f5e5a;
+
+	/* Receituário amarelo */
+	--amarelo-bg: #fefbe6;
+	--amarelo-border: #e8d96a;
+	--amarelo-text: #5c4a00;
+	--amarelo-sub: #a07d00;
+
+	/* Badges */
+	--green-fill: #eaf3de;
+	--green-text: #3b6d11;
 }
 
 body {
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family:
+		system-ui,
+		-apple-system,
+		sans-serif;
 	color: var(--text-color);
 	background-color: var(--light-bg);
 	line-height: 1.6;
+}
+
+.sr-only {
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
 }
 
 /* ===== NAVBAR ===== */
@@ -46,7 +92,7 @@ body {
 	height: 70px;
 }
 
-/* Logo/Brand */
+/* ===== Logo ===== */
 .navbar-brand {
 	display: flex;
 	align-items: center;
@@ -78,7 +124,7 @@ body {
 	white-space: nowrap;
 }
 
-/* Menu Links */
+/* ===== Menu Links ===== */
 .navbar-menu {
 	display: flex;
 	list-style: none;
@@ -111,7 +157,7 @@ body {
 	color: var(--white);
 }
 
-/* Carrinho destacado */
+/* ===== Carrinho destacado ===== */
 .nav-link.cart-item {
 	background-color: var(--primary-color);
 	color: var(--white);
@@ -136,7 +182,730 @@ main {
 	min-height: calc(100vh - 200px);
 }
 
-/* ===== FOOTER ===== */
+/* ===== HOME ===== */
+.status-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--white);
+	border: var(--border);
+	border-radius: 8px;
+	padding: 8px 16px;
+	margin-bottom: 1rem;
+	box-shadow: var(--shadow);
+}
+
+.status-left {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.green-dot,
+.red-dot,
+.yellow-dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+}
+
+.green-dot {
+	background-color: var(--primary-dark);
+}
+.red-dot {
+	background-color: var(--red);
+}
+.yellow-dot {
+	background-color: var(--yellow);
+}
+
+.status-turno,
+.atendente {
+	color: var(--text-secondary);
+	font-size: 14px;
+}
+
+.status-time,
+.atendente-name {
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.status-dot {
+	color: var(--text-tertiary);
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.clock {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--text-tertiary);
+}
+
+.cards-container {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+	margin-bottom: 1.5rem;
+	text-align: left;
+}
+
+.metric-card {
+	background-color: var(--white);
+	border: var(--border);
+	border-radius: 8px;
+	padding: 16px;
+	box-shadow: var(--shadow);
+	transition: var(--transition);
+}
+
+.descricao-metrica {
+	font-size: 14px;
+	color: var(--text-secondary);
+	margin-bottom: 4px;
+}
+
+.valor-metrica {
+	font-size: 20px;
+	font-weight: 600;
+	color: var(--text-color);
+}
+
+.sub-metrica {
+	font-size: 12px;
+	color: var(--text-tertiary);
+	margin-top: 2px;
+}
+
+.alerts-container {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+	margin-bottom: 1.5rem;
+	text-align: left;
+}
+
+.alert-card {
+	background: var(--white);
+	border: var(--border);
+	border-radius: 8px;
+	padding: 1rem 1.25rem;
+}
+
+.alert-title {
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--text-color);
+	margin-bottom: 6px;
+}
+
+.alert-item {
+	display: flex;
+	align-items: center;
+	padding: 8px 0;
+	border-bottom: var(--border);
+	font-size: 13px;
+	color: var(--text-color);
+	gap: 8px;
+}
+
+.alert-item:last-child {
+	border-bottom: none;
+}
+
+.alert-item > :nth-child(3) {
+	margin-left: auto;
+}
+
+.alert-reason {
+	color: var(--text-secondary);
+	font-weight: 500;
+}
+
+.alert-item:has(.red-dot) .alert-reason {
+	color: var(--red);
+	background-color: var(--red-bg);
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+
+.alert-item:has(.yellow-dot) .alert-reason {
+	color: var(--yellow);
+	background-color: var(--yellow-bg);
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+
+.btn-link {
+	grid-column: 1 / -1;
+	background-color: var(--primary-color);
+	color: var(--white);
+	font-weight: 600;
+	padding: 12px 24px;
+	border-radius: 8px;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: var(--transition);
+	font-size: 14px;
+	box-shadow: var(--shadow);
+	text-align: center;
+}
+
+.btn-link:hover {
+	background-color: var(--primary-dark);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-link:active {
+	transform: translateY(0);
+}
+
+.sales-container {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+	margin-bottom: 1.5rem;
+	text-align: left;
+}
+
+.sales-card {
+	background: var(--white);
+	border: var(--border);
+	border-radius: 8px;
+	padding: 1rem 1.25rem;
+}
+
+.sales-title {
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--text-color);
+	margin-bottom: 6px;
+}
+
+.sale-item {
+	display: flex;
+	align-items: center;
+	padding: 8px 0;
+	border-bottom: var(--border);
+	font-size: 13px;
+	color: var(--text-color);
+}
+
+.sale-item:last-child {
+	border-bottom: none;
+}
+
+.rank-num {
+	font-size: 11px;
+	font-weight: 500;
+	color: var(--text-tertiary);
+	width: 20px;
+	flex-shrink: 0;
+	margin-right: 10px;
+}
+
+.sale-name {
+	width: 100px;
+	flex-shrink: 0;
+}
+
+.bar {
+	background: var(--light-bg);
+	border-radius: 2px;
+	height: 4px;
+	flex: 1;
+	margin: 0 10px;
+}
+
+.bar-fill {
+	height: 4px;
+	border-radius: 2px;
+	background: var(--primary-dark);
+}
+
+.bar-fill-100 {
+	width: 100%;
+}
+
+.bar-fill-77 {
+	width: 77.42%;
+}
+
+.bar-fill-68 {
+	width: 67.74%;
+}
+
+.bar-fill-52 {
+	width: 51.61%;
+}
+
+.bar-fill-42 {
+	width: 41.94%;
+}
+
+.sale-quantity {
+	font-size: 12px;
+	color: var(--text-secondary);
+	width: 40px;
+	text-align: right;
+	flex-shrink: 0;
+}
+
+.last-sales {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.qtd {
+	text-align: center;
+}
+
+.hr {
+	text-align: right;
+}
+
+.last-sales th {
+	color: var(--text-secondary);
+	border-bottom: var(--border);
+	font-size: 11px;
+	font-weight: 600;
+	padding: 8px;
+	text-align: left;
+}
+
+.last-sales th.qtd {
+	text-align: center;
+}
+
+.last-sales th.hr {
+	text-align: right;
+}
+
+.last-sales td {
+	padding: 8px;
+	border-bottom: var(--border);
+	color: var(--text-color);
+}
+
+.last-sales tr:last-child td {
+	border-bottom: none;
+}
+
+/* ===== RECEITA ===== */
+.prescription-page {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 16px;
+	align-items: start;
+}
+
+.prescription-col {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.prescription-card {
+	background: var(--white);
+	border: var(--border);
+	border-radius: var(--radius-lg);
+	padding: 1rem 1.25rem;
+}
+
+.prescription-title {
+	font-size: 11px;
+	font-weight: 500;
+	color: var(--text-secondary);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	margin-bottom: 12px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin-bottom: 12px;
+}
+
+.form-group:last-child {
+	margin-bottom: 0;
+}
+
+.form-group-wide {
+	grid-column: 1 / -1;
+}
+
+.form-group label {
+	font-size: 12px;
+	color: var(--text-secondary);
+}
+
+.form-group input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+	width: 100%;
+	padding: 7px 10px;
+	font-size: 13px;
+	font-family: inherit;
+	color: var(--text-color);
+	background: var(--white);
+	border: 0.5px solid var(--border-md);
+	border-radius: var(--radius-md);
+	outline: none;
+	transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+select:focus,
+textarea:focus {
+	border-color: rgba(0, 0, 0, 0.4);
+}
+
+.form-group textarea {
+	resize: vertical;
+}
+
+.prescription-form {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.type-selector {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 16px;
+	flex-wrap: wrap;
+}
+
+.type-btn {
+	flex: 1;
+	padding: 8px;
+	border: var(--border);
+	border-radius: var(--radius-md);
+	font-size: 12px;
+	font-family: inherit;
+	color: var(--text-secondary);
+	text-align: center;
+	cursor: pointer;
+	background: var(--light-bg);
+	flex: 1 1 calc(50% - 4px);
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	transition:
+		background 0.15s,
+		border-color 0.15s;
+}
+
+.type-btn:hover {
+	background: var(--white);
+}
+
+.type-btn.ativo-simples {
+	border-color: #c0dd97;
+	background: var(--green-fill);
+	color: var(--green-text);
+}
+
+.type-btn.ativo-especial {
+	border-color: var(--especial-border);
+	background: var(--especial-bg);
+	color: var(--especial-text);
+	box-shadow: inset 0 0 0 1px var(--especial-border);
+}
+
+.type-btn.ativo-azul {
+	border-color: var(--azul-border);
+	background: var(--azul-bg);
+	color: var(--azul-text);
+}
+
+.type-btn.ativo-amarelo {
+	border-color: var(--amarelo-border);
+	background: var(--amarelo-bg);
+	color: var(--amarelo-text);
+}
+
+.prescription-category {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	border-radius: 4px;
+	font-size: 10px;
+	font-weight: 500;
+}
+
+.simples-badge {
+	background: var(--green-fill);
+	color: var(--green-text);
+}
+
+.especial-badge {
+	background: var(--especial-bg);
+	color: var(--especial-text);
+	border: 0.5px solid var(--especial-border);
+}
+
+.azul-badge {
+	background: var(--azul-bg);
+	color: var(--azul-text);
+	border: 0.5px solid var(--azul-border);
+}
+
+.amarelo-badge {
+	background: var(--amarelo-bg);
+	color: var(--amarelo-text);
+	border: 0.5px solid var(--amarelo-border);
+}
+
+.prescription-btn {
+	grid-column: 1 / -1;
+	width: 100%;
+	margin-top: 10px;
+	background-color: var(--primary-color);
+	color: var(--white);
+	font-weight: 600;
+	padding: 8px 14px;
+	border-radius: 8px;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: var(--transition);
+	font-size: 14px;
+	box-shadow: var(--shadow);
+	text-align: center;
+}
+
+.prescription-btn:hover {
+	background-color: var(--primary-dark);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.prescription-btn:active {
+	transform: translateY(0);
+}
+
+.doc-preview {
+	border: 1px solid var(--border-md);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	font-size: 12px;
+}
+
+.preview-header {
+	padding: 14px 16px 12px;
+	border-bottom: var(--border);
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.doc-nome-medico {
+	font-size: 13px;
+	font-weight: 500;
+	display: block;
+}
+
+.doc-sub-medico {
+	font-size: 11px;
+	margin-top: 2px;
+	display: block;
+}
+
+.preview-body {
+	padding: 14px 16px;
+}
+
+.preview-section {
+	margin-bottom: 12px;
+}
+
+.preview-section:last-child {
+	margin-bottom: 0;
+}
+
+.preview-title {
+	font-size: 10px;
+	font-weight: 500;
+	color: var(--text-tertiary);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 2px;
+	display: block;
+}
+
+.preview-nome-paciente,
+.preview-nome-medicamento,
+.preview-desc-posologia,
+.preview-duracao,
+.preview-data {
+	font-size: 12px;
+	color: var(--text-color);
+	display: block;
+}
+
+.preview-nome-medicamento {
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--text-color);
+	display: block;
+}
+
+.preview-sub-paciente,
+.preview-sub-medicamento {
+	font-size: 11px;
+	color: var(--text-secondary);
+	margin-top: 2px;
+	display: block;
+}
+
+.preview-divider {
+	border: none;
+	border-top: var(--border);
+	margin: 10px 0;
+}
+
+.preview-footer {
+	border-top: var(--border);
+	padding: 12px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.preview-footer-row {
+	display: flex;
+	justify-content: space-between;
+	font-size: 11px;
+	color: var(--text-secondary);
+}
+
+.preview-assinatura {
+	border-top: var(--border);
+	padding-top: 6px;
+	font-size: 11px;
+	color: var(--text-tertiary);
+	text-align: center;
+}
+
+.hist-list {
+	list-style: none;
+}
+
+.hist-item {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto auto;
+	padding: 8px 0;
+	border-bottom: var(--border);
+}
+
+.hist-item:last-child {
+	border-bottom: none;
+}
+
+.hist-nome {
+	font-size: 13px;
+	color: var(--text-color);
+}
+
+.hist-med {
+	font-size: 11px;
+	color: var(--text-tertiary);
+	margin-top: 2px;
+	grid-column: 1;
+}
+
+.hist-hora {
+	font-size: 11px;
+	color: var(--text-tertiary);
+	white-space: nowrap;
+	grid-column: 2;
+	grid-row: 1;
+	align-self: center;
+}
+
+@media print {
+	body {
+		background: white;
+		padding: 0;
+	}
+
+	.prescription-page {
+		display: block;
+	}
+
+	.prescription-col:first-child {
+		display: none;
+	}
+
+	.hist-list {
+		display: none;
+	}
+
+	.prescription-btn {
+		display: none;
+	}
+
+	.prescription-card {
+		border: none;
+		padding: 0;
+		box-shadow: none;
+	}
+
+	.prescription-title {
+		display: none;
+	}
+
+	.doc-preview {
+		border: 1px solid #ccc;
+	}
+
+	.navbar {
+		display: none;
+	}
+}
+
+/* ===== Telas muito pequenas (até 360px) ===== */
+@media (max-width: 360px) {
+	.logo-text {
+		display: none;
+	}
+
+	.navbar-container {
+		height: 52px;
+		padding: 8px 10px;
+	}
+
+	.nav-link {
+		padding: 7px 9px;
+		font-size: 11px;
+	}
+
+	.nav-link.cart-item {
+		padding: 7px 9px;
+		font-size: 15px;
+	}
+
+	.cards-container {
+		grid-template-columns: 1fr;
+	}
+
+	.status-left {
+		flex-wrap: wrap;
+	}
+}
 .footer {
 	background-color: var(--text-color);
 	color: var(--white);
@@ -149,25 +918,456 @@ main {
 	margin: 0;
 }
 
-/* ===== UTILITÁRIOS ===== */
-h1,
-h2,
-h3 {
-	color: var(--text-color);
-	margin: 20px 0 10px 0;
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets pequenos e landscape (481px a 768px) */
+@media (max-width: 768px) {
+	.navbar-container {
+		padding: 12px 15px;
+		height: 60px;
+		gap: 15px;
+	}
+
+	.navbar-brand {
+		min-width: auto;
+		margin: 0;
+	}
+
+	.logo {
+		font-size: 20px;
+		gap: 8px;
+	}
+
+	.logo-icon {
+		font-size: 26px;
+	}
+
+	.logo-text {
+		font-size: 16px;
+	}
+
+	.navbar-menu {
+		gap: 8px;
+		margin-top: 0;
+		justify-content: flex-start;
+	}
+
+	.nav-link {
+		padding: 10px 14px;
+		font-size: 13px;
+	}
+
+	.nav-link.cart-item {
+		font-size: 18px;
+		padding: 10px 14px;
+		margin-left: auto;
+	}
+
+	main {
+		padding: 0 15px;
+		margin: 20px auto;
+	}
+
+	.cards-container {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+	}
+
+	.metric-card {
+		padding: 12px;
+	}
+
+	.descricao-metrica {
+		font-size: 12px;
+	}
+
+	.valor-metrica {
+		font-size: 18px;
+	}
+
+	.alerts-container,
+	.sales-container {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+
+	.alert-card,
+	.sales-card {
+		padding: 0.75rem 1rem;
+	}
+
+	.alert-title,
+	.sales-title {
+		font-size: 14px;
+	}
+
+	.alert-item,
+	.sale-item {
+		padding: 6px 0;
+		font-size: 12px;
+	}
+
+	.sale-name {
+		width: 80px;
+	}
+
+	.btn-link {
+		padding: 10px 20px;
+		font-size: 13px;
+	}
+
+	.status-bar {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		padding: 6px 12px;
+		font-size: 12px;
+	}
+
+	.status-left {
+		gap: 8px;
+	}
+
+	.last-sales {
+		font-size: 12px;
+	}
+
+	.last-sales th,
+	.last-sales td {
+		padding: 6px 4px;
+		font-size: 11px;
+	}
+
+	/* ===== RECEITA — tablet ===== */
+	.prescription-page {
+		grid-template-columns: 1fr;
+	}
+
+	.prescription-form {
+		grid-template-columns: 1fr;
+	}
+
+	.form-group-wide {
+		grid-column: 1 / -1;
+	}
+
+	.type-selector {
+		gap: 6px;
+	}
+
+	.type-btn {
+		flex: 1 1 calc(50% - 3px);
+		padding: 6px;
+	}
+
+	.prescription-card {
+		padding: 0.75rem 1rem;
+	}
+
+	.prescription-btn {
+		padding: 10px;
+		font-size: 13px;
+	}
+
+	.doc-preview {
+		font-size: 11px;
+	}
+
+	.doc-nome-medico {
+		font-size: 12px;
+	}
+
+	.hist-item {
+		padding: 6px 0;
+	}
+
+	.hist-nome {
+		font-size: 12px;
+	}
 }
 
-p {
-	margin: 10px 0;
-}
+/* Mobiles (até 480px) */
+@media (max-width: 480px) {
+	.navbar-container {
+		padding: 10px 12px;
+		height: 55px;
+		gap: 10px;
+	}
 
-a {
-	color: var(--primary-color);
-	text-decoration: none;
-}
+	.navbar-brand {
+		min-width: auto;
+	}
 
-a:hover {
-	text-decoration: underline;
+	.logo {
+		font-size: 18px;
+		gap: 6px;
+	}
+
+	.logo-icon {
+		font-size: 24px;
+	}
+
+	.logo-text {
+		font-size: 14px;
+	}
+
+	.navbar-menu {
+		gap: 6px;
+		margin-top: 0;
+		justify-content: flex-start;
+	}
+
+	.nav-link {
+		padding: 8px 11px;
+		font-size: 12px;
+	}
+
+	.nav-link.cart-item {
+		font-size: 16px;
+		padding: 8px 11px;
+		margin-left: auto;
+	}
+
+	main {
+		padding: 0 10px;
+		margin: 15px auto;
+	}
+
+	h1 {
+		font-size: 24px;
+	}
+
+	.cards-container {
+		grid-template-columns: 1fr;
+		gap: 8px;
+		margin-bottom: 1rem;
+	}
+
+	.metric-card {
+		padding: 10px;
+	}
+
+	.descricao-metrica {
+		font-size: 11px;
+		margin-bottom: 3px;
+	}
+
+	.valor-metrica {
+		font-size: 16px;
+	}
+
+	.sub-metrica {
+		font-size: 10px;
+		margin-top: 1px;
+	}
+
+	.alerts-container,
+	.sales-container {
+		grid-template-columns: 1fr;
+		gap: 8px;
+		margin-bottom: 1rem;
+	}
+
+	.alert-card,
+	.sales-card {
+		padding: 0.5rem 0.75rem;
+		border-radius: 6px;
+	}
+
+	.alert-title,
+	.sales-title {
+		font-size: 12px;
+		margin-bottom: 4px;
+	}
+
+	.alert-item,
+	.sale-item {
+		padding: 5px 0;
+		font-size: 11px;
+		gap: 6px;
+	}
+
+	.alert-reason {
+		font-size: 10px;
+		padding: 2px 4px;
+	}
+
+	.rank-num {
+		font-size: 10px;
+		width: 16px;
+		margin-right: 6px;
+	}
+
+	.sale-name {
+		width: 60px;
+		font-size: 11px;
+	}
+
+	.bar {
+		margin: 0 6px;
+	}
+
+	.sale-quantity {
+		width: 30px;
+		font-size: 10px;
+	}
+
+	.btn-link {
+		grid-column: 1 / -1;
+		padding: 10px 16px;
+		font-size: 12px;
+		margin-top: 8px;
+	}
+
+	.status-bar {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+		padding: 8px 10px;
+		font-size: 11px;
+		margin-bottom: 0.75rem;
+	}
+
+	.status-left {
+		gap: 6px;
+		width: 100%;
+	}
+
+	.status-dot {
+		gap: 3px;
+	}
+
+	.green-dot,
+	.red-dot,
+	.yellow-dot {
+		width: 10px;
+		height: 10px;
+	}
+
+	.clock {
+		font-size: 10px;
+	}
+
+	.last-sales {
+		font-size: 11px;
+	}
+
+	.last-sales th {
+		padding: 5px 3px;
+		font-size: 10px;
+	}
+
+	.last-sales td {
+		padding: 5px 3px;
+		font-size: 10px;
+	}
+
+	.qtd,
+	.hr {
+		font-size: 10px;
+	}
+
+	.footer {
+		padding: 15px 10px;
+		font-size: 12px;
+	}
+
+	/* ===== RECEITA — mobile ===== */
+	.prescription-page {
+		gap: 8px;
+	}
+
+	.prescription-col {
+		gap: 8px;
+	}
+
+	.prescription-card {
+		padding: 0.5rem 0.75rem;
+		border-radius: 6px;
+	}
+
+	.prescription-title {
+		font-size: 10px;
+		margin-bottom: 8px;
+	}
+
+	.type-selector {
+		gap: 5px;
+		margin-bottom: 10px;
+	}
+
+	.type-btn {
+		flex: 1 1 calc(50% - 3px);
+		padding: 5px;
+		font-size: 11px;
+		gap: 3px;
+	}
+
+	.prescription-category {
+		font-size: 9px;
+		padding: 2px 6px;
+	}
+
+	.prescription-type {
+		font-size: 10px;
+	}
+
+	.form-group label {
+		font-size: 11px;
+	}
+
+	.form-group input[type="text"],
+	.form-group input[type="date"],
+	.form-group input[type="number"],
+	.form-group select,
+	.form-group textarea {
+		font-size: 12px;
+		padding: 6px 8px;
+	}
+
+	.prescription-btn {
+		padding: 9px;
+		font-size: 12px;
+	}
+
+	.doc-preview {
+		font-size: 10px;
+	}
+
+	.preview-header {
+		padding: 10px 12px 8px;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.doc-nome-medico {
+		font-size: 11px;
+	}
+
+	.doc-sub-medico {
+		font-size: 10px;
+	}
+
+	.preview-body {
+		padding: 10px 12px;
+	}
+
+	.preview-nome-medicamento {
+		font-size: 12px;
+	}
+
+	.preview-footer {
+		padding: 8px 12px;
+	}
+
+	.hist-nome {
+		font-size: 11px;
+	}
+
+	.hist-med,
+	.hist-hora {
+		font-size: 10px;
+	}
 }
 
 /* ===== TELAS DE ESTOQUE E VENDA ===== */
