@@ -1,20 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Farmácia - Ficha de Medicamento</title>
+		<title>Ficha do Medicamento - FarmaSys</title>
 		<link rel="stylesheet" href="../styles/main.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-		/>
+		<script src="https://kit.fontawesome.com/f73de64231.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
+
 		<!-- NAVBAR -->
 		<nav class="navbar">
 			<div class="navbar-container">
-				<!-- Logo/Brand -->
 				<div class="navbar-brand">
 					<a href="index.html" class="logo">
 						<span class="logo-icon">💊</span>
@@ -22,7 +19,6 @@
 					</a>
 				</div>
 
-				<!-- Menu Links -->
 				<ul class="navbar-menu">
 					<li class="nav-item">
 						<a href="catalogo.html" class="nav-link">Catálogo</a>
@@ -42,18 +38,63 @@
 			</div>
 		</nav>
 
-		<!-- CONTEÚDO PRINCIPAL -->
+		<!-- CONTEÚDO -->
 		<main>
-			<h1>Ficha de Medicamento</h1>
-			<p>Detalhes do medicamento aqui...</p>
+			<h1>Ficha do Medicamento</h1>
+
+			<section class="medicamento-detalhe">
+
+				<!-- Cabeçalho -->
+				<div class="medicamento-detalhe-header">
+					<span class="medicamento-detalhe-icon">💊</span>
+					<div>
+						<h2>Paracetamol 500mg</h2>
+						<span class="medicamento-detalhe-badge">Disponível</span>
+					</div>
+				</div>
+
+				<!-- Campos em grid 2 colunas -->
+				<div class="medicamento-detalhe-body">
+					<div class="medicamento-detalhe-campo">
+						<strong>Categoria</strong>
+						<span>Analgésico</span>
+					</div>
+					<div class="medicamento-detalhe-campo">
+						<strong>Dosagem</strong>
+						<span>500mg por comprimido</span>
+					</div>
+					<div class="medicamento-detalhe-campo">
+						<strong>Fabricante</strong>
+						<span>FarmaGen</span>
+					</div>
+					<div class="medicamento-detalhe-campo">
+						<strong>Preço</strong>
+						<span class="preco-valor">R$ 12,90</span>
+					</div>
+					<div class="medicamento-detalhe-campo full">
+						<strong>Descrição</strong>
+						<span>Utilizado para alívio de dores e febre.</span>
+					</div>
+				</div>
+
+				<!-- Ações -->
+				<div class="medicamento-detalhe-footer">
+					<a href="catalogo.html" class="btn">Voltar ao catálogo</a>
+					<a href="#" class="btn-carrinho">
+						<span class="icone"><i class="fa-solid fa-cart-plus"></i></span>
+						<span class="texto">Adicionar ao carrinho</span>
+					</a>
+				</div>
+
+			</section>
 		</main>
 
 		<!-- RODAPÉ -->
 		<footer class="footer">
 			<p>
-				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
-				reservados.
+				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos reservados.
 			</p>
 		</footer>
+
 	</body>
 </html>
