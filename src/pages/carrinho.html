@@ -36,7 +36,8 @@
 					</li>
 					<li class="nav-item">
 						<a href="carrinho.html" class="nav-link cart-item active">
-							<i class="fa-solid fa-cart-shopping"></i>
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span class="cart-label">Carrinho</span>
 						</a>
 					</li>
 				</ul>
@@ -62,7 +63,7 @@
 						<p>Formulário para selecionar medicamento, quantidade e observações.</p>
 					</div>
 
-					<form class="form-grid" name="adicionarCarrinho" method="post" action="#">
+					<form class="form-grid" name="adicionarCarrinho" method="get" action="carrinho.html">
 						<div class="form-field wide">
 							<label for="produto">Medicamento</label>
 							<select id="produto" name="produto" required>
@@ -98,7 +99,7 @@
 						</div>
 
 						<div class="form-actions wide">
-							<button class="btn btn-primary" type="submit">
+							<button class="btn btn-primary" type="button">
 								<i class="fa-solid fa-cart-plus"></i>
 								Adicionar
 							</button>
@@ -135,7 +136,7 @@
 						</div>
 					</dl>
 
-					<form class="summary-form" name="fechamentoVenda" method="post" action="#">
+					<form class="summary-form" name="fechamentoVenda" method="get" action="carrinho.html">
 						<div class="form-field">
 							<label for="pagamento">Pagamento</label>
 							<select id="pagamento" name="pagamento">
@@ -145,7 +146,7 @@
 								<option>Dinheiro</option>
 							</select>
 						</div>
-						<button class="btn btn-primary full-width" type="submit">
+						<button class="btn btn-primary full-width" type="button">
 							<i class="fa-solid fa-receipt"></i>
 							Gerar comprovante
 						</button>

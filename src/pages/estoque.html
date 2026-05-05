@@ -36,7 +36,8 @@
 					</li>
 					<li class="nav-item">
 						<a href="carrinho.html" class="nav-link cart-item">
-							<i class="fa-solid fa-cart-shopping"></i>
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span class="cart-label">Carrinho</span>
 						</a>
 					</li>
 				</ul>
@@ -93,7 +94,7 @@
 						<p>Use o formulário para simular entrada ou saída de estoque.</p>
 					</div>
 
-					<form class="form-grid" name="movimentoEstoque" method="post" action="#">
+				<form class="form-grid" name="movimentoEstoque" method="get" action="estoque.html">
 						<div class="form-field wide">
 							<label for="medicamento">Medicamento</label>
 							<select id="medicamento" name="medicamento" required>
@@ -133,7 +134,7 @@
 						</div>
 
 						<div class="form-actions wide">
-							<button class="btn btn-primary" type="submit">
+						<button class="btn btn-primary" type="button">
 								<i class="fa-solid fa-floppy-disk"></i>
 								Registrar
 							</button>
