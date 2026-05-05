@@ -43,7 +43,7 @@ git clone https://github.com/aKynoS2/projeto_farmacia.git
 cd projeto_farmacia
 
 # Abra o arquivo principal no navegador
-# Basta abrir o arquivo home.html diretamente,
+# Basta abrir o arquivo src/pages/index.html diretamente,
 # ou usar uma extensão como Live Server (VS Code)
 ```
 
@@ -53,14 +53,18 @@ cd projeto_farmacia
 
 ```
 projeto_farmacia/
-├── pages/
-│   ├── home.html
-│   ├── catalogo.html
-│   ├── receita.html
-│   ├── estoque.html
-│   └── carrinho.html
-├── styles/
-│   └── main.css
+├── src/
+│   ├── pages/
+│   │   ├── index.html
+│   │   ├── catalogo.html
+│   │   ├── receita.html
+│   │   ├── estoque.html
+│   │   └── carrinho.html
+│   └── styles/
+│       └── main.css
+├── docs/
+│   ├── instrucoes.md
+│   └── sitemap_farmacia.png
 └── README.md
 ```
 

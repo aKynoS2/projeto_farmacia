@@ -11,7 +11,8 @@
 		/>
 	</head>
 	<body>
-		<!-- NAVBAR -->
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
 		<nav class="navbar">
 			<div class="navbar-container">
 				<!-- Logo/Brand -->
@@ -28,7 +29,7 @@
 						<a href="catalogo.html" class="nav-link">Catálogo</a>
 					</li>
 					<li class="nav-item">
-						<a href="receita.html" class="nav-link">Receita</a>
+						<a href="receita.html" class="nav-link active">Receita</a>
 					</li>
 					<li class="nav-item">
 						<a href="estoque.html" class="nav-link">Estoque</a>
@@ -41,38 +42,40 @@
 				</ul>
 			</div>
 		</nav>
+		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
 		<main>
-			<div class="prescription-page">
+			<h1 class="sr-only">Geração de Receita</h1>
+			<section class="prescription-page" aria-label="Geração de receita médica fictícia">
 				<!-- Coluna esquerda - Formulário -->
-				<div class="prescription-col">
-					<div class="prescription-card">
+				<form class="prescription-col" name="gerarReceita" method="post" action="#">
+					<article class="prescription-card">
 						<p class="prescription-title">Tipo de receita</p>
 
 						<!-- Tipo de receita -->
 						<div class="type-selector">
-							<button class="type-btn ativo-simples">
+							<button class="type-btn ativo-simples" type="button">
 								<span class="prescription-category simples-badge">Branco</span>
 								<span class="prescription-type">Simples · 1 via</span>
 							</button>
-							<button class="type-btn">
+							<button class="type-btn" type="button">
 								<span class="prescription-category especial-badge">Branco</span>
 								<span class="prescription-type">Especial · 2 vias</span>
 							</button>
-							<button class="type-btn">
+							<button class="type-btn" type="button">
 								<span class="prescription-category azul-badge">Azul</span>
 								<span class="prescription-type">Psicotrópicos</span>
 							</button>
-							<button class="type-btn">
+							<button class="type-btn" type="button">
 								<span class="prescription-category amarelo-badge">Amarelo</span>
 								<span class="prescription-type">Entorpecentes</span>
 							</button>
 						</div>
-					</div>
+					</article>
 
 					<!-- Dados do médico -->
-					<div class="prescription-card">
+					<article class="prescription-card">
 						<p class="prescription-title">Dados do médico</p>
 						<div class="prescription-form">
 							<div class="form-group">
@@ -95,7 +98,7 @@
 									required
 								/>
 							</div>
-							<div class="form-group" style="grid-column: 1 / -1">
+							<div class="form-group form-group-wide">
 								<label for="medico-especialidade">Especialidade:</label>
 								<select
 									name="medico-especialidade"
@@ -115,10 +118,10 @@
 								</select>
 							</div>
 						</div>
-					</div>
+					</article>
 
 					<!-- Dados do paciente -->
-					<div class="prescription-card">
+					<article class="prescription-card">
 						<p class="prescription-title">Dados do paciente</p>
 						<div class="prescription-form">
 							<div class="form-group">
@@ -141,15 +144,15 @@
 								/>
 							</div>
 						</div>
-					</div>
+					</article>
 
 					<!-- Prescrição -->
-					<div class="prescription-card">
+					<article class="prescription-card">
 						<p class="prescription-title">Prescrição</p>
 						<div class="prescription-form">
 							<div class="form-group">
 								<label for="med-nome">Medicamento</label>
-								<select id="med-nome" required>
+								<select id="med-nome" name="med-nome" required>
 									<option value="">Selecione...</option>
 									<optgroup label="Receita simples">
 										<option>Dipirona 500mg</option>
@@ -188,7 +191,7 @@
 									required
 								/>
 							</div>
-							<div class="form-group" style="grid-column: 1 / -1">
+							<div class="form-group form-group-wide">
 								<label for="med-dosagem">Dosagem</label>
 								<input
 									type="text"
@@ -198,7 +201,7 @@
 									required
 								/>
 							</div>
-							<div class="form-group" style="grid-column: 1 / -1">
+							<div class="form-group form-group-wide">
 								<label for="med-posologia">Posologia/orientações</label>
 								<textarea
 									id="med-posologia"
@@ -222,16 +225,16 @@
 								<input type="date" id="med-data" name="med-data" required />
 							</div>
 						</div>
-					</div>
+					</article>
 
 					<!-- Botão de envio -->
-					<button type="button" class="prescription-btn">Gerar receita</button>
-				</div>
+					<button type="submit" class="prescription-btn">Gerar receita</button>
+				</form>
 
 				<!-- Coluna direita: Preview + histórico -->
 				<div class="prescription-col">
 					<!-- Preview -->
-					<div class="prescription-card">
+					<article class="prescription-card">
 						<p class="prescription-title">Pré-visualização</p>
 						<div class="doc-preview">
 							<div class="preview-header">
@@ -294,15 +297,14 @@
 						<button
 							type="button"
 							onclick="window.print()"
-							class="prescription-btn"
-							style="margin-top: 10px"
+							class="prescription-btn prescription-print-btn"
 						>
 							Imprimir receita
-						</button>
-					</div>
+							</button>
+					</article>
 
 					<!-- Histórico de receitas -->
-					<div class="prescription-card">
+					<article class="prescription-card">
 						<span class="prescription-title">Receitas emitidas hoje</span>
 						<ul class="hist-list">
 							<li class="hist-item">
@@ -328,9 +330,9 @@
 								<span class="hist-hora">10:15</span>
 							</li>
 						</ul>
-					</div>
+					</article>
 				</div>
-			</div>
+			</section>
 		</main>
 
 		<!-- RODAPÉ -->
