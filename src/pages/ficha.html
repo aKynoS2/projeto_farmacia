@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Farmácia - Ficha de Medicamento</title>
+		<title>Ficha do Medicamento - FarmaSys</title>
 		<link rel="stylesheet" href="../styles/main.css" />
 		<link
 			rel="stylesheet"
@@ -13,80 +13,94 @@
 	<body>
 		<!-- CABEÇALHO E NAVEGAÇÃO -->
 		<header class="site-header">
-		<nav class="navbar">
-			<div class="navbar-container">
-				<!-- Logo/Brand -->
-				<div class="navbar-brand">
-					<a href="index.html" class="logo">
-						<span class="logo-icon">💊</span>
-						<span class="logo-text">Farmácia</span>
-					</a>
-				</div>
-
-				<!-- Menu Links -->
-				<ul class="navbar-menu">
-					<li class="nav-item">
-						<a href="catalogo.html" class="nav-link">Catálogo</a>
-					</li>
-					<li class="nav-item">
-						<a href="receita.html" class="nav-link">Receita</a>
-					</li>
-					<li class="nav-item">
-						<a href="estoque.html" class="nav-link">Estoque</a>
-					</li>
-					<li class="nav-item">
-						<a href="carrinho.html" class="nav-link cart-item">
-							<i class="fa-solid fa-cart-shopping"></i>
+			<nav class="navbar">
+				<div class="navbar-container">
+					<div class="navbar-brand">
+						<a href="index.html" class="logo">
+							<span class="logo-icon">💊</span>
+							<span class="logo-text">Farmácia</span>
 						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+					</div>
+
+					<ul class="navbar-menu">
+						<li class="nav-item">
+							<a href="catalogo.html" class="nav-link">Catálogo</a>
+						</li>
+						<li class="nav-item">
+							<a href="receita.html" class="nav-link">Receita</a>
+						</li>
+						<li class="nav-item">
+							<a href="estoque.html" class="nav-link">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="carrinho.html" class="nav-link cart-item">
+								<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+								<span class="cart-label">Carrinho</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
 		<main class="workspace">
 			<section class="page-heading">
 				<p class="eyebrow">Informações do produto</p>
-				<h1>Ficha de Medicamento</h1>
+				<h1>Ficha do Medicamento</h1>
 				<p>
 					Consulta detalhada para orientar atendentes e farmacêuticos sobre uso,
-					indicação, contraindicação e exigência de receita.
+					preço, disponibilidade e registro da venda.
 				</p>
 			</section>
 
-			<article class="panel medicine-profile">
-				<header class="section-title">
-					<h2>Amoxicilina 500mg</h2>
-					<p>Antibiótico de tarja vermelha vendido somente com receita.</p>
+			<article class="panel medicamento-detalhe">
+				<header class="medicamento-detalhe-header">
+					<span class="medicamento-detalhe-icon" aria-hidden="true">💊</span>
+					<div>
+						<h2>Paracetamol 500mg</h2>
+						<span class="medicamento-detalhe-badge">Disponível</span>
+					</div>
 				</header>
 
-				<section class="profile-grid">
-					<div>
-						<h3>Composição</h3>
-						<p>Amoxicilina tri-hidratada equivalente a 500mg de amoxicilina.</p>
+				<dl class="medicamento-detalhe-body">
+					<div class="medicamento-detalhe-campo">
+						<dt>Categoria</dt>
+						<dd>Analgésico</dd>
 					</div>
-					<div>
-						<h3>Laboratório</h3>
-						<p>EMS</p>
+					<div class="medicamento-detalhe-campo">
+						<dt>Dosagem</dt>
+						<dd>500mg por comprimido</dd>
 					</div>
-					<div>
-						<h3>Indicação</h3>
-						<p>Tratamento de infecções causadas por bactérias sensíveis ao medicamento.</p>
+					<div class="medicamento-detalhe-campo">
+						<dt>Fabricante</dt>
+						<dd>FarmaGen</dd>
 					</div>
-					<div>
-						<h3>Contraindicação</h3>
-						<p>Pacientes com alergia a penicilinas ou cefalosporinas.</p>
+					<div class="medicamento-detalhe-campo">
+						<dt>Preço</dt>
+						<dd class="preco-valor">R$ 12,90</dd>
 					</div>
-				</section>
+					<div class="medicamento-detalhe-campo full">
+						<dt>Descrição</dt>
+						<dd>Utilizado para alívio de dores e febre.</dd>
+					</div>
+				</dl>
 
 				<section class="medicine-warning">
-					<h3>Controle de venda</h3>
+					<h3>Orientação de venda</h3>
 					<p>
-						Antes de vender, o atendente deve conferir a receita e registrar a saída
-						no controle de estoque.
+						Antes de finalizar a venda, confira quantidade em estoque e registre a
+						saída no carrinho.
 					</p>
 				</section>
+
+				<footer class="medicamento-detalhe-footer">
+					<a href="catalogo.html" class="btn btn-secondary">Voltar ao catálogo</a>
+					<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+						<i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+						<span>Adicionar ao carrinho</span>
+					</a>
+				</footer>
 			</article>
 		</main>
 

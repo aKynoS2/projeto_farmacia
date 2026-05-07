@@ -36,7 +36,8 @@
 					</li>
 					<li class="nav-item">
 						<a href="carrinho.html" class="nav-link cart-item">
-							<i class="fa-solid fa-cart-shopping"></i>
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span class="cart-label">Carrinho</span>
 						</a>
 					</li>
 				</ul>
@@ -49,7 +50,7 @@
 			<h1 class="sr-only">Geração de Receita</h1>
 			<section class="prescription-page" aria-label="Geração de receita médica fictícia">
 				<!-- Coluna esquerda - Formulário -->
-				<form class="prescription-col" name="gerarReceita" method="post" action="#">
+			<form class="prescription-col" name="gerarReceita" method="get" action="receita.html">
 					<article class="prescription-card">
 						<p class="prescription-title">Tipo de receita</p>
 
@@ -228,7 +229,7 @@
 					</article>
 
 					<!-- Botão de envio -->
-					<button type="submit" class="prescription-btn">Gerar receita</button>
+				<button type="button" class="prescription-btn">Gerar receita</button>
 				</form>
 
 				<!-- Coluna direita: Preview + histórico -->
@@ -296,11 +297,10 @@
 
 						<button
 							type="button"
-							onclick="window.print()"
 							class="prescription-btn prescription-print-btn"
 						>
 							Imprimir receita
-							</button>
+						</button>
 					</article>
 
 					<!-- Histórico de receitas -->
