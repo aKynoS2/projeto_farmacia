@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Respostas CSS - Versão Modificada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #222;
+      line-height: 1.5;
+    }
+    h1 {
+      font-size: 1.5rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 8px;
+    }
+    h2 {
+      font-size: 1.05rem;
+      margin-top: 2rem;
+      margin-bottom: 6px;
+    }
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Respostas — Questões de CSS</h1>
+
+<hr>
+
+<h2>1. Parágrafos com texto azul e tamanho 16px</h2>
+<p>Foi utilizado um <strong>seletor de tipo</strong>, pois ele seleciona todos os elementos &lt;p&gt; existentes no documento.</p>
+<pre>p {
+  color: blue;
+  font-size: 16px;
+}</pre>
+
+<hr>
+
+<h2>2. Botões que possuem a classe .confirmar</h2>
+<p>Nesse caso, foi usado um <strong>seletor de elemento junto com classe</strong>, aplicando o estilo somente aos botões que tenham a classe indicada.</p>
+<pre>button.confirmar {
+  background-color: green;
+  color: white;
+}</pre>
+
+<hr>
+
+<h2>3. Área com id="menuPrincipal"</h2>
+<p>O seletor usado é o <strong>seletor de ID</strong>, que serve para identificar e estilizar um elemento específico da página.</p>
+<pre>#menuPrincipal {
+  text-align: center;
+}</pre>
+
+<hr>
+
+<h2>4. Parágrafos localizados dentro de .conteudo</h2>
+<p>Foi aplicado um <strong>seletor descendente</strong>, que alcança todos os parágrafos dentro do elemento com a classe .conteudo, mesmo que estejam em níveis internos.</p>
+<pre>.conteudo p {
+  font-weight: bold;
+}</pre>
+
+<hr>
+
+<h2>5. Uso de position: relative</h2>
+<p>A propriedade <strong>position: relative</strong> mantém o elemento no fluxo normal da página, mas permite mudar sua posição visual usando top, right, bottom ou left.</p>
+<pre>p {
+  position: relative;
+  top: 10px;   /* desloca para baixo */
+  left: 20px;  /* desloca para a direita */
+}</pre>
+
+<hr>
+
+<h2>6. Banner preso no topo da tela</h2>
+<p>O valor utilizado é <strong>position: fixed</strong>, pois ele fixa o elemento em relação à janela do navegador, mantendo-o visível durante a rolagem.</p>
+<pre>.banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}</pre>
+
+<hr>
+
+<h2>7. Campos obrigatórios com borda vermelha</h2>
+<p>Foi usado um <strong>seletor de classe</strong>, aplicando a borda vermelha a todos os elementos que possuírem a classe .obrigatorio.</p>
+<pre>.obrigatorio {
+  border: 2px solid red;
+}</pre>
+
+<hr>
+
+<h2>8. Diferença entre div p e div &gt; p</h2>
+<p><strong>div p</strong> seleciona qualquer parágrafo dentro de uma div, mesmo que esteja dentro de outros elementos.</p>
+<p><strong>div &gt; p</strong> seleciona apenas os parágrafos que são filhos diretos da div.</p>
+<pre>div &gt; p {
+  color: green;
+}</pre>
+
+<hr>
+
+<h2>9. Links que mudam ao passar o mouse</h2>
+<p>A funcionalidade usada é uma <strong>pseudo-classe</strong>. O <strong>:hover</strong> aplica um estilo quando o cursor está sobre o link.</p>
+<pre>a:hover {
+  color: orange;
+}</pre>
+
+<hr>
+
+<h2>10. Retirar margens padrão dos elementos</h2>
+<p>Foi usado o <strong>seletor universal (*)</strong>, que seleciona todos os elementos HTML da página.</p>
+<pre>* {
+  margin: 0;
+}</pre>
+
+</body>
+</html>

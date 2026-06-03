@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+div {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    color: black;
+}
+
+/* Esquerda em cima */
+.esqcima {
+    top: 0;
+    left: 0;
+    background-color: red;
+}
+
+/* Direita em cima */
+.dircima {
+    top: 0;
+    right: 0;
+    background-color: yellow;
+}
+
+/* Esquerda em baixo */
+.esqbaixo {
+    bottom: 0;
+    left: 0;
+    background-color: green;
+}
+
+/* Direita em baixo */
+.dirbaixo {
+    bottom: 0;
+    right: 0;
+    background-color: blue;
+}

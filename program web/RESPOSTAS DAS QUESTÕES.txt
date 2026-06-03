@@ -1,0 +1,70 @@
+qustão 1: arquivo anexado ao zip
+
+
+questão 2) Explique as diferenças existentes entre "seletores de classe" e "seletores de ID".
+
+R:Classe (.) pode ser usada em vários elementos e serve para repetir estilos; já o ID (#) deve ser único na página e serve para um elemento específico; além disso, o ID tem prioridade maior que a classe, ou seja, seu estilo sobrescreve o da classe quando há conflito.
+
+
+questão 3) Suponha, uma folha de estilo externa com as seguintes propriedades para o seletor h2:
+h2 {
+color: #FFCC00;
+text-align: center;
+font: italic 9pt Verdana, Sans-serif;
+}
+e, uma folha de estilo interna com as seguintes propriedades para o seletor h2:
+h2 {
+color: #FFCC00;
+text-align: center;
+font: italic 10pt Verdana, Sans-serif;
+}
+Se ambas as páginas estiverem vinculadas ao documento, como será resolvido o conflito no tamanho das letras para <h2>?
+No exemplo acima o elemento <h2> terá que tamanho?
+
+R:Quando há conflito entre CSS externo e interno, o **CSS interno tem prioridade maior**; como apenas o tamanho da fonte é diferente (9pt no externo e 10pt no interno), o valor do interno sobrescreve o externo, então o `<h2>` ficará com **tamanho 10pt**.
+
+
+
+Questão 4) Com base no modelo de arquivo HTML abaixo, crie um arquivo de estilo de nome "posicionamento.css", para posicionar as
+DIV's criadas conforma a imagem abaixo. O arquivo HTML não deve ser modificado.
+<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head>
+ <title>Posicionamento com CSS</title>
+ <link rel="stylesheet" href="posicionamento.css" type="text/css">
+</head>
+<body>
+<div class="esqcima">
+ <p>Esquerda em Cima</p>
+</div>
+<div class="esqbaixo">
+ <p>Esquerda em Baixo</p>
+</div>
+<div class="dircima">
+ <p>Direita em Cima</p>
+</div>
+<div class="dirbaixo">
+ <p>Direita em Baixo</p>
+</div>
+</body>
+</html>
+
+R: arquivo anexado ao zip
+
+
+questão 5) Criar um calendário do mês de novembro/2020 conforme o modelo apresentado. Este calendário deverá ser criado utilizando
+html e css.
+
+E: arquivo anexado ao zip
+
+
+questão 6) Desenvolver uma página web que represente o seu currículo. Esta página deverá ser construída em HTML, porém qualquer 
+formatação necessária as tags deverá ser feita com o uso do CSS. O modelo de currículo a ser utilizado fica a livre escolha.
+
+R: arquivo anexado ao zip
+
+
+questão 7) Reescrever a atividade 10 da apresentação relativa a tabelas, substituindo o uso de tabelas para a estruturação do site e para a
+formatação da apresentação através do emprego de CSS para obter-se a imagem apresentada abaixo.
+
+R: arquivo anexado ao zip

@@ -1,0 +1,131 @@
+1.        Você está desenvolvendo uma página de notícias que possui vários parágrafos de texto. O cliente solicitou que todos os parágrafos fiquem com cor de fonte azul e tamanho de fonte de 16px. Explique qual seletor deve ser utilizado e escreva a regra CSS necessária.
+
+R: Deve-se usar o seletor de elemento p, pois ele aplica o estilo a todos os parágrafos da página; a regra CSS é:
+
+p {
+    color: blue;
+    font-size: 16px;
+}
+
+
+2.        Uma página possui diversos botões, mas apenas os botões de confirmação têm a classe confirmar. O cliente pediu que esses botões tenham fundo verde e texto branco. Escreva o seletor e a regra CSS que atenda a esse requisito.
+
+R: Deve-se usar o seletor de classe `.confirmar`, pois ele aplica o estilo apenas aos elementos com essa classe; a regra CSS é:
+
+```css id="n8s2lm"
+.confirmar {
+    background-color: green;
+    color: white;
+}
+```
+
+
+
+3.        Na página inicial de um site, há uma seção de navegação identificada com o id="menuPrincipal". O designer pediu que os itens dessa seção tenham texto centralizado. Qual seletor deve ser usado e como ficaria a regra CSS?
+
+R: Deve-se usar o seletor de ID `#menuPrincipal`, pois ele se aplica ao elemento com esse ID específico; a regra CSS é:
+
+```css id="p3x7qa"
+#menuPrincipal {
+    text-align: center;
+}
+```
+
+
+
+4.        Você deseja aplicar negrito apenas aos parágrafos que estão dentro de uma <div> chamada conteudo. Como deve ser escrito o seletor CSS?
+
+R: Deve-se usar um **seletor descendente** `div.conteudo p`, pois ele aplica o estilo apenas aos parágrafos dentro dessa div; a regra CSS é:
+
+```css
+div.conteudo p {
+    font-weight: bold;
+}
+```
+
+
+
+5.        Explique o que acontece quando aplicamos position: relative; em um elemento. Depois, dê um exemplo de como mover um parágrafo 10px para baixo e 20px para a direita a partir da sua posição original.
+
+R: Ao usar `position: relative`, o elemento continua ocupando seu lugar normal na página, mas pode ser deslocado em relação à sua posição original usando `top`, `left`, `right` ou `bottom`.
+
+Exemplo movendo 10px para baixo e 20px para a direita:
+
+```css id="k2m9xq"
+p {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+```
+
+
+
+6.        Um banner precisa ficar sempre fixo no topo da página, mesmo quando o usuário rolar a tela. Explique qual valor de position deve ser utilizado e escreva uma regra CSS para manter o banner no topo.
+
+R: R: Deve-se usar `position: fixed`, pois ele mantém o elemento fixo na tela mesmo com a rolagem; a regra CSS é:
+
+```css id="u3mz8a"
+#banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+```
+
+
+
+7.        Na construção de um formulário, todos os campos obrigatórios estão marcados com a classe obrigatorio. O designer pediu que esses campos fiquem com a borda vermelha. Escreva o seletor e a regra CSS correspondente.
+
+R: Deve-se usar o seletor de classe `.obrigatorio`, pois ele aplica o estilo apenas aos campos com essa classe; a regra CSS é:
+
+```css id="m7p4zs"
+.obrigatorio {
+    border: 1px solid red;
+}
+```
+
+
+
+8.        Explique a diferença entre os seletores div p e div > p. Depois, escreva um exemplo de código CSS que aplica a cor verde apenas aos parágrafos que são filhos diretos de uma <div>.
+
+R: `div p` seleciona todos os parágrafos dentro de uma `div`, em qualquer nível (filhos ou mais profundos); já `div > p` seleciona apenas os parágrafos que são filhos diretos da `div`.
+
+Exemplo aplicando verde apenas aos filhos diretos:
+
+```css id="g8k2lm"
+div > p {
+    color: green;
+}
+```
+
+
+
+9.        Crie um seletor que faça com que os links mudem de cor para laranja quando o usuário passa o mouse sobre eles. Explique o nome dessa funcionalidade em CSS.
+
+R: Deve-se usar o pseudo-classe `:hover`, que altera o estilo quando o usuário passa o mouse sobre o elemento.
+
+Regra CSS:
+
+```css id="v4n9qx"
+a:hover {
+    color: orange;
+}
+```
+
+
+
+10.   O desenvolvedor precisa remover todas as margens padrões dos elementos HTML de uma página, deixando a estrutura "limpa" para aplicar os estilos manualmente. Qual seletor pode ser usado para aplicar margin: 0; a todos os elementos?
+
+R: Deve-se usar o seletor universal `*`, pois ele aplica o estilo a todos os elementos da página; a regra CSS é:
+
+```css id="x9k3lm"
+* {
+    margin: 0;
+}
+```
+
+
+
+Para cada questões construa o elemento CSS solicitado. Salve todas as respostas em um único arquivo, identificando cada uma das respostas, efetuando o upload do arquivo aqui.

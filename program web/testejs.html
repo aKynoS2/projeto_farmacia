@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soma numeros</title>
+</head>
+<body>
+    <script>
+     let number=Number(prompt("Digite um número:"));
+     let number2=Number(prompt("Digite outro número:"));
+     let number3=Number(prompt("Digite mais um número:"));
+     let igual=0;
+
+     if(number ===number2){
+        igual++;
+     }else
+     if(number2===number3){
+        igual++;
+        }else
+        if(number===number3){
+            igual++;
+        }
+        document.getElementById("resultado").textContent=igual;
+    </script>
+    <p>Quantidade de pares iguais: <span id="resultado"></span></p>
+</body>
+</html>

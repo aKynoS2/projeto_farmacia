@@ -1,0 +1,8 @@
+INTRODUÇÃO A C++
+
+inteiro = int
+real = float
+caracter = char (único digito, ex:'F') ou string (vários dígitos ex: "Jose")
+vazio = void
+(=) = (==)
+(<-)=(=)

@@ -1,0 +1,33 @@
+1)    Faça um algoritmo que leia dois números inteiros, em seguida, se eles forem diferentes, escreva na tela "os valores são diferentes". Caso contrário escreva a mensagem “números iguais” 
+
+  
+
+2)    Faça um algoritmo que leia um número e verifique se ele é par ou ímpar, Imprima a frase  “é par” ou “é ímpar”.
+
+  
+
+3)    Ler um número inteiro e determinar se é divisível por 5. Se for divisível, escrever uma mensagem na tela “o número xx é divisível por 5”. Se não for divisível imprima “o número xx não é divisível por 5”. No lugar de xx deve aparecer o número que foi lido pelo usuário.
+
+  
+
+4- Dado um ano D.C (Depois de Cristo), identifique se este é um ano bissexto ou não. Considere que para o ano ser bissexto basta que seja divisível por 400. Caso contrário, este precisará ser divisível por  4 e não divisível por 100.
+
+ 
+
+5-Depois da liberação do governo para as mensalidades dos planos de saúde, as pessoas começam a fazer pesquisas para descobrir um bom plano, não muito caro. Um vendedor de um plano de saúde apresentou a Tabela 2. Criar um programa que receba a idade de uma pessoa e imprima o valor que ela devera pagar, segundo a Tabela 2
+
+
+
+6 )Um posto de combustível vende três tipos de combustível : álcool, diesel e gasolina. O preço de cada litro dos combustíveis deve ser lido(informado) pelo usuário. Faça um algoritmo que leia um caracter que representa o tipo de combustível comprado (a, d ou g) , o preço do combustível e a quantidade em litros. Utilizar o comando Switch / escolha.
+
+O programa deve imprimir o valor em reais a ser pago pelo combustível.
+
+ 
+
+Combustível                            Preço por Litro
+
+A – Álcool                              ler o valor
+
+D – Diesel                               ler o valor
+
+G – Gasolina                           ler o valor
