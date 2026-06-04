@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Farmácia - Estoque</title>
+		<title>FarmaSys - Estoque</title>
 		<link rel="stylesheet" href="../styles/main.css" />
 		<link
 			rel="stylesheet"
@@ -13,36 +13,36 @@
 	<body>
 		<!-- CABEÇALHO E NAVEGAÇÃO -->
 		<header class="site-header">
-		<nav class="navbar">
-			<div class="navbar-container">
-				<!-- Logo/Brand -->
-				<div class="navbar-brand">
-					<a href="index.html" class="logo">
-						<span class="logo-icon">💊</span>
-						<span class="logo-text">Farmácia</span>
-					</a>
-				</div>
-
-				<!-- Menu Links -->
-				<ul class="navbar-menu">
-					<li class="nav-item">
-						<a href="catalogo.html" class="nav-link">Catálogo</a>
-					</li>
-					<li class="nav-item">
-						<a href="receita.html" class="nav-link">Receita</a>
-					</li>
-					<li class="nav-item">
-						<a href="estoque.html" class="nav-link active">Estoque</a>
-					</li>
-					<li class="nav-item">
-						<a href="carrinho.html" class="nav-link cart-item">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span class="cart-label">Carrinho</span>
+			<nav class="navbar">
+				<div class="navbar-container">
+					<!-- Logo/Brand -->
+					<div class="navbar-brand">
+						<a href="index.html" class="logo">
+							<span class="logo-icon">💊</span>
+							<span class="logo-text">Farmácia</span>
 						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+					</div>
+
+					<!-- Menu Links -->
+					<ul class="navbar-menu">
+						<li class="nav-item">
+							<a href="catalogo.html" class="nav-link">Catálogo</a>
+						</li>
+						<li class="nav-item">
+							<a href="receita.html" class="nav-link">Receita</a>
+						</li>
+						<li class="nav-item">
+							<a href="estoque.html" class="nav-link active">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="carrinho.html" class="nav-link cart-item">
+								<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+								<span class="cart-label">Carrinho</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
@@ -58,28 +58,36 @@
 
 			<section class="metric-grid" aria-label="Resumo do estoque">
 				<article class="metric-card">
-					<span class="metric-icon"><i class="fa-solid fa-boxes-stacked"></i></span>
+					<span class="metric-icon"
+						><i class="fa-solid fa-boxes-stacked"></i
+					></span>
 					<div>
 						<p class="metric-label">Itens cadastrados</p>
 						<strong class="metric-value">126</strong>
 					</div>
 				</article>
 				<article class="metric-card">
-					<span class="metric-icon warning"><i class="fa-solid fa-triangle-exclamation"></i></span>
+					<span class="metric-icon warning"
+						><i class="fa-solid fa-triangle-exclamation"></i
+					></span>
 					<div>
 						<p class="metric-label">Estoque baixo</p>
 						<strong class="metric-value">8</strong>
 					</div>
 				</article>
 				<article class="metric-card">
-					<span class="metric-icon danger"><i class="fa-solid fa-calendar-xmark"></i></span>
+					<span class="metric-icon danger"
+						><i class="fa-solid fa-calendar-xmark"></i
+					></span>
 					<div>
 						<p class="metric-label">Validade próxima</p>
 						<strong class="metric-value">3</strong>
 					</div>
 				</article>
 				<article class="metric-card">
-					<span class="metric-icon info"><i class="fa-solid fa-prescription-bottle-medical"></i></span>
+					<span class="metric-icon info"
+						><i class="fa-solid fa-prescription-bottle-medical"></i
+					></span>
 					<div>
 						<p class="metric-label">Exigem receita</p>
 						<strong class="metric-value">21</strong>
@@ -94,7 +102,12 @@
 						<p>Use o formulário para simular entrada ou saída de estoque.</p>
 					</div>
 
-				<form class="form-grid" name="movimentoEstoque" method="get" action="estoque.html">
+					<form
+						class="form-grid"
+						name="movimentoEstoque"
+						method="get"
+						action="estoque.html"
+					>
 						<div class="form-field wide">
 							<label for="medicamento">Medicamento</label>
 							<select id="medicamento" name="medicamento" required>
@@ -108,7 +121,14 @@
 
 						<div class="form-field">
 							<label for="quantidade">Quantidade</label>
-							<input id="quantidade" name="quantidade" type="number" min="1" value="1" required />
+							<input
+								id="quantidade"
+								name="quantidade"
+								type="number"
+								min="1"
+								value="1"
+								required
+							/>
 						</div>
 
 						<div class="form-field">
@@ -119,7 +139,12 @@
 						<fieldset class="form-field wide movement-options">
 							<legend>Tipo de movimento</legend>
 							<label>
-								<input type="radio" name="tipoMovimento" value="entrada" checked />
+								<input
+									type="radio"
+									name="tipoMovimento"
+									value="entrada"
+									checked
+								/>
 								Entrada
 							</label>
 							<label>
@@ -130,11 +155,16 @@
 
 						<div class="form-field wide">
 							<label for="observacoes">Observações</label>
-							<textarea id="observacoes" name="observacoes" rows="4" placeholder="Ex.: lote recebido, perda por avaria ou baixa por venda."></textarea>
+							<textarea
+								id="observacoes"
+								name="observacoes"
+								rows="4"
+								placeholder="Ex.: lote recebido, perda por avaria ou baixa por venda."
+							></textarea>
 						</div>
 
 						<div class="form-actions wide">
-						<button class="btn btn-primary" type="button">
+							<button class="btn btn-primary" type="button">
 								<i class="fa-solid fa-floppy-disk"></i>
 								Registrar
 							</button>
@@ -189,7 +219,9 @@
 
 				<div class="table-responsive">
 					<table class="data-table">
-						<caption>Lista de medicamentos cadastrados no estoque</caption>
+						<caption>
+							Lista de medicamentos cadastrados no estoque
+						</caption>
 						<thead>
 							<tr>
 								<th>Medicamento</th>
@@ -231,7 +263,9 @@
 								<td>5</td>
 								<td>12</td>
 								<td>Sim</td>
-								<td><span class="status-pill status-warning">Reposição</span></td>
+								<td>
+									<span class="status-pill status-warning">Reposição</span>
+								</td>
 							</tr>
 							<tr>
 								<td>Losartana 50mg</td>

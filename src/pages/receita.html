@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Farmácia - Geração de Receita</title>
+		<title>FarmaSys - Geração de Receita</title>
 		<link rel="stylesheet" href="../styles/main.css" />
 		<link
 			rel="stylesheet"
@@ -50,9 +50,9 @@
 			<h1 class="sr-only">Geração de Receita</h1>
 			<section class="prescription-page" aria-label="Geração de receita médica fictícia">
 				<!-- Coluna esquerda - Formulário -->
-			<form class="prescription-col" name="gerarReceita" method="get" action="receita.html">
+			<form class="prescription-col" name="gerarReceita" method="post" action="receita.html">
 					<article class="prescription-card">
-						<p class="prescription-title">Tipo de receita</p>
+						<h2 class="prescription-title">Tipo de receita</h2>
 
 						<!-- Tipo de receita -->
 						<div class="type-selector">
@@ -77,7 +77,7 @@
 
 					<!-- Dados do médico -->
 					<article class="prescription-card">
-						<p class="prescription-title">Dados do médico</p>
+						<h2 class="prescription-title">Dados do médico</h2>
 						<div class="prescription-form">
 							<div class="form-group">
 								<label for="nome-medico">Nome completo:</label>
@@ -123,7 +123,7 @@
 
 					<!-- Dados do paciente -->
 					<article class="prescription-card">
-						<p class="prescription-title">Dados do paciente</p>
+						<h2 class="prescription-title">Dados do paciente</h2>
 						<div class="prescription-form">
 							<div class="form-group">
 								<label for="nome-paciente">Nome completo:</label>
@@ -149,7 +149,7 @@
 
 					<!-- Prescrição -->
 					<article class="prescription-card">
-						<p class="prescription-title">Prescrição</p>
+						<h2 class="prescription-title">Prescrição</h2>
 						<div class="prescription-form">
 							<div class="form-group">
 								<label for="med-nome">Medicamento</label>
@@ -236,7 +236,7 @@
 				<div class="prescription-col">
 					<!-- Preview -->
 					<article class="prescription-card">
-						<p class="prescription-title">Pré-visualização</p>
+						<h2 class="prescription-title">Pré-visualização</h2>
 						<div class="doc-preview">
 							<div class="preview-header">
 								<div>
@@ -305,7 +305,7 @@
 
 					<!-- Histórico de receitas -->
 					<article class="prescription-card">
-						<span class="prescription-title">Receitas emitidas hoje</span>
+						<h2 class="prescription-title">Receitas emitidas hoje</h2>
 						<ul class="hist-list">
 							<li class="hist-item">
 								<span class="hist-nome">Carlos Andrade</span>

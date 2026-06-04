@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Farmácia - Carrinho</title>
+		<title>FarmaSys - Carrinho</title>
 		<link rel="stylesheet" href="../styles/main.css" />
 		<link
 			rel="stylesheet"
@@ -13,36 +13,36 @@
 	<body>
 		<!-- CABEÇALHO E NAVEGAÇÃO -->
 		<header class="site-header">
-		<nav class="navbar">
-			<div class="navbar-container">
-				<!-- Logo/Brand -->
-				<div class="navbar-brand">
-					<a href="index.html" class="logo">
-						<span class="logo-icon">💊</span>
-						<span class="logo-text">Farmácia</span>
-					</a>
-				</div>
-
-				<!-- Menu Links -->
-				<ul class="navbar-menu">
-					<li class="nav-item">
-						<a href="catalogo.html" class="nav-link">Catálogo</a>
-					</li>
-					<li class="nav-item">
-						<a href="receita.html" class="nav-link">Receita</a>
-					</li>
-					<li class="nav-item">
-						<a href="estoque.html" class="nav-link">Estoque</a>
-					</li>
-					<li class="nav-item">
-						<a href="carrinho.html" class="nav-link cart-item active">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span class="cart-label">Carrinho</span>
+			<nav class="navbar">
+				<div class="navbar-container">
+					<!-- Logo/Brand -->
+					<div class="navbar-brand">
+						<a href="index.html" class="logo">
+							<span class="logo-icon">💊</span>
+							<span class="logo-text">Farmácia</span>
 						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+					</div>
+
+					<!-- Menu Links -->
+					<ul class="navbar-menu">
+						<li class="nav-item">
+							<a href="catalogo.html" class="nav-link">Catálogo</a>
+						</li>
+						<li class="nav-item">
+							<a href="receita.html" class="nav-link">Receita</a>
+						</li>
+						<li class="nav-item">
+							<a href="estoque.html" class="nav-link">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="carrinho.html" class="nav-link cart-item active">
+								<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+								<span class="cart-label">Carrinho</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
@@ -60,29 +60,52 @@
 				<section class="panel">
 					<div class="section-title">
 						<h2>Adicionar produto</h2>
-						<p>Formulário para selecionar medicamento, quantidade e observações.</p>
+						<p>
+							Formulário para selecionar medicamento, quantidade e observações.
+						</p>
 					</div>
 
-					<form class="form-grid" name="adicionarCarrinho" method="get" action="carrinho.html">
+					<form
+						class="form-grid"
+						name="adicionarCarrinho"
+						method="get"
+						action="carrinho.html"
+					>
 						<div class="form-field wide">
 							<label for="produto">Medicamento</label>
 							<select id="produto" name="produto" required>
 								<option value="">Selecione um produto</option>
 								<option value="dipirona">Dipirona 500mg - R$ 12,90</option>
 								<option value="omeprazol">Omeprazol 20mg - R$ 23,50</option>
-								<option value="amoxicilina">Amoxicilina 500mg - R$ 34,90 - exige receita</option>
-								<option value="losartana">Losartana 50mg - R$ 18,90 - exige receita</option>
+								<option value="amoxicilina">
+									Amoxicilina 500mg - R$ 34,90 - exige receita
+								</option>
+								<option value="losartana">
+									Losartana 50mg - R$ 18,90 - exige receita
+								</option>
 							</select>
 						</div>
 
 						<div class="form-field">
 							<label for="qtdVenda">Quantidade</label>
-							<input id="qtdVenda" name="qtdVenda" type="number" min="1" value="1" required />
+							<input
+								id="qtdVenda"
+								name="qtdVenda"
+								type="number"
+								min="1"
+								value="1"
+								required
+							/>
 						</div>
 
 						<div class="form-field">
 							<label for="cliente">Cliente</label>
-							<input id="cliente" name="cliente" type="text" placeholder="Nome do cliente" />
+							<input
+								id="cliente"
+								name="cliente"
+								type="text"
+								placeholder="Nome do cliente"
+							/>
 						</div>
 
 						<fieldset class="form-field wide movement-options">
@@ -95,7 +118,12 @@
 
 						<div class="form-field wide">
 							<label for="obsVenda">Observações</label>
-							<textarea id="obsVenda" name="obsVenda" rows="4" placeholder="Ex.: medicamento reservado, receita anexada ou orientação ao cliente."></textarea>
+							<textarea
+								id="obsVenda"
+								name="obsVenda"
+								rows="4"
+								placeholder="Ex.: medicamento reservado, receita anexada ou orientação ao cliente."
+							></textarea>
 						</div>
 
 						<div class="form-actions wide">
@@ -136,7 +164,12 @@
 						</div>
 					</dl>
 
-					<form class="summary-form" name="fechamentoVenda" method="get" action="carrinho.html">
+					<form
+						class="summary-form"
+						name="fechamentoVenda"
+						method="get"
+						action="carrinho.html"
+					>
 						<div class="form-field">
 							<label for="pagamento">Pagamento</label>
 							<select id="pagamento" name="pagamento">
@@ -165,7 +198,9 @@
 
 				<div class="table-responsive">
 					<table class="data-table cart-table">
-						<caption>Lista de itens adicionados ao carrinho</caption>
+						<caption>
+							Lista de itens adicionados ao carrinho
+						</caption>
 						<thead>
 							<tr>
 								<th>Medicamento</th>
@@ -189,7 +224,11 @@
 								<td>R$ 12,90</td>
 								<td><span class="status-pill status-ok">Não exige</span></td>
 								<td>
-									<button class="icon-button" type="button" aria-label="Remover Dipirona">
+									<button
+										class="icon-button"
+										type="button"
+										aria-label="Remover Dipirona"
+									>
 										<i class="fa-solid fa-trash"></i>
 									</button>
 								</td>
@@ -205,7 +244,11 @@
 								<td>R$ 47,00</td>
 								<td><span class="status-pill status-ok">Não exige</span></td>
 								<td>
-									<button class="icon-button" type="button" aria-label="Remover Omeprazol">
+									<button
+										class="icon-button"
+										type="button"
+										aria-label="Remover Omeprazol"
+									>
 										<i class="fa-solid fa-trash"></i>
 									</button>
 								</td>
@@ -219,9 +262,15 @@
 								<td>1</td>
 								<td>R$ 34,90</td>
 								<td>R$ 34,90</td>
-								<td><span class="status-pill status-warning">Conferir</span></td>
 								<td>
-									<button class="icon-button" type="button" aria-label="Remover Amoxicilina">
+									<span class="status-pill status-warning">Conferir</span>
+								</td>
+								<td>
+									<button
+										class="icon-button"
+										type="button"
+										aria-label="Remover Amoxicilina"
+									>
 										<i class="fa-solid fa-trash"></i>
 									</button>
 								</td>
