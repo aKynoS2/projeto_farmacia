@@ -3,23 +3,37 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>FarmaSys - Estoque</title>
+		<title>Estoque - FarmaSys</title>
 		<link rel="stylesheet" href="../styles/main.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-		/>
+		<script src="https://kit.fontawesome.com/f73de64231.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<!-- CABEÇALHO E NAVEGAÇÃO -->
-		<header class="site-header">
-			<nav class="navbar">
-				<div class="navbar-container">
-					<!-- Logo/Brand -->
-					<div class="navbar-brand">
-						<a href="index.html" class="logo">
-							<span class="logo-icon">💊</span>
-							<span class="logo-text">Farmácia</span>
+
+		<!-- NAVBAR -->
+		<nav class="navbar">
+			<div class="navbar-container">
+				<!-- Logo/Brand -->
+				<div class="navbar-brand">
+					<a href="index.html" class="logo">
+						<span class="logo-icon">💊</span>
+						<span class="logo-text">Farmácia</span>
+					</a>
+				</div>
+
+				<!-- Menu Links -->
+				<ul class="navbar-menu">
+					<li class="nav-item">
+						<a href="catalogo.html" class="nav-link">Catálogo</a>
+					</li>
+					<li class="nav-item">
+						<a href="receita.html" class="nav-link">Receita</a>
+					</li>
+					<li class="nav-item">
+						<a href="estoque.html" class="nav-link">Estoque</a>
+					</li>
+					<li class="nav-item">
+						<a href="carrinho.html" class="nav-link cart-item">
+							<i class="fa-solid fa-cart-shopping"></i>
 						</a>
 					</div>
 
@@ -46,255 +60,21 @@
 		</header>
 
 		<!-- CONTEÚDO PRINCIPAL -->
-		<main class="workspace">
-			<section class="page-heading">
-				<p class="eyebrow">Gestão de estoque</p>
+<main>
+			<article>
 				<h1>Controle de Estoque</h1>
-				<p>
-					Acompanhe quantidades, validade, nível mínimo e registre entradas ou
-					saídas de medicamentos da farmácia.
-				</p>
-			</section>
-
-			<section class="metric-grid" aria-label="Resumo do estoque">
-				<article class="metric-card">
-					<span class="metric-icon"
-						><i class="fa-solid fa-boxes-stacked"></i
-					></span>
-					<div>
-						<p class="metric-label">Itens cadastrados</p>
-						<strong class="metric-value">126</strong>
-					</div>
-				</article>
-				<article class="metric-card">
-					<span class="metric-icon warning"
-						><i class="fa-solid fa-triangle-exclamation"></i
-					></span>
-					<div>
-						<p class="metric-label">Estoque baixo</p>
-						<strong class="metric-value">8</strong>
-					</div>
-				</article>
-				<article class="metric-card">
-					<span class="metric-icon danger"
-						><i class="fa-solid fa-calendar-xmark"></i
-					></span>
-					<div>
-						<p class="metric-label">Validade próxima</p>
-						<strong class="metric-value">3</strong>
-					</div>
-				</article>
-				<article class="metric-card">
-					<span class="metric-icon info"
-						><i class="fa-solid fa-prescription-bottle-medical"></i
-					></span>
-					<div>
-						<p class="metric-label">Exigem receita</p>
-						<strong class="metric-value">21</strong>
-					</div>
-				</article>
-			</section>
-
-			<section class="content-grid inventory-layout">
-				<section class="panel">
-					<div class="section-title">
-						<h2>Registrar movimento</h2>
-						<p>Use o formulário para simular entrada ou saída de estoque.</p>
-					</div>
-
-					<form
-						class="form-grid"
-						name="movimentoEstoque"
-						method="get"
-						action="estoque.html"
-					>
-						<div class="form-field wide">
-							<label for="medicamento">Medicamento</label>
-							<select id="medicamento" name="medicamento" required>
-								<option value="">Selecione um medicamento</option>
-								<option value="dipirona">Dipirona 500mg</option>
-								<option value="paracetamol">Paracetamol 750mg</option>
-								<option value="amoxicilina">Amoxicilina 500mg</option>
-								<option value="omeprazol">Omeprazol 20mg</option>
-							</select>
-						</div>
-
-						<div class="form-field">
-							<label for="quantidade">Quantidade</label>
-							<input
-								id="quantidade"
-								name="quantidade"
-								type="number"
-								min="1"
-								value="1"
-								required
-							/>
-						</div>
-
-						<div class="form-field">
-							<label for="validade">Validade</label>
-							<input id="validade" name="validade" type="date" required />
-						</div>
-
-						<fieldset class="form-field wide movement-options">
-							<legend>Tipo de movimento</legend>
-							<label>
-								<input
-									type="radio"
-									name="tipoMovimento"
-									value="entrada"
-									checked
-								/>
-								Entrada
-							</label>
-							<label>
-								<input type="radio" name="tipoMovimento" value="saida" />
-								Saída
-							</label>
-						</fieldset>
-
-						<div class="form-field wide">
-							<label for="observacoes">Observações</label>
-							<textarea
-								id="observacoes"
-								name="observacoes"
-								rows="4"
-								placeholder="Ex.: lote recebido, perda por avaria ou baixa por venda."
-							></textarea>
-						</div>
-
-						<div class="form-actions wide">
-							<button class="btn btn-primary" type="button">
-								<i class="fa-solid fa-floppy-disk"></i>
-								Registrar
-							</button>
-							<button class="btn btn-secondary" type="reset">
-								<i class="fa-solid fa-eraser"></i>
-								Limpar
-							</button>
-						</div>
-					</form>
-				</section>
-
-				<aside class="panel alert-panel">
-					<div class="section-title">
-						<h2>Alertas</h2>
-						<p>Itens que precisam de atenção do atendente.</p>
-					</div>
-
-					<ul class="alert-list">
-						<li>
-							<span class="status-pill status-warning">Baixo</span>
-							<div>
-								<strong>Amoxicilina 500mg</strong>
-								<p>5 unidades em estoque, mínimo configurado 12.</p>
-							</div>
-						</li>
-						<li>
-							<span class="status-pill status-danger">Validade</span>
-							<div>
-								<strong>Ibuprofeno 400mg</strong>
-								<p>Vence em 18 dias. Priorizar venda ou reposição.</p>
-							</div>
-						</li>
-						<li>
-							<span class="status-pill status-info">Receita</span>
-							<div>
-								<strong>Losartana 50mg</strong>
-								<p>Venda somente com conferência de receita.</p>
-							</div>
-						</li>
-					</ul>
-				</aside>
-			</section>
-
-			<section class="panel">
-				<div class="section-title table-title">
-					<div>
-						<h2>Medicamentos em estoque</h2>
-						<p>Tabela com lote, validade, quantidade e situação atual.</p>
-					</div>
-					<a class="text-link" href="carrinho.html">Ir para venda</a>
-				</div>
-
-				<div class="table-responsive">
-					<table class="data-table">
-						<caption>
-							Lista de medicamentos cadastrados no estoque
-						</caption>
-						<thead>
-							<tr>
-								<th>Medicamento</th>
-								<th>Laboratório</th>
-								<th>Lote</th>
-								<th>Validade</th>
-								<th>Qtd.</th>
-								<th>Mínimo</th>
-								<th>Receita</th>
-								<th>Situação</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Dipirona 500mg</td>
-								<td>Neo Química</td>
-								<td>DP2407</td>
-								<td>12/2027</td>
-								<td>42</td>
-								<td>10</td>
-								<td>Não</td>
-								<td><span class="status-pill status-ok">Normal</span></td>
-							</tr>
-							<tr>
-								<td>Paracetamol 750mg</td>
-								<td>Medley</td>
-								<td>PA1104</td>
-								<td>09/2027</td>
-								<td>28</td>
-								<td>10</td>
-								<td>Não</td>
-								<td><span class="status-pill status-ok">Normal</span></td>
-							</tr>
-							<tr>
-								<td>Amoxicilina 500mg</td>
-								<td>EMS</td>
-								<td>AM5531</td>
-								<td>04/2027</td>
-								<td>5</td>
-								<td>12</td>
-								<td>Sim</td>
-								<td>
-									<span class="status-pill status-warning">Reposição</span>
-								</td>
-							</tr>
-							<tr>
-								<td>Losartana 50mg</td>
-								<td>Eurofarma</td>
-								<td>LO8810</td>
-								<td>02/2028</td>
-								<td>19</td>
-								<td>8</td>
-								<td>Sim</td>
-								<td><span class="status-pill status-info">Controlado</span></td>
-							</tr>
-							<tr>
-								<td>Ibuprofeno 400mg</td>
-								<td>Cimed</td>
-								<td>IB3002</td>
-								<td>05/2026</td>
-								<td>11</td>
-								<td>10</td>
-								<td>Não</td>
-								<td><span class="status-pill status-danger">Validade</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</section>
+				<p>Gerencie o estoque de medicamentos aqui...</p>
+			</article>
 		</main>
 
-		<!-- RODAPÉ -->
 		<footer class="footer">
+			<div class="footer-links-externos">
+				<h4>Links úteis</h4>
+				<ul>
+					<li><a href="https://www.gov.br/anvisa/pt-br" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-external-link" aria-hidden="true"></i> ANVISA — Agência Nacional de Vigilância Sanitária</a></li>
+					<li><a href="https://cff.org.br/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-external-link" aria-hidden="true"></i> CFF — Conselho Federal de Farmácia</a></li>
+				</ul>
+			</div>
 			<p>
 				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
 				reservados.
