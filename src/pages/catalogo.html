@@ -8,151 +8,188 @@
 		<script src="https://kit.fontawesome.com/f73de64231.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
+			<nav class="navbar">
+				<div class="navbar-container">
+					<div class="navbar-brand">
+						<a href="index.html" class="logo">
+							<span class="logo-icon">💊</span>
+							<span class="logo-text">Farmácia</span>
+						</a>
+					</div>
 
-		<nav class="navbar">
-			<div class="navbar-container">
-				<div class="navbar-brand">
-					<a href="index.html" class="logo">
-						<span class="logo-icon">💊</span>
-						<span class="logo-text">Farmácia</span>
-					</a>
+					<ul class="navbar-menu">
+						<li class="nav-item">
+							<a href="catalogo.html" class="nav-link active">Catálogo</a>
+						</li>
+						<li class="nav-item">
+							<a href="receita.html" class="nav-link">Receita</a>
+						</li>
+						<li class="nav-item">
+							<a href="estoque.html" class="nav-link">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="carrinho.html" class="nav-link cart-item">
+								<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+								<span class="cart-label">Carrinho</span>
+							</a>
+						</li>
+					</ul>
 				</div>
-				<ul class="navbar-menu">
-					<li class="nav-item"><a href="catalogo.html" class="nav-link">Catálogo</a></li>
-					<li class="nav-item"><a href="receita.html" class="nav-link">Receita</a></li>
-					<li class="nav-item"><a href="estoque.html" class="nav-link">Estoque</a></li>
-					<li class="nav-item"><a href="carrinho.html" class="nav-link cart-item"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
-		</nav>
+			</nav>
+		</header>
 
-		<main>
-
-			<div class="catalogo-header">
+		<!-- CONTEÚDO PRINCIPAL -->
+		<main class="workspace">
+			<section class="page-heading catalogo-header">
 				<div class="catalogo-header-top">
 					<div>
+						<p class="eyebrow">Consulta de produtos</p>
 						<h1>Catálogo de Medicamentos</h1>
-						<p class="catalogo-subtitulo" id="contador-produtos">12 produtos disponíveis</p>
+						<p class="catalogo-subtitulo">12 produtos disponíveis</p>
 					</div>
 				</div>
 
 				<div class="catalogo-search-bar">
-					<span class="catalogo-search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-					<input type="text" id="busca-medicamento" class="catalogo-search-input" placeholder="Buscar medicamento, categoria ou fabricante...">
-					<button class="catalogo-search-clear" id="btn-limpar" title="Limpar busca"><i class="fa-solid fa-xmark"></i></button>
+					<span class="catalogo-search-icon" aria-hidden="true">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</span>
+					<span class="catalogo-search-text"
+						>Consulta por medicamento, categoria ou fabricante</span
+					>
 				</div>
 
-				<div class="catalogo-filtros" id="filtros">
-					<button class="filtro-btn ativo" data-categoria="todos">Todos</button>
-					<button class="filtro-btn" data-categoria="analgesico">Analgésicos</button>
-					<button class="filtro-btn" data-categoria="antibiotico">Antibióticos</button>
-					<button class="filtro-btn" data-categoria="anti-inflamatorio">Anti-inflamatórios</button>
-					<button class="filtro-btn" data-categoria="gastro">Gastrointestinal</button>
-					<button class="filtro-btn" data-categoria="cardiovascular">Cardiovascular</button>
-					<button class="filtro-btn" data-categoria="alergia">Alergia</button>
-				</div>
-			</div>
+				<ul class="catalogo-filtros" aria-label="Categorias do catálogo">
+					<li><span class="filtro-chip ativo">Todos</span></li>
+					<li><span class="filtro-chip">Analgésicos</span></li>
+					<li><span class="filtro-chip">Antibióticos</span></li>
+					<li><span class="filtro-chip">Anti-inflamatórios</span></li>
+					<li><span class="filtro-chip">Gastrointestinal</span></li>
+					<li><span class="filtro-chip">Cardiovascular</span></li>
+					<li><span class="filtro-chip">Alergia</span></li>
+				</ul>
+			</section>
 
-			<div class="catalogo-vazio" id="catalogo-vazio" style="display:none;">
-				<span class="catalogo-vazio-icon">🔍</span>
-				<p>Nenhum medicamento encontrado para "<span id="termo-buscado"></span>".</p>
-			</div>
-
-			<section class="catalogo" id="catalogo-grid">
-
-				<article class="card-produto" data-categoria="analgesico" data-id="paracetamol-500mg">
-					<span class="categoria-badge">Analgésico</span>
-					<img src="../assets/images/placeholder-med.svg" alt="Foto do Paracetamol 500mg" class="card-img">
+			<section
+				class="product-grid catalogo"
+				id="catalogo-grid"
+				aria-label="Medicamentos do catálogo"
+			>
+				<article
+					class="product-card card-produto"
+					data-categoria="analgesico"
+					data-nome="paracetamol 500mg analgésico antitérmico farma"
+				>
+					<span class="card-categoria-badge">Analgésico</span>
 					<h2>Paracetamol 500mg</h2>
 					<p>Analgésico e antitérmico</p>
 					<p class="card-preco">R$ 12,90</p>
 					<div class="card-acoes">
-						<a href="ficha.html?id=paracetamol-500mg" class="btn">Ver detalhes</a>
-						<a href="#" class="btn-carrinho">
-							<span class="icone"><i class="fa-solid fa-cart-shopping"></i></span>
-							<span class="texto">Adicionar</span>
+						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
+						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
 						</a>
 					</div>
 				</article>
 
-				<article class="card-produto" data-categoria="anti-inflamatorio" data-id="ibuprofeno-400mg">
+				<article
+					class="product-card card-produto"
+					data-categoria="anti-inflamatorio"
+					data-nome="ibuprofeno 400mg anti-inflamatório neo quimica"
+				>
 					<span class="card-categoria-badge">Anti-inflamatório</span>
-					<img src="../assets/images/placeholder-med.svg" alt="Foto do Ibuprofeno 400mg" class="card-img">
 					<h2>Ibuprofeno 400mg</h2>
 					<p>Anti-inflamatório e analgésico</p>
 					<p class="card-preco">R$ 18,50</p>
 					<div class="card-acoes">
-						<a href="ficha.html?id=ibuprofeno-400mg" class="btn">Ver detalhes</a>
-						<a href="#" class="btn-carrinho">
-							<span class="icone"><i class="fa-solid fa-cart-shopping"></i></span>
-							<span class="texto">Adicionar</span>
+						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
+						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
 						</a>
 					</div>
 				</article>
 
-				<article class="card-produto" data-categoria="antibiotico" data-id="amoxicilina-500mg">
+				<article
+					class="product-card card-produto"
+					data-categoria="antibiotico"
+					data-nome="amoxicilina 500mg antibiótico eurofarma"
+				>
 					<span class="card-categoria-badge">Antibiótico</span>
-					<img src="../assets/images/placeholder-med.svg" alt="Foto da Amoxicilina 500mg" class="card-img">
 					<h2>Amoxicilina 500mg</h2>
 					<p>Antibiótico de amplo espectro</p>
 					<p class="card-preco">R$ 25,00</p>
 					<div class="card-acoes">
-						<a href="ficha.html?id=amoxicilina-500mg" class="btn">Ver detalhes</a>
-						<a href="#" class="btn-carrinho">
-							<span class="icone"><i class="fa-solid fa-cart-shopping"></i></span>
-							<span class="texto">Adicionar</span>
+						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
+						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
 						</a>
 					</div>
 				</article>
 
-				<article class="card-produto" data-categoria="analgesico" data-id="dipirona-500mg">
-					<span class="categoria-badge">Analgésico</span>
-					<img src="../assets/images/placeholder-med.svg" alt="Foto da Dipirona 500mg" class="card-img">
+				<article
+					class="product-card card-produto"
+					data-categoria="analgesico"
+					data-nome="dipirona 500mg analgésico antitérmico sanofi"
+				>
+					<span class="card-categoria-badge">Analgésico</span>
 					<h2>Dipirona 500mg</h2>
 					<p>Analgésico e antitérmico</p>
 					<p class="card-preco">R$ 9,80</p>
 					<div class="card-acoes">
-						<a href="ficha.html?id=dipirona-500mg" class="btn">Ver detalhes</a>
-						<a href="#" class="btn-carrinho">
-							<span class="icone"><i class="fa-solid fa-cart-shopping"></i></span>
-							<span class="texto">Adicionar</span>
+						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
+						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
 						</a>
 					</div>
 				</article>
 
-				<article class="card-produto" data-categoria="gastro" data-id="omeprazol-20mg">
+				<article
+					class="product-card card-produto"
+					data-categoria="gastro"
+					data-nome="omeprazol 20mg gastro úlcera refluxo aché"
+				>
 					<span class="card-categoria-badge">Gastrointestinal</span>
-					<img src="../assets/images/placeholder-med.svg" alt="Foto do Omeprazol 20mg" class="card-img">
 					<h2>Omeprazol 20mg</h2>
 					<p>Inibidor de bomba de prótons</p>
 					<p class="card-preco">R$ 22,40</p>
 					<div class="card-acoes">
-						<a href="ficha.html?id=omeprazol-20mg" class="btn">Ver detalhes</a>
-						<a href="#" class="btn-carrinho">
-							<span class="icone"><i class="fa-solid fa-cart-shopping"></i></span>
-							<span class="texto">Adicionar</span>
+						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
+						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
 						</a>
 					</div>
 				</article>
 
-				<article class="card-produto" data-categoria="cardiovascular" data-id="losartana-50mg">
+				<article
+					class="product-card card-produto"
+					data-categoria="cardiovascular"
+					data-nome="losartana 50mg cardiovascular hipertensão medley"
+				>
 					<span class="card-categoria-badge">Cardiovascular</span>
-					<img src="../assets/images/placeholder-med.svg" alt="Foto da Losartana 50mg" class="card-img">
 					<h2>Losartana 50mg</h2>
 					<p>Anti-hipertensivo</p>
 					<p class="card-preco">R$ 31,00</p>
 					<div class="card-acoes">
-						<a href="ficha.html?id=losartana-50mg" class="btn">Ver detalhes</a>
-						<a href="#" class="btn-carrinho">
-							<span class="icone"><i class="fa-solid fa-cart-shopping"></i></span>
-							<span class="texto">Adicionar</span>
+						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
+						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
 						</a>
 					</div>
 				</article>
 
-				<article class="card-produto" data-categoria="alergia" data-id="loratadina-10mg">
+				<article
+					class="product-card card-produto"
+					data-categoria="alergia"
+					data-nome="loratadina 10mg alergia antialérgico neo quimica"
+				>
 					<span class="card-categoria-badge">Alergia</span>
-					<img src="../assets/images/placeholder-med.svg" alt="Foto da Loratadina 10mg" class="card-img">
 					<h2>Loratadina 10mg</h2>
 					<p>Antialérgico não sedativo</p>
 					<p class="card-preco">R$ 14,90</p>
