@@ -258,7 +258,7 @@ main {
 	text-align: left;
 }
 
-.metric-card {
+.home-metric-card {
 	background-color: var(--white);
 	border: var(--border);
 	border-radius: 8px;
@@ -529,6 +529,7 @@ main {
 	color: var(--text-secondary);
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
+	margin-top: 0;
 	margin-bottom: 12px;
 }
 
@@ -979,7 +980,7 @@ textarea:focus {
 		gap: 10px;
 	}
 
-	.metric-card {
+	.home-metric-card {
 		padding: 12px;
 	}
 
@@ -1149,7 +1150,7 @@ textarea:focus {
 		margin-bottom: 1rem;
 	}
 
-	.metric-card {
+	.home-metric-card {
 		padding: 10px;
 	}
 
