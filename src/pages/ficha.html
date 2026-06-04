@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Ficha do Medicamento - FarmaSys</title>
+		<title>FarmaSys - Ficha de Medicamento</title>
 		<link rel="stylesheet" href="../styles/main.css" />
 		<link
 			rel="stylesheet"
@@ -11,6 +11,7 @@
 		/>
 	</head>
 	<body>
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
 		<header class="site-header">
 			<nav class="navbar">
 				<div class="navbar-container">
@@ -20,6 +21,7 @@
 							<span class="logo-text">Farmácia</span>
 						</a>
 					</div>
+
 					<ul class="navbar-menu">
 						<li class="nav-item">
 							<a href="catalogo.html" class="nav-link">Catálogo</a>
@@ -41,6 +43,7 @@
 			</nav>
 		</header>
 
+		<!-- CONTEÚDO PRINCIPAL -->
 		<main class="workspace">
 			<section class="page-heading">
 				<p class="eyebrow">Informações do produto</p>
@@ -51,318 +54,64 @@
 				</p>
 			</section>
 
-			<article class="panel medicamento-detalhe" id="medicamento-container">
+			<article class="panel medicamento-detalhe">
+				<header class="medicamento-detalhe-header">
+					<span class="medicamento-detalhe-icon" aria-hidden="true">💊</span>
+					<div>
+						<h2>Paracetamol 500mg</h2>
+						<span class="medicamento-detalhe-badge">Disponível</span>
+					</div>
+				</header>
+
+				<dl class="medicamento-detalhe-body">
+					<div class="medicamento-detalhe-campo">
+						<dt>Categoria</dt>
+						<dd>Analgésico</dd>
+					</div>
+					<div class="medicamento-detalhe-campo">
+						<dt>Dosagem</dt>
+						<dd>500mg por comprimido</dd>
+					</div>
+					<div class="medicamento-detalhe-campo">
+						<dt>Fabricante</dt>
+						<dd>FarmaGen</dd>
+					</div>
+					<div class="medicamento-detalhe-campo">
+						<dt>Preço</dt>
+						<dd class="preco-valor">R$ 12,90</dd>
+					</div>
+					<div class="medicamento-detalhe-campo full">
+						<dt>Descrição</dt>
+						<dd>Utilizado para alívio de dores e febre.</dd>
+					</div>
+				</dl>
+
+				<section class="medicine-warning">
+					<h3>Orientação de venda</h3>
+					<p>
+						Antes de finalizar a venda, confira quantidade em estoque e registre
+						a saída no carrinho.
+					</p>
+				</section>
+
+				<footer class="medicamento-detalhe-footer">
+					<a href="catalogo.html" class="btn btn-secondary"
+						>Voltar ao catálogo</a
+					>
+					<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+						<i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+						<span>Adicionar ao carrinho</span>
+					</a>
+				</footer>
 			</article>
 		</main>
 
+		<!-- RODAPÉ -->
 		<footer class="footer">
-			<div class="footer-links-externos">
-				<h4>Links úteis</h4>
-				<ul>
-					<li><a href="https://www.gov.br/anvisa/pt-br" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-external-link" aria-hidden="true"></i> ANVISA — Agência Nacional de Vigilância Sanitária</a></li>
-					<li><a href="https://cff.org.br/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-external-link" aria-hidden="true"></i> CFF — Conselho Federal de Farmácia</a></li>
-					<li><a href="https://consultas.anvisa.gov.br/#/medicamentos/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-external-link" aria-hidden="true"></i> Consulta de Medicamentos ANVISA</a></li>
-				</ul>
-			</div>
 			<p>
 				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
 				reservados.
 			</p>
 		</footer>
-
-		<script>
-			const medicamentos = {
-				'paracetamol-500mg': {
-					nome: 'Paracetamol 500mg',
-					status: 'Disponível',
-					categoria: 'Analgésico',
-					dosagem: '500mg por comprimido',
-					fabricante: 'FarmaGen',
-					preco: 'R$ 12,90',
-					descricao: 'Utilizado para alívio de dores e febre. Eficaz no tratamento sintomático de dores leves a moderadas.',
-					composicao: 'Cada comprimido contém 500mg de paracetamol. Excipientes: amido, celulose microcristalina, estearato de magnésio, croscarmelose sódica.',
-					posologia: 'Adultos e crianças acima de 12 anos: 1 comprimido (500mg) a cada 4-6 horas. Não exceder 4 comprimidos (2000mg) em 24 horas.',
-					contraindicacoes: 'Hipersensibilidade ao paracetamol. Insuficiência hepática grave. Pacientes com doença hepática ativa.',
-					tarja: 'Medicamento Isento de Prescrição (MIP)',
-					tarjaClasse: 'mip',
-					receituario: 'Não necessita de receita médica',
-					estoque: 45
-				},
-				'ibuprofeno-400mg': {
-					nome: 'Ibuprofeno 400mg',
-					status: 'Disponível',
-					categoria: 'Anti-inflamatório',
-					dosagem: '400mg por comprimido',
-					fabricante: 'MedLab',
-					preco: 'R$ 18,50',
-					descricao: 'Anti-inflamatório não esteroidal (AINE) indicado para dores musculares, articulares e processos inflamatórios.',
-					composicao: 'Cada comprimido contém 400mg de ibuprofeno. Excipientes: lactose, celulose microcristalina, dióxido de silício, estearato de magnésio.',
-					posologia: 'Adultos: 1 comprimido (400mg) a cada 6-8 horas. Dose máxima diária: 1200mg (3 comprimidos). Tomar preferencialmente após as refeições.',
-					contraindicacoes: 'Hipersensibilidade ao ibuprofeno. Úlcera péptica ativa. Insuficiência renal grave. Último trimestre de gestação. Asmáticos sensíveis a AINEs.',
-					tarja: 'Medicamento Isento de Prescrição (MIP)',
-					tarjaClasse: 'mip',
-					receituario: 'Não necessita de receita médica',
-					estoque: 32
-				},
-				'amoxicilina-500mg': {
-					nome: 'Amoxicilina 500mg',
-					status: 'Disponível',
-					categoria: 'Antibiótico',
-					dosagem: '500mg por cápsula',
-					fabricante: 'FarmaGen',
-					preco: 'R$ 25,00',
-					descricao: 'Antibiótico de amplo espectro do grupo das penicilinas. Indicado para infecções bacterianas respiratórias, urinárias e de pele.',
-					composicao: 'Cada cápsula contém 500mg de amoxicilina tri-hidratada. Excipientes: estearato de magnésio, talco, lactose.',
-					posologia: 'Adultos: 1 cápsula (500mg) a cada 8 horas. Dose máxima: 1500mg/dia. Duração do tratamento: 7-10 dias conforme prescrição médica.',
-					contraindicacoes: 'Hipersensibilidade a penicilinas e cefalosporinas. Pacientes com mononucleose infecciosa.',
-					tarja: 'Medicamento sob Prescrição Médica',
-					tarjaClasse: 'prescricao',
-					receituario: 'Receita de Controle Especial (Branca Comum)',
-					estoque: 28
-				},
-				'dipirona-500mg': {
-					nome: 'Dipirona 500mg',
-					status: 'Disponível',
-					categoria: 'Analgésico',
-					dosagem: '500mg por comprimido',
-					fabricante: 'MedLab',
-					preco: 'R$ 9,80',
-					descricao: 'Analgésico e antitérmico indicado para dores e febre resistentes a outros medicamentos.',
-					composicao: 'Cada comprimido contém 500mg de dipirona sódica. Excipientes: lactose, amido, povidona, estearato de magnésio.',
-					posologia: 'Adultos e adolescentes acima de 15 anos: 1 comprimido (500mg) a cada 4-6 horas. Dose máxima: 3 comprimidos/dia.',
-					contraindicacoes: 'Hipersensibilidade à dipirona. Agranulocitose. Deficiência de glicose-6-fosfato desidrogenase. Porfiria hepática. Gestação e lactação.',
-					tarja: 'Medicamento Isento de Prescrição (MIP)',
-					tarjaClasse: 'mip',
-					receituario: 'Não necessita de receita médica',
-					estoque: 60
-				},
-				'omeprazol-20mg': {
-					nome: 'Omeprazol 20mg',
-					status: 'Disponível',
-					categoria: 'Gastrointestinal',
-					dosagem: '20mg por cápsula',
-					fabricante: 'PharmaCore',
-					preco: 'R$ 22,40',
-					descricao: 'Inibidor de bomba de prótons. Reduz a produção de ácido gástrico. Indicado para úlceras, refluxo gastroesofágico e gastrite.',
-					composicao: 'Cada cápsula contém 20mg de omeprazol. Excipientes: esferas de açúcar, hipromelose, talco, estearato de magnésio.',
-					posologia: 'Adultos: 1 cápsula (20mg) ao dia, em jejum, preferencialmente pela manhã. Tratamento contínuo para refluxo: 20mg/dia por 4-8 semanas.',
-					contraindicacoes: 'Hipersensibilidade ao omeprazol. Uso concomitante com nelfinavir, atazanavir, metotrexato em altas doses.',
-					tarja: 'Medicamento sob Prescrição Médica',
-					tarjaClasse: 'prescricao',
-					receituario: 'Receita Branca Comum',
-					estoque: 40
-				},
-				'losartana-50mg': {
-					nome: 'Losartana 50mg',
-					status: 'Disponível',
-					categoria: 'Cardiovascular',
-					dosagem: '50mg por comprimido',
-					fabricante: 'PharmaCore',
-					preco: 'R$ 31,00',
-					descricao: 'Anti-hipertensivo da classe dos antagonistas do receptor AT1 da angiotensina II. Indicado para hipertensão arterial e proteção renal em diabéticos.',
-					composicao: 'Cada comprimido contém 50mg de losartana potássica. Excipientes: celulose microcristalina, lactose, amido, estearato de magnésio.',
-					posologia: 'Adultos: 1 comprimido (50mg) uma vez ao dia. Dose pode ser ajustada para 100mg/dia se necessário. Monitorar pressão arterial regularmente.',
-					contraindicacoes: 'Hipersensibilidade à losartana. Gestação (2º e 3º trimestres). Estenose de artéria renal bilateral.',
-					tarja: 'Medicamento sob Prescrição Médica',
-					tarjaClasse: 'prescricao',
-					receituario: 'Receita Branca Comum',
-					estoque: 25
-				},
-				'loratadina-10mg': {
-					nome: 'Loratadina 10mg',
-					status: 'Disponível',
-					categoria: 'Alergia',
-					dosagem: '10mg por comprimido',
-					fabricante: 'MedLab',
-					preco: 'R$ 14,90',
-					descricao: 'Antialérgico não sedativo de longa duração. Indicado para rinite alérgica, urticária e outras manifestações alérgicas.',
-					composicao: 'Cada comprimido contém 10mg de loratadina. Excipientes: lactose, amido de milho, estearato de magnésio.',
-					posologia: 'Adultos e crianças acima de 12 anos: 1 comprimido (10mg) uma vez ao dia. Não mastigar. Engolir inteiro com água.',
-					contraindicacoes: 'Hipersensibilidade à loratadina. Insuficiência hepática grave. Crianças menores de 2 anos.',
-					tarja: 'Medicamento Isento de Prescrição (MIP)',
-					tarjaClasse: 'mip',
-					receituario: 'Não necessita de receita médica',
-					estoque: 55
-				},
-				'azitromicina-500mg': {
-					nome: 'Azitromicina 500mg',
-					status: 'Disponível',
-					categoria: 'Antibiótico',
-					dosagem: '500mg por comprimido',
-					fabricante: 'FarmaGen',
-					preco: 'R$ 38,00',
-					descricao: 'Antibiótico macrolídeo de amplo espectro. Indicado para infecções respiratórias, otites, sinusites e infecções sexualmente transmissíveis.',
-					composicao: 'Cada comprimido contém 500mg de azitromicina di-hidratada. Excipientes: fosfato de cálcio dibásico, amido, croscarmelose sódica, estearato de magnésio.',
-					posologia: 'Adultos: 1 comprimido (500mg) uma vez ao dia por 3 dias consecutivos. Dose total do tratamento: 1500mg.',
-					contraindicacoes: 'Hipersensibilidade a macrolídeos. Insuficiência hepática grave. Pacientes com histórico de icterícia colestática.',
-					tarja: 'Medicamento sob Prescrição Médica',
-					tarjaClasse: 'prescricao',
-					receituario: 'Receita de Controle Especial (Branca em 2 vias)',
-					estoque: 15
-				},
-				'atorvastatina-20mg': {
-					nome: 'Atorvastatina 20mg',
-					status: 'Disponível',
-					categoria: 'Cardiovascular',
-					dosagem: '20mg por comprimido',
-					fabricante: 'PharmaCore',
-					preco: 'R$ 27,50',
-					descricao: 'Redutor de colesterol da classe das estatinas. Indicado para hipercolesterolemia e prevenção de eventos cardiovasculares.',
-					composicao: 'Cada comprimido contém 20mg de atorvastatina cálcica. Excipientes: carbonato de cálcio, celulose microcristalina, lactose, estearato de magnésio.',
-					posologia: 'Adultos: 1 comprimido (20mg) uma vez ao dia, a qualquer hora, com ou sem alimentos. Dose pode ser ajustada a cada 2-4 semanas.',
-					contraindicacoes: 'Hipersensibilidade à atorvastatina. Doença hepática ativa. Gestação e lactação. Uso concomitante com inibidores potentes da CYP3A4.',
-					tarja: 'Medicamento sob Prescrição Médica',
-					tarjaClasse: 'prescricao',
-					receituario: 'Receita Branca comum (Retém Receita)',
-					estoque: 22
-				},
-				'dexametasona-4mg': {
-					nome: 'Dexametasona 4mg',
-					status: 'Disponível',
-					categoria: 'Anti-inflamatório',
-					dosagem: '4mg por comprimido',
-					fabricante: 'MedLab',
-					preco: 'R$ 16,70',
-					descricao: 'Corticoide anti-inflamatório potente. Indicado para doenças reumáticas, alérgicas graves, edema cerebral e choque séptico.',
-					composicao: 'Cada comprimido contém 4mg de dexametasona. Excipientes: lactose, amido, celulose microcristalina, estearato de magnésio.',
-					posologia: 'Adultos: Dose varia conforme a patologia (0,5 a 10mg/dia). Usar a menor dose eficaz pelo menor período possível. Desmame gradual obrigatório.',
-					contraindicacoes: 'Infecções sistêmicas não controladas. Hipersensibilidade ao corticosteroide. Úlcera péptica ativa. Psicose corticosteroide.',
-					tarja: 'Medicamento sob Prescrição Médica',
-					tarjaClasse: 'prescricao',
-					receituario: 'Receita Branca Comum (Retém Receita)',
-					estoque: 30
-				},
-				'metoclopramida-10mg': {
-					nome: 'Metoclopramida 10mg',
-					status: 'Disponível',
-					categoria: 'Gastrointestinal',
-					dosagem: '10mg por comprimido',
-					fabricante: 'PharmaCore',
-					preco: 'R$ 11,20',
-					descricao: 'Antiemético e procinético. Estimula a motilidade gastrintestinal. Indicado para náuseas, vômitos e refluxo gastroesofágico.',
-					composicao: 'Cada comprimido contém 10mg de metoclopramida cloridrato. Excipientes: lactose, amido, celulose microcristalina, estearato de magnésio.',
-					posologia: 'Adultos: 1 comprimido (10mg) 3 vezes ao dia, 15-30 minutos antes das refeições. Tratamento máximo: 5 dias consecutivos.',
-					contraindicacoes: 'Hipersensibilidade à metoclopramida. Hemorragia gastrointestinal. Obstrução intestinal. Epilepsia. Parkinson. Crianças menores de 1 ano.',
-					tarja: 'Medicamento sob Prescrição Médica',
-					tarjaClasse: 'prescricao',
-					receituario: 'Receita Branca Comum (Retém Receita)',
-					estoque: 38
-				},
-				'cetirizina-10mg': {
-					nome: 'Cetirizina 10mg',
-					status: 'Disponível',
-					categoria: 'Alergia',
-					dosagem: '10mg por comprimido',
-					fabricante: 'MedLab',
-					preco: 'R$ 19,90',
-					descricao: 'Antialérgico de segunda geração com baixa sonolência. Indicado para rinite alérgica sazonal e perene, urticária idiopática crônica.',
-					composicao: 'Cada comprimido contém 10mg de cetirizina dicloridrato. Excipientes: lactose, celulose microcristalina, dióxido de silício, estearato de magnésio.',
-					posologia: 'Adultos e crianças acima de 12 anos: 1 comprimido (10mg) uma vez ao dia. Preferencialmente à noite para evitar sonolência diurna.',
-					contraindicacoes: 'Hipersensibilidade à cetirizina ou à hidroxizina. Insuficiência renal grave (Clearence < 10 mL/min).',
-					tarja: 'Medicamento Isento de Prescrição (MIP)',
-					tarjaClasse: 'mip',
-					receituario: 'Não necessita de receita médica',
-					estoque: 50
-				}
-			};
-
-			function getQueryParam(param) {
-				const urlParams = new URLSearchParams(window.location.search);
-				return urlParams.get(param);
-			}
-
-			function renderMedicamento(id) {
-				const container = document.getElementById('medicamento-container');
-				const med = medicamentos[id];
-
-				if (!med) {
-					container.innerHTML = `
-						<div class="medicamento-nao-encontrado">
-							<span style="font-size:48px;">🔍</span>
-							<h2>Medicamento não encontrado</h2>
-							<p>O medicamento solicitado não está disponível em nosso catálogo.</p>
-							<a href="catalogo.html" class="btn btn-primary">Voltar ao catálogo</a>
-						</div>
-					`;
-					return;
-				}
-
-				container.innerHTML = `
-					<header class="medicamento-detalhe-header">
-						<span class="medicamento-detalhe-icon" aria-hidden="true">💊</span>
-						<div>
-							<h2>${med.nome}</h2>
-							<span class="medicamento-detalhe-badge">${med.status}</span>
-							<span class="medicamento-tarja-badge tarja-${med.tarjaClasse}">${med.tarja}</span>
-						</div>
-					</header>
-
-					<dl class="medicamento-detalhe-body">
-						<div class="medicamento-detalhe-campo">
-							<dt>Categoria</dt>
-							<dd>${med.categoria}</dd>
-						</div>
-						<div class="medicamento-detalhe-campo">
-							<dt>Dosagem</dt>
-							<dd>${med.dosagem}</dd>
-						</div>
-						<div class="medicamento-detalhe-campo">
-							<dt>Fabricante</dt>
-							<dd>${med.fabricante}</dd>
-						</div>
-						<div class="medicamento-detalhe-campo">
-							<dt>Preço</dt>
-							<dd class="preco-valor">${med.preco}</dd>
-						</div>
-						<div class="medicamento-detalhe-campo">
-							<dt>Receituário</dt>
-							<dd>${med.receituario}</dd>
-						</div>
-						<div class="medicamento-detalhe-campo">
-							<dt>Estoque</dt>
-							<dd>${med.estoque} unidades</dd>
-						</div>
-						<div class="medicamento-detalhe-campo full">
-							<dt>Descrição</dt>
-							<dd>${med.descricao}</dd>
-						</div>
-						<div class="medicamento-detalhe-campo full">
-							<dt>Composição Química</dt>
-							<dd>${med.composicao}</dd>
-						</div>
-						<div class="medicamento-detalhe-campo full">
-							<dt>Posologia Detalhada</dt>
-							<dd>${med.posologia}</dd>
-						</div>
-						<div class="medicamento-detalhe-campo full warning-campo">
-							<dt>Contraindicações</dt>
-							<dd>${med.contraindicacoes}</dd>
-						</div>
-					</dl>
-
-					<section class="medicine-warning">
-						<h3>Orientação de venda</h3>
-						<p>
-							${med.receituario !== 'Não necessita de receita médica'
-								? 'Este medicamento exige receita médica para venda. Verifique a validade e a autenticidade do documento antes de finalizar a venda.'
-								: 'Medicamento isento de prescrição. Recomenda-se orientação farmacêutica para o uso correto.'}
-						</p>
-					</section>
-
-					<footer class="medicamento-detalhe-footer">
-						<a href="catalogo.html" class="btn btn-secondary">Voltar ao catálogo</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
-							<span>Adicionar ao carrinho</span>
-						</a>
-					</footer>
-				`;
-			}
-
-			document.addEventListener('DOMContentLoaded', function () {
-				const id = getQueryParam('id') || 'paracetamol-500mg';
-				renderMedicamento(id);
-			});
-		</script>
 	</body>
 </html>

@@ -1690,19 +1690,7 @@ textarea:focus {
 }
 
 .catalogo-header {
-	background-color: var(--white);
-	border: 1px solid var(--border-color);
-	border-radius: 12px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-	display: flex;
-	flex-direction: column;
 	gap: 18px;
-	padding: 24px;
-}
-
-.catalogo-header h1 {
-	margin: 0;
-	font-size: 24px;
 }
 
 .catalogo-header-top {
@@ -1713,83 +1701,46 @@ textarea:focus {
 
 .catalogo-subtitulo {
 	color: var(--muted-color);
-	font-size: 14px;
 	margin-bottom: 0;
 }
 
 .catalogo-search-bar {
 	align-items: center;
-	background-color: var(--light-bg);
+	background-color: var(--white);
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
 	display: flex;
 	gap: 10px;
-	padding: 8px 12px;
-	transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.catalogo-search-bar:focus-within {
-	border-color: var(--primary-color);
-	box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.12);
+	padding: 10px 12px;
 }
 
 .catalogo-search-icon {
+	color: var(--primary-dark);
+}
+
+.catalogo-search-text {
 	color: var(--muted-color);
-}
-
-.catalogo-search-input {
-	background: transparent;
-	border: none;
-	color: var(--text-color);
-	flex: 1;
-	font: inherit;
-	font-size: 14px;
-	outline: none;
-	padding: 4px 0;
-}
-
-.catalogo-search-input::placeholder {
-	color: #aab;
-}
-
-.catalogo-search-clear {
-	align-items: center;
-	background: none;
-	border: none;
-	color: var(--muted-color);
-	cursor: pointer;
-	display: none;
-	font-size: 18px;
-	justify-content: center;
-	padding: 2px 6px;
+	font-weight: 600;
 }
 
 .catalogo-filtros {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px;
+	gap: 10px;
+	list-style: none;
 }
 
-.filtro-btn {
-	background-color: #f1f5f9;
-	border: 1px solid #e2e8f0;
+.filtro-chip {
+	background-color: #edf3f6;
+	border: 1px solid var(--border-color);
 	border-radius: 999px;
-	color: var(--text-secondary);
-	cursor: pointer;
-	font: inherit;
-	font-size: 13px;
-	font-weight: 600;
-	padding: 7px 16px;
-	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.filtro-btn:hover {
-	background-color: #e2e8f0;
-	border-color: #cbd5e1;
 	color: var(--text-color);
+	display: inline-flex;
+	font-weight: 700;
+	padding: 8px 14px;
 }
 
-.filtro-btn.ativo {
+.filtro-chip.ativo {
 	background-color: var(--primary-color);
 	border-color: var(--primary-color);
 	color: var(--white);
@@ -1798,165 +1749,47 @@ textarea:focus {
 .catalogo-vazio {
 	align-items: center;
 	background-color: var(--white);
-	border: 2px dashed #d0d7de;
-	border-radius: 12px;
+	border: 1px dashed var(--border-color);
+	border-radius: 8px;
 	color: var(--muted-color);
 	display: flex;
-	flex-direction: column;
 	gap: 12px;
 	justify-content: center;
-	margin-top: 24px;
-	padding: 48px 24px;
+	padding: 24px;
 	text-align: center;
 }
 
 .catalogo-vazio-icon {
-	font-size: 40px;
+	font-size: 24px;
 }
 
-.catalogo {
-	display: grid;
-	gap: 24px;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	margin-top: 24px;
-}
-
-.card-produto {
-	background-color: var(--white);
-	border: 1px solid #e2e8f0;
-	border-radius: 12px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-	display: flex;
-	flex-direction: column;
-	gap: 14px;
-	padding: 20px;
-	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-	position: relative;
-	overflow: hidden;
-}
-
-.card-produto::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 4px;
-	background: linear-gradient(90deg, var(--primary-color), #6dd69c);
-	opacity: 0;
-	transition: opacity 0.2s ease;
-}
-
-.card-produto:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
-	border-color: var(--primary-color);
-}
-
-.card-produto:hover::before {
-	opacity: 1;
-}
-
-.card-produto h2 {
-	margin: 0;
-	font-size: 16px;
-	line-height: 1.3;
-}
-
-.card-produto h2 + p {
-	color: var(--muted-color);
-	font-size: 13px;
-	margin: 0;
-}
-
-.card-img {
-	width: 100%;
-	height: 140px;
-	object-fit: contain;
-	border-radius: 8px;
-	background-color: #f8fafc;
-	padding: 12px;
-	transition: transform 0.3s ease;
-}
-
-.card-produto:hover .card-img {
-	transform: scale(1.05);
+.card-categoria-badge {
+	align-self: flex-start;
+	background-color: rgba(46, 204, 113, 0.14);
+	border-radius: 999px;
+	color: var(--primary-dark);
+	font-size: 12px;
+	font-weight: 700;
+	padding: 5px 10px;
 }
 
 .card-preco {
-	color: var(--primary-dark);
-	font-size: 24px;
+	color: var(--primary-dark) !important;
+	font-size: 22px;
 	font-weight: 800;
-	margin: 4px 0;
 }
 
-.card-acoes {
+.card-acoes,
+.medicamento-detalhe-footer {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px;
+	gap: 10px;
 	margin-top: auto;
 }
 
-.card-acoes .btn {
-	flex: 1 1 120px;
-	background-color: var(--white);
-	border: 2px solid var(--primary-color);
-	color: var(--primary-dark);
-	font-weight: 700;
-	padding: 10px 14px;
-	border-radius: 8px;
-	text-align: center;
-	transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.card-acoes .btn:hover {
-	background-color: var(--primary-color);
-	color: var(--white);
-	transform: translateY(-1px);
-}
-
-.btn-carrinho {
-	align-items: center;
-	background-color: var(--primary-color);
-	border: 2px solid var(--primary-color);
-	border-radius: 8px;
-	color: var(--white);
-	cursor: pointer;
-	display: inline-flex;
-	flex: 1 1 120px;
-	font-weight: 700;
-	gap: 6px;
-	justify-content: center;
-	padding: 10px 14px;
-	text-decoration: none;
-	transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.btn-carrinho:hover {
-	background-color: var(--primary-dark);
-	border-color: var(--primary-dark);
-	transform: translateY(-1px);
-}
-
-.btn-carrinho .icone {
-	display: inline-flex;
-	font-size: 16px;
-}
-
-.btn-carrinho .texto {
-	font-size: 14px;
-}
-
-.categoria-badge {
-	align-self: flex-start;
-	background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-	border-radius: 999px;
-	color: #2e7d32;
-	font-size: 11px;
-	font-weight: 700;
-	padding: 4px 10px;
-	letter-spacing: 0.3px;
-	text-transform: uppercase;
+.card-acoes .btn,
+.medicamento-detalhe-footer .btn {
+	flex: 1 1 150px;
 }
 
 .medicine-profile {
@@ -2002,76 +1835,6 @@ textarea:focus {
 	font-size: 13px;
 	font-weight: 700;
 	padding: 5px 10px;
-}
-
-.medicamento-tarja-badge {
-	border-radius: 999px;
-	display: inline-block;
-	font-size: 11px;
-	font-weight: 700;
-	margin-left: 6px;
-	padding: 4px 10px;
-}
-
-.tarja-mip {
-	background-color: rgba(46, 204, 113, 0.14);
-	color: var(--primary-dark);
-}
-
-.tarja-prescricao {
-	background-color: rgba(231, 76, 60, 0.14);
-	color: #b83224;
-}
-
-.warning-campo {
-	background-color: rgba(231, 76, 60, 0.06) !important;
-}
-
-.warning-campo dt {
-	color: var(--danger-color) !important;
-}
-
-.medicamento-nao-encontrado {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	padding: 48px 24px;
-	text-align: center;
-}
-
-.footer-links-externos {
-	background-color: #f0f4f8;
-	border-radius: 8px;
-	margin-bottom: 16px;
-	padding: 16px;
-}
-
-.footer-links-externos h4 {
-	color: var(--text-secondary);
-	font-size: 14px;
-	margin: 0 0 10px;
-	text-transform: uppercase;
-}
-
-.footer-links-externos ul {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px 24px;
-	list-style: none;
-}
-
-.footer-links-externos a {
-	color: var(--info-color);
-	font-size: 13px;
-	font-weight: 500;
-	text-decoration: none;
-	transition: var(--transition);
-}
-
-.footer-links-externos a:hover {
-	color: var(--primary-dark);
-	text-decoration: underline;
 }
 
 .medicamento-detalhe-body {
@@ -2366,20 +2129,17 @@ textarea:focus {
 		flex-direction: column;
 	}
 
-	.catalogo {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 16px;
-	}
-
 	.catalogo-filtros {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 6px;
+		display: grid;
+		grid-template-columns: 1fr;
 	}
 
-	.filtro-btn {
-		font-size: 12px;
-		padding: 6px 12px;
+	.filtro-chip {
+		font-size: 14px;
+		min-width: 0;
+		padding-left: 10px;
+		padding-right: 10px;
+		white-space: normal;
 	}
 
 	.panel,
