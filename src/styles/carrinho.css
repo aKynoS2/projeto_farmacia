@@ -1,0 +1,28 @@
+/* Mensagens de validação e confirmação do carrinho. */
+.form-error {
+	color: #c0182b;
+	font-weight: 600;
+	margin: 0;
+}
+
+.cart-empty {
+	text-align: center;
+	color: #6b7280;
+	font-style: italic;
+	padding: 1.5rem 0;
+}
+
+.sale-notice {
+	color: #c0182b;
+	font-weight: 600;
+	margin: 0.5rem 0 0;
+}
+
+.sale-notice.aviso-ok {
+	color: #1a7f3c;
+}
+
+.receipt-preview.receipt-confirmed {
+	outline: 2px solid #1a7f3c;
+	outline-offset: 2px;
+}

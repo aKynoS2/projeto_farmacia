@@ -1,0 +1,37 @@
+/* Estilos específicos do catálogo dinâmico (complementam main.css). */
+
+/* Card oculto pela busca/filtro. */
+.card-produto.hidden {
+	display: none;
+}
+
+/* Ícone ilustrativo (emoji) que substitui a imagem do card. */
+.card-icone {
+	font-size: 40px;
+	line-height: 1;
+	display: block;
+	margin-bottom: 4px;
+}
+
+/* Input de busca reaproveitando o visual da barra existente. */
+.catalogo-search-input {
+	background-color: transparent;
+	border: none;
+	color: var(--text-color);
+	flex: 1;
+	font-family: inherit;
+	font-size: 15px;
+	font-weight: 600;
+	outline: none;
+}
+
+.catalogo-search-input::placeholder {
+	color: var(--muted-color);
+	font-weight: 600;
+}
+
+/* Chips agora são clicáveis. */
+.filtro-chip {
+	cursor: pointer;
+	user-select: none;
+}

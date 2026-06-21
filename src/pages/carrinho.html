@@ -5,10 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>FarmaSys - Carrinho</title>
 		<link rel="stylesheet" href="../styles/main.css" />
+		<link rel="stylesheet" href="../styles/carrinho.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 		/>
+		<script defer src="../scripts/data.js"></script>
+		<script defer src="../scripts/carrinho.js"></script>
 	</head>
 	<body>
 		<!-- CABEÇALHO E NAVEGAÇÃO -->
@@ -33,6 +36,9 @@
 						</li>
 						<li class="nav-item">
 							<a href="estoque.html" class="nav-link">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="contato.html" class="nav-link">Contato</a>
 						</li>
 						<li class="nav-item">
 							<a href="carrinho.html" class="nav-link cart-item active">
@@ -75,14 +81,6 @@
 							<label for="produto">Medicamento</label>
 							<select id="produto" name="produto" required>
 								<option value="">Selecione um produto</option>
-								<option value="dipirona">Dipirona 500mg - R$ 12,90</option>
-								<option value="omeprazol">Omeprazol 20mg - R$ 23,50</option>
-								<option value="amoxicilina">
-									Amoxicilina 500mg - R$ 34,90 - exige receita
-								</option>
-								<option value="losartana">
-									Losartana 50mg - R$ 18,90 - exige receita
-								</option>
 							</select>
 						</div>
 
@@ -136,6 +134,12 @@
 								Limpar
 							</button>
 						</div>
+						<p
+							id="erro-adicionar"
+							class="form-error wide"
+							role="alert"
+							aria-live="assertive"
+						></p>
 					</form>
 				</section>
 
@@ -148,19 +152,19 @@
 					<dl class="totals-list">
 						<div>
 							<dt>Subtotal</dt>
-							<dd>R$ 94,80</dd>
+							<dd id="subtotal">R$ 0,00</dd>
 						</div>
 						<div>
 							<dt>Desconto</dt>
-							<dd>R$ 4,80</dd>
+							<dd id="desconto">R$ 0,00</dd>
 						</div>
 						<div>
 							<dt>Itens</dt>
-							<dd>4</dd>
+							<dd id="total-itens">0</dd>
 						</div>
 						<div class="total-row">
 							<dt>Total</dt>
-							<dd>R$ 90,00</dd>
+							<dd id="total-geral">R$ 0,00</dd>
 						</div>
 					</dl>
 
@@ -183,6 +187,12 @@
 							<i class="fa-solid fa-receipt"></i>
 							Gerar comprovante
 						</button>
+						<p
+							id="aviso-venda"
+							class="sale-notice"
+							role="alert"
+							aria-live="assertive"
+						></p>
 					</form>
 				</aside>
 			</section>
@@ -212,70 +222,7 @@
 								<th>Ação</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<strong>Dipirona 500mg</strong>
-									<span>Analgésico e antitérmico</span>
-								</td>
-								<td>Comum</td>
-								<td>1</td>
-								<td>R$ 12,90</td>
-								<td>R$ 12,90</td>
-								<td><span class="status-pill status-ok">Não exige</span></td>
-								<td>
-									<button
-										class="icon-button"
-										type="button"
-										aria-label="Remover Dipirona"
-									>
-										<i class="fa-solid fa-trash"></i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<strong>Omeprazol 20mg</strong>
-									<span>Protetor gástrico</span>
-								</td>
-								<td>Comum</td>
-								<td>2</td>
-								<td>R$ 23,50</td>
-								<td>R$ 47,00</td>
-								<td><span class="status-pill status-ok">Não exige</span></td>
-								<td>
-									<button
-										class="icon-button"
-										type="button"
-										aria-label="Remover Omeprazol"
-									>
-										<i class="fa-solid fa-trash"></i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<strong>Amoxicilina 500mg</strong>
-									<span>Antibiótico</span>
-								</td>
-								<td>Tarja vermelha</td>
-								<td>1</td>
-								<td>R$ 34,90</td>
-								<td>R$ 34,90</td>
-								<td>
-									<span class="status-pill status-warning">Conferir</span>
-								</td>
-								<td>
-									<button
-										class="icon-button"
-										type="button"
-										aria-label="Remover Amoxicilina"
-									>
-										<i class="fa-solid fa-trash"></i>
-									</button>
-								</td>
-							</tr>
-						</tbody>
+						<tbody id="cart-tbody"></tbody>
 					</table>
 				</div>
 			</section>
@@ -288,7 +235,7 @@
 				</div>
 				<div class="receipt-total">
 					<span>Total da venda</span>
-					<strong>R$ 90,00</strong>
+					<strong id="receipt-total">R$ 0,00</strong>
 				</div>
 			</article>
 		</main>
@@ -298,6 +245,14 @@
 			<p>
 				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
 				reservados.
+			</p>
+			<p>
+				<a
+					href="https://consultas.anvisa.gov.br/#/bulario/"
+					target="_blank"
+					rel="noopener"
+					>Bulário Eletrônico (ANVISA)</a
+				>
 			</p>
 		</footer>
 	</body>

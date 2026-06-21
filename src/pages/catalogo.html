@@ -9,6 +9,9 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 		/>
+		<link rel="stylesheet" href="../styles/catalogo.css" />
+		<script defer src="../scripts/data.js"></script>
+		<script defer src="../scripts/catalogo.js"></script>
 	</head>
 	<body>
 		<!-- CABEÇALHO E NAVEGAÇÃO -->
@@ -33,6 +36,9 @@
 							<a href="estoque.html" class="nav-link">Estoque</a>
 						</li>
 						<li class="nav-item">
+							<a href="contato.html" class="nav-link">Contato</a>
+						</li>
+						<li class="nav-item">
 							<a href="carrinho.html" class="nav-link cart-item">
 								<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
 								<span class="cart-label">Carrinho</span>
@@ -50,7 +56,9 @@
 					<div>
 						<p class="eyebrow">Consulta de produtos</p>
 						<h1>Catálogo de Medicamentos</h1>
-						<p class="catalogo-subtitulo">12 produtos disponíveis</p>
+						<p class="catalogo-subtitulo" id="catalogo-subtitulo">
+							Carregando produtos...
+						</p>
 					</div>
 				</div>
 
@@ -58,9 +66,13 @@
 					<span class="catalogo-search-icon" aria-hidden="true">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</span>
-					<span class="catalogo-search-text"
-						>Consulta por medicamento, categoria ou fabricante</span
-					>
+					<input
+						type="search"
+						id="catalogo-busca"
+						class="catalogo-search-input"
+						placeholder="Buscar por medicamento, categoria ou fabricante"
+						aria-label="Buscar por medicamento, categoria ou fabricante"
+					/>
 				</div>
 
 				<ul class="catalogo-filtros" aria-label="Categorias do catálogo">
@@ -78,223 +90,7 @@
 				class="product-grid catalogo"
 				id="catalogo-grid"
 				aria-label="Medicamentos do catálogo"
-			>
-				<article
-					class="product-card card-produto"
-					data-categoria="analgesico"
-					data-nome="paracetamol 500mg analgésico antitérmico farma"
-				>
-					<span class="card-categoria-badge">Analgésico</span>
-					<h2>Paracetamol 500mg</h2>
-					<p>Analgésico e antitérmico</p>
-					<p class="card-preco">R$ 12,90</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="anti-inflamatorio"
-					data-nome="ibuprofeno 400mg anti-inflamatório neo quimica"
-				>
-					<span class="card-categoria-badge">Anti-inflamatório</span>
-					<h2>Ibuprofeno 400mg</h2>
-					<p>Anti-inflamatório e analgésico</p>
-					<p class="card-preco">R$ 18,50</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="antibiotico"
-					data-nome="amoxicilina 500mg antibiótico eurofarma"
-				>
-					<span class="card-categoria-badge">Antibiótico</span>
-					<h2>Amoxicilina 500mg</h2>
-					<p>Antibiótico de amplo espectro</p>
-					<p class="card-preco">R$ 25,00</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="analgesico"
-					data-nome="dipirona 500mg analgésico antitérmico sanofi"
-				>
-					<span class="card-categoria-badge">Analgésico</span>
-					<h2>Dipirona 500mg</h2>
-					<p>Analgésico e antitérmico</p>
-					<p class="card-preco">R$ 9,80</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="gastro"
-					data-nome="omeprazol 20mg gastro úlcera refluxo aché"
-				>
-					<span class="card-categoria-badge">Gastrointestinal</span>
-					<h2>Omeprazol 20mg</h2>
-					<p>Inibidor de bomba de prótons</p>
-					<p class="card-preco">R$ 22,40</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="cardiovascular"
-					data-nome="losartana 50mg cardiovascular hipertensão medley"
-				>
-					<span class="card-categoria-badge">Cardiovascular</span>
-					<h2>Losartana 50mg</h2>
-					<p>Anti-hipertensivo</p>
-					<p class="card-preco">R$ 31,00</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="alergia"
-					data-nome="loratadina 10mg alergia antialérgico neo quimica"
-				>
-					<span class="card-categoria-badge">Alergia</span>
-					<h2>Loratadina 10mg</h2>
-					<p>Antialérgico não sedativo</p>
-					<p class="card-preco">R$ 14,90</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="antibiotico"
-					data-nome="azitromicina 500mg antibiótico infecção eurofarma"
-				>
-					<span class="card-categoria-badge">Antibiótico</span>
-					<h2>Azitromicina 500mg</h2>
-					<p>Antibiótico macrolídeo</p>
-					<p class="card-preco">R$ 38,00</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="cardiovascular"
-					data-nome="atorvastatina 20mg cardiovascular colesterol pfizer"
-				>
-					<span class="card-categoria-badge">Cardiovascular</span>
-					<h2>Atorvastatina 20mg</h2>
-					<p>Redutor de colesterol</p>
-					<p class="card-preco">R$ 27,50</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="anti-inflamatorio"
-					data-nome="dexametasona 4mg anti-inflamatório corticoide sanofi"
-				>
-					<span class="card-categoria-badge">Anti-inflamatório</span>
-					<h2>Dexametasona 4mg</h2>
-					<p>Corticoide anti-inflamatório</p>
-					<p class="card-preco">R$ 16,70</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="gastro"
-					data-nome="metoclopramida 10mg gastro enjoo náusea medley"
-				>
-					<span class="card-categoria-badge">Gastrointestinal</span>
-					<h2>Metoclopramida 10mg</h2>
-					<p>Antiemético e procinético</p>
-					<p class="card-preco">R$ 11,20</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-
-				<article
-					class="product-card card-produto"
-					data-categoria="alergia"
-					data-nome="cetirizina 10mg alergia antialérgico rinite neo quimica"
-				>
-					<span class="card-categoria-badge">Alergia</span>
-					<h2>Cetirizina 10mg</h2>
-					<p>Antialérgico de segunda geração</p>
-					<p class="card-preco">R$ 19,90</p>
-					<div class="card-acoes">
-						<a href="ficha.html" class="btn btn-secondary">Ver detalhes</a>
-						<a href="carrinho.html" class="btn btn-primary btn-carrinho">
-							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-							<span>Adicionar</span>
-						</a>
-					</div>
-				</article>
-			</section>
+			></section>
 		</main>
 
 		<!-- RODAPÉ -->
@@ -302,6 +98,14 @@
 			<p>
 				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
 				reservados.
+			</p>
+			<p>
+				<a
+					href="https://consultas.anvisa.gov.br/#/bulario/"
+					target="_blank"
+					rel="noopener"
+					>Bulário Eletrônico (ANVISA)</a
+				>
 			</p>
 		</footer>
 	</body>

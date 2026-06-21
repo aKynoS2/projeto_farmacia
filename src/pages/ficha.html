@@ -9,6 +9,8 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 		/>
+		<script defer src="../scripts/data.js"></script>
+		<script defer src="../scripts/ficha.js"></script>
 	</head>
 	<body>
 		<!-- CABEÇALHO E NAVEGAÇÃO -->
@@ -31,6 +33,9 @@
 						</li>
 						<li class="nav-item">
 							<a href="estoque.html" class="nav-link">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="contato.html" class="nav-link">Contato</a>
 						</li>
 						<li class="nav-item">
 							<a href="carrinho.html" class="nav-link cart-item">
@@ -58,31 +63,49 @@
 				<header class="medicamento-detalhe-header">
 					<span class="medicamento-detalhe-icon" aria-hidden="true">💊</span>
 					<div>
-						<h2>Paracetamol 500mg</h2>
-						<span class="medicamento-detalhe-badge">Disponível</span>
+						<h2 id="ficha-nome">Medicamento</h2>
+						<span class="medicamento-detalhe-badge" id="ficha-badge"
+							>Disponível</span
+						>
 					</div>
 				</header>
 
 				<dl class="medicamento-detalhe-body">
 					<div class="medicamento-detalhe-campo">
 						<dt>Categoria</dt>
-						<dd>Analgésico</dd>
+						<dd id="ficha-categoria"></dd>
 					</div>
 					<div class="medicamento-detalhe-campo">
 						<dt>Dosagem</dt>
-						<dd>500mg por comprimido</dd>
+						<dd id="ficha-dosagem"></dd>
 					</div>
 					<div class="medicamento-detalhe-campo">
 						<dt>Fabricante</dt>
-						<dd>FarmaGen</dd>
+						<dd id="ficha-fabricante"></dd>
 					</div>
 					<div class="medicamento-detalhe-campo">
 						<dt>Preço</dt>
-						<dd class="preco-valor">R$ 12,90</dd>
+						<dd class="preco-valor" id="ficha-preco"></dd>
+					</div>
+					<div class="medicamento-detalhe-campo">
+						<dt>Tipo de tarja / Receita</dt>
+						<dd id="ficha-tarja"></dd>
+					</div>
+					<div class="medicamento-detalhe-campo">
+						<dt>Posologia</dt>
+						<dd id="ficha-posologia"></dd>
+					</div>
+					<div class="medicamento-detalhe-campo full">
+						<dt>Indicações</dt>
+						<dd id="ficha-indicacoes"></dd>
+					</div>
+					<div class="medicamento-detalhe-campo full">
+						<dt>Contraindicações</dt>
+						<dd id="ficha-contraindicacoes"></dd>
 					</div>
 					<div class="medicamento-detalhe-campo full">
 						<dt>Descrição</dt>
-						<dd>Utilizado para alívio de dores e febre.</dd>
+						<dd id="ficha-descricao"></dd>
 					</div>
 				</dl>
 
@@ -98,10 +121,10 @@
 					<a href="catalogo.html" class="btn btn-secondary"
 						>Voltar ao catálogo</a
 					>
-					<a href="carrinho.html" class="btn btn-primary btn-carrinho">
+					<button type="button" id="ficha-add" class="btn btn-primary btn-carrinho">
 						<i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
 						<span>Adicionar ao carrinho</span>
-					</a>
+					</button>
 				</footer>
 			</article>
 		</main>
@@ -111,6 +134,14 @@
 			<p>
 				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
 				reservados.
+			</p>
+			<p>
+				<a
+					href="https://consultas.anvisa.gov.br/#/bulario/"
+					target="_blank"
+					rel="noopener"
+					>Bulário Eletrônico (ANVISA)</a
+				>
 			</p>
 		</footer>
 	</body>

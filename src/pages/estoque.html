@@ -5,10 +5,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>FarmaSys - Estoque</title>
 		<link rel="stylesheet" href="../styles/main.css" />
+		<link rel="stylesheet" href="../styles/estoque.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 		/>
+		<script defer src="../scripts/estoque.js"></script>
 	</head>
 	<body>
 		<!-- CABEÇALHO E NAVEGAÇÃO -->
@@ -33,6 +35,9 @@
 						</li>
 						<li class="nav-item">
 							<a href="estoque.html" class="nav-link active">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="contato.html" class="nav-link">Contato</a>
 						</li>
 						<li class="nav-item">
 							<a href="carrinho.html" class="nav-link cart-item">
@@ -72,7 +77,7 @@
 					></span>
 					<div>
 						<p class="metric-label">Estoque baixo</p>
-						<strong class="metric-value">8</strong>
+						<strong class="metric-value" id="metric-baixo">8</strong>
 					</div>
 				</article>
 				<article class="metric-card">
@@ -164,7 +169,7 @@
 						</div>
 
 						<div class="form-actions wide">
-							<button class="btn btn-primary" type="button">
+							<button class="btn btn-primary" type="button" id="btn-registrar">
 								<i class="fa-solid fa-floppy-disk"></i>
 								Registrar
 							</button>
@@ -173,6 +178,13 @@
 								Limpar
 							</button>
 						</div>
+
+						<p class="form-error wide" id="estoque-erro" role="alert" hidden></p>
+						<p
+							class="form-status wide"
+							id="estoque-status"
+							aria-live="polite"
+						></p>
 					</form>
 				</section>
 
@@ -234,58 +246,71 @@
 								<th>Situação</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
+						<tbody id="estoque-tbody">
+							<tr data-nome="Dipirona 500mg" data-qtd="42" data-min="10">
 								<td>Dipirona 500mg</td>
 								<td>Neo Química</td>
 								<td>DP2407</td>
 								<td>12/2027</td>
-								<td>42</td>
-								<td>10</td>
+								<td class="cel-qtd">42</td>
+								<td class="cel-min">10</td>
 								<td>Não</td>
-								<td><span class="status-pill status-ok">Normal</span></td>
+								<td class="cel-situacao">
+									<span class="status-pill status-ok">Normal</span>
+								</td>
 							</tr>
-							<tr>
+							<tr data-nome="Paracetamol 750mg" data-qtd="28" data-min="10">
 								<td>Paracetamol 750mg</td>
 								<td>Medley</td>
 								<td>PA1104</td>
 								<td>09/2027</td>
-								<td>28</td>
-								<td>10</td>
+								<td class="cel-qtd">28</td>
+								<td class="cel-min">10</td>
 								<td>Não</td>
-								<td><span class="status-pill status-ok">Normal</span></td>
+								<td class="cel-situacao">
+									<span class="status-pill status-ok">Normal</span>
+								</td>
 							</tr>
-							<tr>
+							<tr
+								data-nome="Amoxicilina 500mg"
+								data-qtd="5"
+								data-min="12"
+								class="linha-baixa"
+							>
 								<td>Amoxicilina 500mg</td>
 								<td>EMS</td>
 								<td>AM5531</td>
 								<td>04/2027</td>
-								<td>5</td>
-								<td>12</td>
+								<td class="cel-qtd">5</td>
+								<td class="cel-min">12</td>
 								<td>Sim</td>
-								<td>
+								<td class="cel-situacao">
 									<span class="status-pill status-warning">Reposição</span>
 								</td>
 							</tr>
-							<tr>
+							<tr data-nome="Losartana 50mg" data-qtd="19" data-min="8">
 								<td>Losartana 50mg</td>
 								<td>Eurofarma</td>
 								<td>LO8810</td>
 								<td>02/2028</td>
-								<td>19</td>
-								<td>8</td>
+								<td class="cel-qtd">19</td>
+								<td class="cel-min">8</td>
 								<td>Sim</td>
-								<td><span class="status-pill status-info">Controlado</span></td>
+								<td class="cel-situacao">
+									<span class="status-pill status-info">Controlado</span>
+								</td>
 							</tr>
-							<tr>
+							<tr data-nome="Ibuprofeno 400mg" data-qtd="11" data-min="10">
 								<td>Ibuprofeno 400mg</td>
 								<td>Cimed</td>
 								<td>IB3002</td>
 								<td>05/2026</td>
-								<td>11</td>
-								<td>10</td>
+								<td class="cel-qtd">11</td>
+								<td class="cel-min">10</td>
 								<td>Não</td>
-								<td><span class="status-pill status-danger">Validade</span></td>
+								<td class="cel-situacao">
+									<span class="status-pill status-danger">Validade</span>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -298,6 +323,14 @@
 			<p>
 				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
 				reservados.
+			</p>
+			<p>
+				<a
+					href="https://consultas.anvisa.gov.br/#/bulario/"
+					target="_blank"
+					rel="noopener"
+					>Bulário Eletrônico (ANVISA)</a
+				>
 			</p>
 		</footer>
 	</body>

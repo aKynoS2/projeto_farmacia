@@ -4,7 +4,9 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>FarmaSys - Geração de Receita</title>
+		<script defer src="../scripts/receita.js"></script>
 		<link rel="stylesheet" href="../styles/main.css" />
+		<link rel="stylesheet" href="../styles/receita-extra.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -33,6 +35,9 @@
 					</li>
 					<li class="nav-item">
 						<a href="estoque.html" class="nav-link">Estoque</a>
+					</li>
+					<li class="nav-item">
+						<a href="contato.html" class="nav-link">Contato</a>
 					</li>
 					<li class="nav-item">
 						<a href="carrinho.html" class="nav-link cart-item">
@@ -230,6 +235,7 @@
 
 					<!-- Botão de envio -->
 				<button type="button" class="prescription-btn">Gerar receita</button>
+				<p id="receita-msg" role="alert" aria-live="assertive"></p>
 				</form>
 
 				<!-- Coluna direita: Preview + histórico -->
@@ -340,6 +346,14 @@
 			<p>
 				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
 				reservados.
+			</p>
+			<p>
+				<a
+					href="https://consultas.anvisa.gov.br/#/bulario/"
+					target="_blank"
+					rel="noopener"
+					>Bulário Eletrônico (ANVISA)</a
+				>
 			</p>
 		</footer>
 	</body>

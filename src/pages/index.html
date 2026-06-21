@@ -5,10 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>FarmaSys - Home</title>
 		<link rel="stylesheet" href="../styles/main.css" />
+		<link rel="stylesheet" href="../styles/home-extra.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 		/>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+		<script defer src="../scripts/home.js"></script>
 	</head>
 	<body>
 		<!-- CABEÇALHO E NAVEGAÇÃO -->
@@ -33,6 +36,9 @@
 					</li>
 					<li class="nav-item">
 						<a href="estoque.html" class="nav-link">Estoque</a>
+					</li>
+					<li class="nav-item">
+						<a href="contato.html" class="nav-link">Contato</a>
 					</li>
 					<li class="nav-item">
 						<a href="carrinho.html" class="nav-link cart-item">
@@ -78,6 +84,26 @@
 					<div class="descricao-metrica">Clientes atendidos</div>
 					<div class="valor-metrica">35</div>
 					<div class="sub-metrica">+5 vs. ontem</div>
+				</article>
+			</section>
+
+			<!-- GRÁFICOS -->
+			<section class="charts-container" aria-label="Gráficos do painel">
+				<article class="chart-card">
+					<h2>Estoque por categoria</h2>
+					<canvas
+						id="grafico-categorias"
+						role="img"
+						aria-label="Gráfico de barras do estoque por categoria. Antibióticos e Alergia estão abaixo do estoque mínimo."
+					></canvas>
+				</article>
+				<article class="chart-card">
+					<h2>Vendas do dia</h2>
+					<canvas
+						id="grafico-vendas"
+						role="img"
+						aria-label="Gráfico de linha das vendas do dia por faixa horária, das 08h às 18h, com pico às 16h."
+					></canvas>
 				</article>
 			</section>
 
@@ -240,6 +266,14 @@
 			<p>
 				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
 				reservados.
+			</p>
+			<p>
+				<a
+					href="https://consultas.anvisa.gov.br/#/bulario/"
+					target="_blank"
+					rel="noopener"
+					>Bulário Eletrônico (ANVISA)</a
+				>
 			</p>
 		</footer>
 	</body>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FarmaSys - Contato / SAC</title>
+		<link rel="stylesheet" href="../styles/main.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="../styles/contato.css" />
+		<script defer src="../scripts/contato.js"></script>
+	</head>
+	<body>
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
+			<nav class="navbar">
+				<div class="navbar-container">
+					<div class="navbar-brand">
+						<a href="index.html" class="logo">
+							<span class="logo-icon">💊</span>
+							<span class="logo-text">Farmácia</span>
+						</a>
+					</div>
+
+					<ul class="navbar-menu">
+						<li class="nav-item">
+							<a href="catalogo.html" class="nav-link">Catálogo</a>
+						</li>
+						<li class="nav-item">
+							<a href="receita.html" class="nav-link">Receita</a>
+						</li>
+						<li class="nav-item">
+							<a href="estoque.html" class="nav-link">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="contato.html" class="nav-link active">Contato</a>
+						</li>
+						<li class="nav-item">
+							<a href="carrinho.html" class="nav-link cart-item">
+								<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+								<span class="cart-label">Carrinho</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<!-- CONTEÚDO PRINCIPAL -->
+		<main class="workspace">
+			<section class="page-heading">
+				<p class="eyebrow">Atendimento ao cliente</p>
+				<h1>Contato / SAC</h1>
+				<p>
+					Fale com a equipe da FarmaSys. Tire dúvidas sobre medicamentos,
+					pedidos e disponibilidade de estoque.
+				</p>
+			</section>
+
+			<section class="content-grid contato-layout">
+				<!-- Formulário de atendimento -->
+				<section class="panel">
+					<div class="section-title">
+						<h2>Envie sua mensagem</h2>
+						<p>Responderemos no horário comercial.</p>
+					</div>
+
+					<form class="form-grid" name="contato" novalidate>
+						<div class="form-field wide">
+							<label for="contato-nome">Nome completo</label>
+							<input
+								id="contato-nome"
+								name="nome"
+								type="text"
+								placeholder="Seu nome"
+								required
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="contato-email">E-mail</label>
+							<input
+								id="contato-email"
+								name="email"
+								type="email"
+								placeholder="voce@email.com"
+								required
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="contato-assunto">Assunto</label>
+							<select id="contato-assunto" name="assunto" required>
+								<option value="">Selecione...</option>
+								<option value="duvida">Dúvida sobre medicamento</option>
+								<option value="pedido">Pedido / Venda</option>
+								<option value="estoque">Disponibilidade de estoque</option>
+								<option value="reclamacao">Reclamação</option>
+								<option value="outro">Outro</option>
+							</select>
+						</div>
+
+						<div class="form-field wide">
+							<label for="contato-mensagem">Mensagem</label>
+							<textarea
+								id="contato-mensagem"
+								name="mensagem"
+								rows="5"
+								placeholder="Como podemos ajudar?"
+								required
+							></textarea>
+						</div>
+
+						<div class="form-actions wide">
+							<button class="btn btn-primary" type="button" id="contato-enviar">
+								<i class="fa-solid fa-paper-plane"></i>
+								Enviar mensagem
+							</button>
+							<button class="btn btn-secondary" type="reset">
+								<i class="fa-solid fa-eraser"></i>
+								Limpar
+							</button>
+						</div>
+
+						<p id="contato-msg" class="form-status" role="alert" aria-live="polite"></p>
+					</form>
+				</section>
+
+				<!-- Informações de atendimento -->
+				<aside class="panel contato-info">
+					<div class="section-title">
+						<h2>Onde nos encontrar</h2>
+						<p>Atendimento presencial e por telefone.</p>
+					</div>
+
+					<ul class="contato-lista">
+						<li>
+							<span class="contato-icon" aria-hidden="true">
+								<i class="fa-solid fa-location-dot"></i>
+							</span>
+							<div>
+								<strong>Endereço</strong>
+								<p>Rua das Farmácias, 123 — Centro, Farroupilha/RS</p>
+							</div>
+						</li>
+						<li>
+							<span class="contato-icon" aria-hidden="true">
+								<i class="fa-solid fa-phone"></i>
+							</span>
+							<div>
+								<strong>Telefone / WhatsApp</strong>
+								<p>(54) 3000-0000</p>
+							</div>
+						</li>
+						<li>
+							<span class="contato-icon" aria-hidden="true">
+								<i class="fa-solid fa-envelope"></i>
+							</span>
+							<div>
+								<strong>E-mail</strong>
+								<p>sac@farmasys.com.br</p>
+							</div>
+						</li>
+						<li>
+							<span class="contato-icon" aria-hidden="true">
+								<i class="fa-solid fa-clock"></i>
+							</span>
+							<div>
+								<strong>Horário de atendimento</strong>
+								<p>Seg. a Sex.: 08h às 20h</p>
+								<p>Sábado: 08h às 14h</p>
+								<p>Domingo e feriados: fechado</p>
+							</div>
+						</li>
+					</ul>
+				</aside>
+			</section>
+		</main>
+
+		<!-- RODAPÉ -->
+		<footer class="footer">
+			<p>
+				&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos
+				reservados.
+			</p>
+			<p>
+				<a
+					href="https://consultas.anvisa.gov.br/#/bulario/"
+					target="_blank"
+					rel="noopener"
+					>Bulário Eletrônico (ANVISA)</a
+				>
+			</p>
+		</footer>
+	</body>
+</html>
