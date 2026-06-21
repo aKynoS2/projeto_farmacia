@@ -1827,6 +1827,11 @@ textarea:focus {
 	width: 58px;
 }
 
+.medicamento-detalhe-icon svg {
+	height: 38px;
+	width: 38px;
+}
+
 .medicamento-detalhe-badge {
 	background-color: rgba(46, 204, 113, 0.14);
 	border-radius: 999px;

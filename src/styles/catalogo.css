@@ -5,12 +5,26 @@
 	display: none;
 }
 
-/* Ícone ilustrativo (emoji) que substitui a imagem do card. */
+/* Ícone ilustrativo: a forma farmacêutica da categoria, em destaque no topo
+   do card como uma "vitrine" visual. */
 .card-icone {
-	font-size: 40px;
-	line-height: 1;
-	display: block;
-	margin-bottom: 4px;
+	align-items: center;
+	background: linear-gradient(180deg, var(--light-bg), var(--white));
+	border-radius: var(--radius-md);
+	display: flex;
+	justify-content: center;
+	margin: -4px -4px 2px;
+	padding: 18px;
+}
+
+.card-icone svg {
+	height: 56px;
+	width: 56px;
+	transition: transform 0.25s ease;
+}
+
+.product-card:hover .card-icone svg {
+	transform: scale(1.08) rotate(-3deg);
 }
 
 /* Input de busca reaproveitando o visual da barra existente. */

@@ -25,8 +25,9 @@ function criarCard(med) {
 
 	const icone = document.createElement("span");
 	icone.className = "card-icone";
-	icone.setAttribute("aria-hidden", "true");
-	icone.textContent = "💊";
+	icone.setAttribute("role", "img");
+	icone.setAttribute("aria-label", `Ilustração de ${med.categoriaLabel}`);
+	icone.innerHTML = svgCategoria(med.categoria);
 
 	const titulo = document.createElement("h2");
 	titulo.textContent = med.nome;

@@ -12,6 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	set("ficha-nome", med.nome);
 	set("ficha-badge", "Disponível");
+
+	const icone = document.getElementById("ficha-icone");
+	if (icone) {
+		icone.innerHTML = svgCategoria(med.categoria);
+		icone.setAttribute("aria-label", `Ilustração de ${med.categoriaLabel}`);
+	}
+
 	set("ficha-categoria", med.categoriaLabel);
 	set("ficha-dosagem", med.dosagem);
 	set("ficha-fabricante", med.fabricante);

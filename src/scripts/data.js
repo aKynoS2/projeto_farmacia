@@ -19,6 +19,58 @@ const MEDS = [
 const medById = (id) => MEDS.find((m) => m.id === id);
 const brl = (v) => "R$ " + v.toFixed(2).replace(".", ",");
 
+// Ícone por categoria: a forma farmacêutica real do produto, cada uma com sua
+// cor. Substitui imagens de embalagem fictícias por um símbolo distinto e
+// reconhecível, reaproveitado no card do catálogo e no cabeçalho da ficha.
+const CAT_ICONES = {
+	analgesico: {
+		// Comprimido redondo com sulco
+		cor: "#2ecc71",
+		formas:
+			'<circle cx="24" cy="24" r="14" fill="C" fill-opacity=".15"/><circle cx="24" cy="24" r="14" fill="none" stroke="C" stroke-width="2.5"/><line x1="24" y1="10" x2="24" y2="38" stroke="C" stroke-width="2.5"/>',
+	},
+	"anti-inflamatorio": {
+		// Comprimido oblongo (caplet)
+		cor: "#e67e22",
+		formas:
+			'<rect x="8" y="17" width="32" height="14" rx="7" fill="C" fill-opacity=".15"/><rect x="8" y="17" width="32" height="14" rx="7" fill="none" stroke="C" stroke-width="2.5"/><line x1="24" y1="17" x2="24" y2="31" stroke="C" stroke-width="2.5"/>',
+	},
+	antibiotico: {
+		// Cápsula em duas metades
+		cor: "#3498db",
+		formas:
+			'<g transform="rotate(45 24 24)"><rect x="9" y="18" width="30" height="12" rx="6" fill="C" fill-opacity=".15"/><rect x="9" y="18" width="30" height="12" rx="6" fill="none" stroke="C" stroke-width="2.5"/><line x1="24" y1="18" x2="24" y2="30" stroke="C" stroke-width="2.5"/></g>',
+	},
+	gastro: {
+		// Softgel (cápsula gelatinosa em gota)
+		cor: "#9b59b6",
+		formas:
+			'<path d="M24 9c6 8 9 12 9 17a9 9 0 0 1-18 0c0-5 3-9 9-17z" fill="C" fill-opacity=".15"/><path d="M24 9c6 8 9 12 9 17a9 9 0 0 1-18 0c0-5 3-9 9-17z" fill="none" stroke="C" stroke-width="2.5" stroke-linejoin="round"/>',
+	},
+	cardiovascular: {
+		// Coração
+		cor: "#e74c3c",
+		formas:
+			'<path d="M24 34s-11-6.6-11-14a6 6 0 0 1 11-3.2A6 6 0 0 1 35 20c0 7.4-11 14-11 14z" fill="C" fill-opacity=".15"/><path d="M24 34s-11-6.6-11-14a6 6 0 0 1 11-3.2A6 6 0 0 1 35 20c0 7.4-11 14-11 14z" fill="none" stroke="C" stroke-width="2.5" stroke-linejoin="round"/>',
+	},
+	alergia: {
+		// Folha (antialérgico / pólen)
+		cor: "#16a085",
+		formas:
+			'<path d="M14 34c0-12 8-20 20-20 0 12-8 20-20 20z" fill="C" fill-opacity=".15"/><path d="M14 34c0-12 8-20 20-20 0 12-8 20-20 20z" fill="none" stroke="C" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 34q7-7 14-20" fill="none" stroke="C" stroke-width="2.5"/>',
+	},
+};
+
+// Retorna o SVG (string) do ícone da categoria, já com a cor aplicada.
+function svgCategoria(categoria) {
+	const def = CAT_ICONES[categoria] || CAT_ICONES.analgesico;
+	return (
+		'<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">' +
+		def.formas.replace(/C/g, def.cor) +
+		"</svg>"
+	);
+}
+
 // --- Carrinho em localStorage: [{id, qtd}] ---
 const CART_KEY = "farmasys_cart";
 
