@@ -173,90 +173,19 @@
 			</section>
 
 			<!-- VENDAS -->
+			<!-- GRÁFICOS INTERATIVOS -->
 			<section class="sales-container" aria-label="Resumo de vendas">
 				<article class="sales-card">
 					<h2 class="sales-title">Mais vendidos hoje</h2>
-					<ul class="sales">
-						<li class="sale-item">
-							<span class="rank-num">1</span>
-							<span class="sale-name">Paracetamol</span>
-							<div class="bar">
-								<div class="bar-fill bar-fill-100"></div>
-							</div>
-							<span class="sale-quantity">31</span>
-						</li>
-						<li class="sale-item">
-							<span class="rank-num">2</span>
-							<span class="sale-name">Dipirona</span>
-							<div class="bar">
-								<div class="bar-fill bar-fill-77"></div>
-							</div>
-							<span class="sale-quantity">24</span>
-						</li>
-						<li class="sale-item">
-							<span class="rank-num">3</span>
-							<span class="sale-name">Dorflex</span>
-							<div class="bar">
-								<div class="bar-fill bar-fill-68"></div>
-							</div>
-							<span class="sale-quantity">21</span>
-						</li>
-						<li class="sale-item">
-							<span class="rank-num">4</span>
-							<span class="sale-name">Amoxicilina</span>
-							<div class="bar">
-								<div class="bar-fill bar-fill-52"></div>
-							</div>
-							<span class="sale-quantity">16</span>
-						</li>
-						<li class="sale-item">
-							<span class="rank-num">5</span>
-							<span class="sale-name">Ibuprofeno</span>
-							<div class="bar">
-								<div class="bar-fill bar-fill-42"></div>
-							</div>
-							<span class="sale-quantity">13</span>
-						</li>
-					</ul>
+					<div style="position: relative; height: 300px">
+						<canvas id="grafico-vendas"></canvas>
+					</div>
 				</article>
 				<article class="sales-card">
-					<h2 class="sales-title">Últimas Vendas</h2>
-					<table class="last-sales">
-						<thead>
-							<tr>
-								<th>Produto</th>
-								<th class="qtd">Qtd</th>
-								<th class="hr">Horário</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Paracetamol</td>
-								<td class="qtd">2</td>
-								<td class="hr">13:40</td>
-							</tr>
-							<tr>
-								<td>Dipirona</td>
-								<td class="qtd">1</td>
-								<td class="hr">13:35</td>
-							</tr>
-							<tr>
-								<td>Dorflex</td>
-								<td class="qtd">3</td>
-								<td class="hr">13:30</td>
-							</tr>
-							<tr>
-								<td>Amoxicilina</td>
-								<td class="qtd">1</td>
-								<td class="hr">13:25</td>
-							</tr>
-							<tr>
-								<td>Ibuprofeno</td>
-								<td class="qtd">2</td>
-								<td class="hr">13:20</td>
-							</tr>
-						</tbody>
-					</table>
+					<h2 class="sales-title">Estoque por categoria</h2>
+					<div style="position: relative; height: 300px">
+						<canvas id="grafico-estoque"></canvas>
+					</div>
 				</article>
 			</section>
 		</main>
@@ -276,5 +205,7 @@
 				>
 			</p>
 		</footer>
+		<script src="../scripts/alertas_dinamicos.js"></script>
+		<script src="../scripts/home_graficos.js"></script>
 	</body>
 </html>
