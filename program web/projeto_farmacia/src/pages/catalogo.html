@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Catálogo - FarmaSys</title>
+		<link rel="stylesheet" href="../styles/main.css" />
+		<script src="https://kit.fontawesome.com/f73de64231.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<!-- CABEÇALHO E NAVEGAÇÃO -->
+		<header class="site-header">
+			<nav class="navbar">
+				<div class="navbar-container">
+					<div class="navbar-brand">
+						<a href="index.html" class="logo">
+							<span class="logo-icon">💊</span>
+							<span class="logo-text">Farmácia</span>
+						</a>
+					</div>
+
+					<ul class="navbar-menu">
+						<li class="nav-item">
+							<a href="catalogo.html" class="nav-link active">Catálogo</a>
+						</li>
+						<li class="nav-item">
+							<a href="receita.html" class="nav-link">Receita</a>
+						</li>
+						<li class="nav-item">
+							<a href="estoque.html" class="nav-link">Estoque</a>
+						</li>
+						<li class="nav-item">
+							<a href="carrinho.html" class="nav-link cart-item">
+								<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+								<span class="cart-label">Carrinho</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<!-- CONTEÚDO PRINCIPAL -->
+		<main class="workspace">
+			<section class="page-heading catalogo-header">
+				<div class="catalogo-header-top">
+					<div>
+						<p class="eyebrow">Consulta de produtos</p>
+						<h1>Catálogo de Medicamentos</h1>
+						<p class="catalogo-subtitulo" id="contador-produtos">12 produtos disponíveis</p>
+					</div>
+				</div>
+
+				<div class="catalogo-search-bar">
+					<span class="catalogo-search-icon" aria-hidden="true">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</span>
+					<input
+						type="text"
+						id="busca-medicamento"
+						class="catalogo-search-input"
+						placeholder="Buscar por medicamento, categoria ou fabricante..."
+						autocomplete="off"
+					/>
+					<button
+						type="button"
+						id="btn-limpar"
+						class="catalogo-search-clear"
+						aria-label="Limpar busca"
+					>
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</div>
+
+				<ul class="catalogo-filtros" aria-label="Categorias do catálogo">
+					<li><button class="filtro-btn ativo" data-categoria="todos">Todos</button></li>
+					<li><button class="filtro-btn" data-categoria="analgesico">Analgésicos</button></li>
+					<li><button class="filtro-btn" data-categoria="antibiotico">Antibióticos</button></li>
+					<li><button class="filtro-btn" data-categoria="anti-inflamatorio">Anti-inflamatórios</button></li>
+					<li><button class="filtro-btn" data-categoria="gastro">Gastrointestinal</button></li>
+					<li><button class="filtro-btn" data-categoria="cardiovascular">Cardiovascular</button></li>
+					<li><button class="filtro-btn" data-categoria="alergia">Alergia</button></li>
+				</ul>
+			</section>
+
+			<section
+				class="product-grid catalogo"
+				id="catalogo-grid"
+				aria-label="Medicamentos do catálogo"
+			>
+				<article
+					class="product-card card-produto"
+					data-categoria="analgesico"
+					data-id="paracetamol-500mg"
+				>
+					<span class="card-categoria-badge">Analgésico</span>
+					<h2>Paracetamol 500mg</h2>
+					<p>Analgésico e antitérmico</p>
+					<p class="card-preco">R$ 12,90</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=paracetamol-500mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="paracetamol-500mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article
+					class="product-card card-produto"
+					data-categoria="anti-inflamatorio"
+					data-id="ibuprofeno-400mg"
+				>
+					<span class="card-categoria-badge">Anti-inflamatório</span>
+					<h2>Ibuprofeno 400mg</h2>
+					<p>Anti-inflamatório e analgésico</p>
+					<p class="card-preco">R$ 18,50</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=ibuprofeno-400mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="ibuprofeno-400mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article
+					class="product-card card-produto"
+					data-categoria="antibiotico"
+					data-id="amoxicilina-500mg"
+				>
+					<span class="card-categoria-badge">Antibiótico</span>
+					<h2>Amoxicilina 500mg</h2>
+					<p>Antibiótico de amplo espectro</p>
+					<p class="card-preco">R$ 25,00</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=amoxicilina-500mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="amoxicilina-500mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article
+					class="product-card card-produto"
+					data-categoria="analgesico"
+					data-id="dipirona-500mg"
+				>
+					<span class="card-categoria-badge">Analgésico</span>
+					<h2>Dipirona 500mg</h2>
+					<p>Analgésico e antitérmico</p>
+					<p class="card-preco">R$ 9,80</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=dipirona-500mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="dipirona-500mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article
+					class="product-card card-produto"
+					data-categoria="gastro"
+					data-id="omeprazol-20mg"
+				>
+					<span class="card-categoria-badge">Gastrointestinal</span>
+					<h2>Omeprazol 20mg</h2>
+					<p>Inibidor de bomba de prótons</p>
+					<p class="card-preco">R$ 22,40</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=omeprazol-20mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="omeprazol-20mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article
+					class="product-card card-produto"
+					data-categoria="cardiovascular"
+					data-id="losartana-50mg"
+				>
+					<span class="card-categoria-badge">Cardiovascular</span>
+					<h2>Losartana 50mg</h2>
+					<p>Anti-hipertensivo</p>
+					<p class="card-preco">R$ 31,00</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=losartana-50mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="losartana-50mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article
+					class="product-card card-produto"
+					data-categoria="alergia"
+					data-id="loratadina-10mg"
+				>
+					<span class="card-categoria-badge">Alergia</span>
+					<h2>Loratadina 10mg</h2>
+					<p>Antialérgico não sedativo</p>
+					<p class="card-preco">R$ 14,90</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=loratadina-10mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="loratadina-10mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article class="card-produto" data-categoria="antibiotico" data-id="azitromicina-500mg">
+					<span class="card-categoria-badge">Antibiótico</span>
+					<img src="../assets/images/placeholder-med.svg" alt="Foto da Azitromicina 500mg" class="card-img">
+					<h2>Azitromicina 500mg</h2>
+					<p>Antibiótico macrolídeo</p>
+					<p class="card-preco">R$ 38,00</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=azitromicina-500mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="azitromicina-500mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article class="card-produto" data-categoria="cardiovascular" data-id="atorvastatina-20mg">
+					<span class="card-categoria-badge">Cardiovascular</span>
+					<img src="../assets/images/placeholder-med.svg" alt="Foto da Atorvastatina 20mg" class="card-img">
+					<h2>Atorvastatina 20mg</h2>
+					<p>Redutor de colesterol</p>
+					<p class="card-preco">R$ 27,50</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=atorvastatina-20mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="atorvastatina-20mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article class="card-produto" data-categoria="anti-inflamatorio" data-id="dexametasona-4mg">
+					<span class="card-categoria-badge">Anti-inflamatório</span>
+					<img src="../assets/images/placeholder-med.svg" alt="Foto da Dexametasona 4mg" class="card-img">
+					<h2>Dexametasona 4mg</h2>
+					<p>Corticoide anti-inflamatório</p>
+					<p class="card-preco">R$ 16,70</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=dexametasona-4mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="dexametasona-4mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article class="card-produto" data-categoria="gastro" data-id="metoclopramida-10mg">
+					<span class="card-categoria-badge">Gastrointestinal</span>
+					<img src="../assets/images/placeholder-med.svg" alt="Foto da Metoclopramida 10mg" class="card-img">
+					<h2>Metoclopramida 10mg</h2>
+					<p>Antiemético e procinético</p>
+					<p class="card-preco">R$ 11,20</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=metoclopramida-10mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="metoclopramida-10mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+
+				<article class="card-produto" data-categoria="alergia" data-id="cetirizina-10mg">
+					<span class="card-categoria-badge">Alergia</span>
+					<img src="../assets/images/placeholder-med.svg" alt="Foto da Cetirizina 10mg" class="card-img">
+					<h2>Cetirizina 10mg</h2>
+					<p>Antialérgico de segunda geração</p>
+					<p class="card-preco">R$ 19,90</p>
+					<div class="card-acoes">
+						<a href="ficha.html?id=cetirizina-10mg" class="btn btn-secondary">Ver detalhes</a>
+						<button type="button" class="btn-carrinho" data-id="cetirizina-10mg">
+							<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+							<span>Adicionar</span>
+						</button>
+					</div>
+				</article>
+			</section>
+
+			<section class="catalogo-vazio" id="catalogo-vazio" hidden>
+				<span class="catalogo-vazio-icon">🔍</span>
+				<h2>Nenhum medicamento encontrado</h2>
+				<p>Tente buscar outro termo ou alterar os filtros.</p>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="footer-links-externos">
+				<h4>Links úteis</h4>
+				<ul>
+					<li><a href="https://www.gov.br/anvisa/pt-br" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-external-link" aria-hidden="true"></i> ANVISA — Agência Nacional de Vigilância Sanitária</a></li>
+					<li><a href="https://cff.org.br/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-external-link" aria-hidden="true"></i> CFF — Conselho Federal de Farmácia</a></li>
+				</ul>
+			</div>
+			<p>&copy; 2026 FarmaSys - Sistema de Gestão de Farmácia | Todos os direitos reservados.</p>
+		</footer>
+
+		<script>
+			const FiltroCatalogo = (() => {
+				const state = {
+					categoria: 'todos',
+					termo: ''
+				};
+
+				const el = {
+					input: document.getElementById('busca-medicamento'),
+					limpar: document.getElementById('btn-limpar'),
+					filtros: document.querySelectorAll('.filtro-btn'),
+					cards: document.querySelectorAll('.card-produto'),
+					contador: document.getElementById('contador-produtos'),
+					vazio: document.getElementById('catalogo-vazio')
+				};
+
+				const normalizar = (texto) => texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+				const getTextoCard = (card) => {
+					const nome = card.querySelector('h2')?.textContent || '';
+					const descricao = card.querySelector('p')?.textContent || '';
+					const categoria = normalizar(card.dataset.categoria || '');
+					return normalizar(`${nome} ${descricao} ${categoria}`);
+				};
+
+				const verificarMatch = (card) => {
+					const texto = getTextoCard(card);
+					const categoria = card.dataset.categoria || '';
+					const matchTermo = !state.termo || texto.includes(state.termo);
+					const matchCategoria = state.categoria === 'todos' || categoria === state.categoria;
+
+					return matchTermo && matchCategoria;
+				};
+
+				const atualizarVisibilidade = () => {
+					let visiveis = 0;
+
+					el.cards.forEach((card) => {
+						const visivel = verificarMatch(card);
+						card.style.display = visivel ? '' : 'none';
+						card.hidden = !visivel;
+						if (visivel) visiveis++;
+					});
+
+					el.contador.textContent = `${visiveis} produto${visiveis !== 1 ? 's' : ''} disponível${visiveis !== 1 ? 's' : ''}`;
+					el.vazio.hidden = visiveis > 0;
+					el.limpar.style.display = state.termo ? 'flex' : 'none';
+				};
+
+				const setTermo = (valor) => {
+					state.termo = normalizar(valor.trim());
+				};
+
+				const setCategoria = (categoria) => {
+					state.categoria = categoria;
+				};
+
+				const onInput = ({ target }) => {
+					setTermo(target.value);
+					atualizarVisibilidade();
+				};
+
+				const onLimpar = () => {
+					el.input.value = '';
+					setTermo('');
+					el.input.focus();
+					atualizarVisibilidade();
+				};
+
+				const onFiltro = ({ currentTarget }) => {
+					el.filtros.forEach((btn) => btn.classList.remove('ativo'));
+					currentTarget.classList.add('ativo');
+					setCategoria(currentTarget.dataset.categoria);
+					atualizarVisibilidade();
+				};
+
+				const bind = () => {
+					el.input.addEventListener('input', onInput);
+					el.limpar.addEventListener('click', onLimpar);
+					el.filtros.forEach((btn) => btn.addEventListener('click', onFiltro));
+				};
+
+				const init = () => {
+					bind();
+					atualizarVisibilidade();
+				};
+
+				return { init };
+			})();
+
+			const CarrinhoCatalogo = (() => {
+				const ADICIONAR_EVENTO = 'farmacia:carrinho:adicionar';
+
+				const adicionar = (medicamentoId) => {
+					const carrinho = JSON.parse(localStorage.getItem('farmacia:carrinho') || '[]');
+					const existente = carrinho.find((item) => item.id === medicamentoId);
+
+					if (existente) {
+						existente.quantidade += 1;
+					} else {
+						carrinho.push({ id: medicamentoId, quantidade: 1 });
+					}
+
+					localStorage.setItem('farmacia:carrinho', JSON.stringify(carrinho));
+					window.dispatchEvent(new Event(ADICIONAR_EVENTO));
+
+					const nomeMedicamento = document.querySelector(`.card-produto[data-id="${medicamentoId}"] h2`)?.textContent || 'Medicamento';
+					mostrarToast(`${nomeMedicamento} adicionado ao carrinho`);
+				};
+
+				const mostrarToast = (mensagem) => {
+					const toast = document.createElement('div');
+					toast.className = 'toast-notification';
+					toast.textContent = mensagem;
+					document.body.appendChild(toast);
+
+					setTimeout(() => {
+						toast.classList.add('visivel');
+					}, 10);
+
+					setTimeout(() => {
+						toast.classList.remove('visivel');
+						setTimeout(() => toast.remove(), 300);
+					}, 2500);
+				};
+
+				const onBotaoCarrinho = ({ currentTarget }) => {
+					const id = currentTarget.dataset.id;
+					if (id) {
+						adicionar(id);
+					}
+				};
+
+				const bind = () => {
+					document.querySelectorAll('.btn-carrinho').forEach((btn) => {
+						btn.addEventListener('click', onBotaoCarrinho);
+					});
+				};
+
+				const init = () => {
+					bind();
+				};
+
+				return { init };
+			})();
+
+			document.addEventListener('DOMContentLoaded', () => {
+				FiltroCatalogo.init();
+				CarrinhoCatalogo.init();
+			});
+		</script>
+	</body>
+</html>
