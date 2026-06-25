@@ -73,10 +73,24 @@ function renderizarCatalogo() {
 	grid.innerHTML = "";
 	MEDS.forEach((med) => grid.appendChild(criarCard(med)));
 
-	const subtitulo = document.getElementById("catalogo-subtitulo");
-	if (subtitulo) {
-		subtitulo.textContent = `${MEDS.length} produtos disponíveis`;
+	atualizarContador();
+}
+
+// Conta cards visíveis e atualiza o subtítulo + estado "catálogo vazio".
+function atualizarContador() {
+	const cards = document.querySelectorAll("#catalogo-grid .card-produto");
+	const visiveis = Array.from(cards).filter((c) => !c.classList.contains("hidden")).length;
+	const contador = document.getElementById("contador-produtos");
+	if (contador) {
+		contador.textContent = `${visiveis} produto${
+			visiveis !== 1 ? "s" : ""
+		} disponível${visiveis !== 1 ? "s" : ""}`;
 	}
+	const vazio = document.getElementById("catalogo-vazio");
+	if (vazio) vazio.hidden = visiveis > 0;
+	// Botão limpar só aparece quando há termo digitado.
+	const limpar = document.getElementById("btn-limpar");
+	if (limpar) limpar.hidden = !termoBusca;
 }
 
 // Estado atual de busca + filtro, aplicados juntos.
@@ -92,6 +106,19 @@ function aplicarFiltros() {
 		const casaCategoria =
 			categoriaAtiva === "todos" || baseCategoria === categoriaAtiva;
 		card.classList.toggle("hidden", !(casaBusca && casaCategoria));
+	});
+	atualizarContador();
+}
+
+function configurarLimparBusca() {
+	const limpar = document.getElementById("btn-limpar");
+	const input = document.getElementById("catalogo-busca");
+	if (!limpar || !input) return;
+	limpar.addEventListener("click", () => {
+		input.value = "";
+		termoBusca = "";
+		aplicarFiltros();
+		input.focus();
 	});
 }
 
@@ -121,4 +148,5 @@ document.addEventListener("DOMContentLoaded", () => {
 	renderizarCatalogo();
 	configurarBusca();
 	configurarFiltros();
+	configurarLimparBusca();
 });

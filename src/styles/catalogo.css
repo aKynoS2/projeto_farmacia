@@ -49,3 +49,29 @@
 	cursor: pointer;
 	user-select: none;
 }
+
+/* Botão limpar busca: só aparece quando há texto digitado (.visivel). */
+.catalogo-search-clear {
+	align-items: center;
+	background: transparent;
+	border: none;
+	border-radius: 999px;
+	color: var(--muted-color);
+	cursor: pointer;
+	display: none;
+	flex-shrink: 0;
+	font-size: 14px;
+	height: 28px;
+	justify-content: center;
+	padding: 0;
+	width: 28px;
+}
+
+.catalogo-search-clear:hover {
+	background-color: #edf3f6;
+	color: var(--text-color);
+}
+
+.catalogo-search-clear.visivel {
+	display: inline-flex;
+}

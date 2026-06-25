@@ -24,18 +24,33 @@ document.addEventListener("DOMContentLoaded", () => {
 	set("ficha-fabricante", med.fabricante);
 	set("ficha-preco", brl(med.preco));
 
-	// Campos derivados (não existem em MEDS): mantidos genéricos e seguros.
+	// Tarja derivada do tipo de receita.
 	const tarja = med.receita
 		? "Tarja vermelha — venda sob prescrição"
 		: "Medicamento isento de prescrição (MIP)";
 	set("ficha-tarja", tarja);
-	set("ficha-posologia", "Conforme orientação do farmacêutico ou prescrição médica.");
+
+	// Posologia e contraindicações: dados clínicos por medicamento (data.js),
+	// com fallback seguro caso o campo venha vazio.
+	set(
+		"ficha-posologia",
+		med.posologia || "Conforme orientação do farmacêutico ou prescrição médica."
+	);
 	set("ficha-indicacoes", med.descricao);
 	set(
 		"ficha-contraindicacoes",
-		"Hipersensibilidade ao princípio ativo. Consulte a bula."
+		med.contraindicacoes ||
+			"Hipersensibilidade ao princípio ativo. Consulte a bula."
 	);
 	set("ficha-descricao", med.ficha);
+
+	// Estoque: disponibilidade real por medicamento + ajuste do badge.
+	set("ficha-estoque", med.estoque != null ? `${med.estoque} un.` : "—");
+	const badge = document.getElementById("ficha-badge");
+	if (badge) {
+		badge.textContent =
+			med.estoque > 0 ? `Em estoque: ${med.estoque}` : "Sem estoque";
+	}
 
 	document.title = `FarmaSys - ${med.nome}`;
 
